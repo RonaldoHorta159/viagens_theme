@@ -1,0 +1,22 @@
+/* ==========================================
+   1. VARIABLES PERSONALIZADAS
+   (Esto sobrescribe los colores por defecto de Bootstrap)
+   ========================================== */
+// Reemplaza estos códigos HEX por los colores reales del logo/marca
+$primary: #2e7d32; // Un verde naturaleza (Ejemplo)
+$secondary: #ffc107; // Un amarillo/dorado (Ejemplo)
+
+// Opcional: Cambiar la tipografía base
+// $font-family-base: 'Tu Fuente', sans-serif;
+
+/* ==========================================
+   2. IMPORTAR BOOTSTRAP
+   ========================================== */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* ==========================================
+   3. TUS ESTILOS PERSONALIZADOS (Ej: Tarjetas, Hero)
+   ========================================== */
+body {
+    background-color: #f8f9fa; // Un gris súper claro para el fondo
+}

@@ -1,0 +1,33 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json # (Opcional: puedes quitarlo si prefieres versionar las dependencias exactas)
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Archivos de entorno y editores de código
+.env
+.env.local
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de caché de Sass
+.sass-cache/
+*.css.map
+
+# Nota: No estamos ignorando assets/css/main.css para que el código compilado 
+# esté disponible directamente en el repositorio y facilite los despliegues.
