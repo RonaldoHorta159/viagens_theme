@@ -1,22 +1,56 @@
-/* ==========================================
-   1. VARIABLES PERSONALIZADAS
-   (Esto sobrescribe los colores por defecto de Bootstrap)
-   ========================================== */
-// Reemplaza estos códigos HEX por los colores reales del logo/marca
-$primary: #2e7d32; // Un verde naturaleza (Ejemplo)
-$secondary: #ffc107; // Un amarillo/dorado (Ejemplo)
+// ==========================================================================
+// 1. IMPORTAR FUENTES (Google Fonts)
+// Nota: Para máximo rendimiento en producción, luego podemos descargar 
+// los archivos .woff2, pero para desarrollo esto es perfecto.
+// ==========================================================================
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap');
 
-// Opcional: Cambiar la tipografía base
-// $font-family-base: 'Tu Fuente', sans-serif;
+// ==========================================================================
+// 2. VARIABLES DE COLOR (Paleta Brasil / Viagens Machupicchu)
+// ==========================================================================
+$lucky: #9f9b00;
+$cornflower-blue: #527fd9;
+$starship: #eae848;
+$solitude: #e4f1f8;
+$amazon: #25734e;
 
-/* ==========================================
-   2. IMPORTAR BOOTSTRAP
-   ========================================== */
+// ==========================================================================
+// 3. SOBREESCRIBIR VARIABLES NATIVAS DE BOOTSTRAP 5
+// ==========================================================================
+// Asignamos tus colores a la semántica de Bootstrap
+$primary: $amazon; // Verde Amazon (Ideal para Botones principales y CTA WhatsApp)
+$secondary: $cornflower-blue; // Azul (Ideal para fondos secundarios o franjas)
+$warning: $lucky; // Amarillo oscuro (Útil para estrellas de reseñas o alertas)
+$info: $solitude; // Celeste claro (Ideal para fondos de secciones como "Aliados")
+$yellow: $starship; // Amarillo vibrante
+
+// Tipografía global
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$headings-font-family: 'Montserrat', sans-serif;
+$headings-font-weight: 700;
+
+// Opcional: Ajustar el border-radius global para un look más amigable
+$border-radius: 0.5rem;
+
+// ==========================================================================
+// 4. IMPORTAR BOOTSTRAP Y BOOTSTRAP ICONS
+// ==========================================================================
+// Asegúrate de que la ruta apunte correctamente a tu carpeta node_modules
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-/* ==========================================
-   3. TUS ESTILOS PERSONALIZADOS (Ej: Tarjetas, Hero)
-   ========================================== */
-body {
-    background-color: #f8f9fa; // Un gris súper claro para el fondo
+// ==========================================================================
+// 5. ESTILOS PERSONALIZADOS ADICIONALES (Mixins, Clases utilitarias)
+// ==========================================================================
+
+// Ejemplo: Una clase para usar el gradiente que me enviaste
+.bg-gradient-brasil {
+    background: linear-gradient(135deg, $lucky, $cornflower-blue, $starship, $solitude, $amazon);
+}
+
+// Asegurar que las imágenes con texto superpuesto funcionen bien (Regla del Informe)
+.bg-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

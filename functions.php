@@ -145,13 +145,14 @@ function viagens_register_cpts_and_taxonomies()
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-location-alt', // Icono de mapa
-        'supports'           => array('title', 'thumbnail', 'excerpt'), // El editor principal lo manejaremos con ACF
-        'show_in_rest'       => true,
+        'menu_icon'          => 'dashicons-location-alt',
+        // AGREGAMOS 'editor' AQUÍ ABAJO:
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => false, // Esto activa el editor de bloques moderno
     );
     register_post_type('tour', $args_tours);
 }
 add_action('init', 'viagens_register_cpts_and_taxonomies', 0);
 
-// Incluir el Meta Box personalizado para el Itinerario de los Tours
+// Incluir el Walker Nav Menu de Bootstrap 5
 require_once get_template_directory() . '/inc/itinerary-meta-box.php';

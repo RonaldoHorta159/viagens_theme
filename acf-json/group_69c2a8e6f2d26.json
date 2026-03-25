@@ -159,7 +159,7 @@
         {
             "key": "field_69c2af5f24617",
             "label": "¿Qué incluye?",
-            "name": "tour_included",
+            "name": "tour_includes",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -180,7 +180,7 @@
         {
             "key": "field_69c2afa124618",
             "label": "¿Qué NO incluye?",
-            "name": "tour_not_included",
+            "name": "tour_not_includes",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -230,7 +230,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -256,7 +256,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -282,7 +282,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -308,7 +308,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -334,7 +334,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -360,7 +360,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -386,7 +386,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -412,7 +412,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -438,7 +438,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -464,7 +464,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -535,5 +535,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774366917
+    "modified": 1774387276
 }
