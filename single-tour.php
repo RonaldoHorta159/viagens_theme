@@ -130,24 +130,54 @@ get_header();
 
                         <div class="gallery-section mt-5">
                             <h4 class="fw-bold text-primary mb-3 text-uppercase" style="font-size: 1.1rem;">Galería de Imágenes</h4>
-                            <div class="row g-2">
+                            <style>
+                                .tour-gallery-item {
+                                    cursor: zoom-in;
+                                }
+
+                                .tour-gallery-thumb {
+                                    height: 200px;
+                                    width: 100%;
+                                    object-fit: cover;
+                                    transition: transform 0.25s ease;
+                                }
+
+                                .tour-gallery-item:hover .tour-gallery-thumb {
+                                    transform: scale(1.04);
+                                }
+                            </style>
+
+                            <div class="row g-2" id="tour-lightgallery">
                                 <?php
                                 for ($g = 1; $g <= 9; $g++):
                                     $img_data = get_field('tour_gallery_' . $g);
                                     if (!empty($img_data)):
                                         if (is_numeric($img_data)) {
                                             $img_url = wp_get_attachment_image_url($img_data, 'large');
+                                            $img_full_url = wp_get_attachment_image_url($img_data, 'full');
                                             $img_alt = get_post_meta($img_data, '_wp_attachment_image_alt', true);
                                         } elseif (is_array($img_data)) {
-                                            $img_url = $img_data['url'];
+                                            $img_url = isset($img_data['sizes']['large']) ? $img_data['sizes']['large'] : $img_data['url'];
+                                            $img_full_url = $img_data['url'];
                                             $img_alt = $img_data['alt'];
                                         } else {
                                             $img_url = $img_data;
+                                            $img_full_url = $img_data;
                                             $img_alt = get_the_title();
                                         }
-                                        if ($img_url): ?>
+                                        if ($img_url):
+                                            if (empty($img_full_url)) {
+                                                $img_full_url = $img_url;
+                                            }
+                                        ?>
                                             <div class="col-md-4">
-                                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" class="img-fluid rounded-0 shadow-sm" style="height: 200px; width: 100%; object-fit: cover;">
+                                                <a
+                                                    href="<?php echo esc_url($img_full_url); ?>"
+                                                    class="tour-gallery-item d-block overflow-hidden"
+                                                    data-src="<?php echo esc_url($img_full_url); ?>"
+                                                >
+                                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" class="img-fluid rounded-0 shadow-sm tour-gallery-thumb">
+                                                </a>
                                             </div>
                                 <?php endif;
                                     endif;
@@ -168,7 +198,7 @@ get_header();
                                     'title'          => true,
                                     'loading'        => true,
                                     'referrerpolicy' => true,
-                                    'allowfullscreen'=> true,
+                                    'allowfullscreen' => true,
                                     'allow'          => true,
                                     'frameborder'    => true,
                                     'class'          => true,
@@ -211,6 +241,32 @@ get_header();
 
                 </div>
             </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var galleryContainer = document.getElementById('tour-lightgallery');
+
+                    if (galleryContainer) {
+                        if (typeof lightGallery !== 'function') {
+                            return;
+                        }
+
+                        var plugins = [];
+                        if (typeof lgThumbnail !== 'undefined') {
+                            plugins.push(lgThumbnail);
+                        }
+
+                        lightGallery(galleryContainer, {
+                            selector: 'a.tour-gallery-item',
+                            plugins: plugins,
+                            speed: 500,
+                            thumbnail: true,
+                            download: false,
+                            mode: 'lg-fade'
+                        });
+                    }
+                });
+            </script>
         </main>
 
 <?php endwhile;

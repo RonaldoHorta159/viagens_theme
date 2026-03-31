@@ -35,24 +35,21 @@ function viagens_enqueue_assets()
 {
     $theme_version = wp_get_theme()->get('Version');
 
-    // CSS Principal (Sass compilado)
-    wp_enqueue_style(
-        'viagens-main-style',
-        get_template_directory_uri() . '/assets/css/main.css',
-        array(),
-        $theme_version
-    );
+    // CSS Principal
+    wp_enqueue_style('viagens-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), $theme_version);
 
-    // JS de Bootstrap (Necesario para el Navbar Mobile y Dropdowns)
-    // Asumiendo que npm instaló bootstrap en node_modules y copiaste el JS a assets/js/
-    // O si compilas el JS, ajusta la ruta. Por ahora apuntamos a una ruta estándar de assets.
-    wp_enqueue_script(
-        'bootstrap-js',
-        get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js',
-        array(),
-        '5.3.0',
-        true // Cargar en el footer (Importante para rendimiento)
-    );
+    // JS de Bootstrap
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.3.0', true);
+
+    // --- NUEVO: LIGHTGALLERY CSS ---
+    wp_enqueue_style('lightgallery-core', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css', array(), '2.7.2');
+    wp_enqueue_style('lightgallery-thumbnails', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css', array(), '2.7.2');
+
+    // --- NUEVO: LIGHTGALLERY JS ---
+    // Core JS
+    wp_enqueue_script('lightgallery-js', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js', array(), '2.7.2', true);
+    // Plugin de Miniaturas (Thumbnails)
+    wp_enqueue_script('lightgallery-thumb-js', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js', array('lightgallery-js'), '2.7.2', true);
 }
 add_action('wp_enqueue_scripts', 'viagens_enqueue_assets');
 
