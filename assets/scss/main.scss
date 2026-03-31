@@ -54,3 +54,124 @@ $border-radius: 0.5rem;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Contenedor Principal */
+.tours-archive-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Sidebar de Filtros */
+.tours-sidebar {
+    width: 25%;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-filter, .btn-clear {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-filter {
+    background: #2c3e50; /* Cambia a los colores de tu marca */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-clear {
+    background: transparent;
+    color: #666;
+    border: 1px solid #ccc;
+}
+
+/* Cuadrícula de Tours */
+.tours-grid-content {
+    width: 75%;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjeta de Tour (Minimalista) */
+.tour-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: #fff;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.tour-card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour-card-info {
+    padding: 20px;
+}
+
+.tour-card-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.tour-card-info a {
+    text-decoration: none;
+    color: #333;
+}
+
+.tour-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-ver-mas {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f1f1f1;
+    color: #333;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}

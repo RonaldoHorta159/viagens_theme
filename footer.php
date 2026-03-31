@@ -49,7 +49,7 @@
                     <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Inicio</a></li>
                     <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Quiénes Somos</a></li>
                     <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Circuitos Machu Picchu</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Políticas y Reservas</a></li>
+                    <li><a href="http://viagens-dev.local/terminos-condiciones/" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Políticas y Reservas</a></li>
                     <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Contacto</a></li>
                 </ul>
             </div>
@@ -93,9 +93,7 @@
             <div class="col-md-6 text-center text-md-start text-white-50" style="font-size: 0.85rem;">
                 © <?php echo date('Y'); ?> Viagens Machupicchu Brasil. Todos los derechos reservados.
             </div>
-            <div class="col-md-6 text-center text-md-end text-white-50 mt-3 mt-md-0" style="font-size: 0.85rem;">
-                Desarrollado con <i class="bi bi-heart-fill text-danger"></i> en Cusco.
-            </div>
+            
         </div>
 
     </div>

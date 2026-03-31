@@ -39,7 +39,13 @@ function viagens_enqueue_assets()
     wp_enqueue_style('viagens-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), $theme_version);
 
     // JS de Bootstrap
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), '5.3.0', true);
+    $bootstrap_local_path = get_template_directory() . '/assets/js/bootstrap.bundle.min.js';
+    if (file_exists($bootstrap_local_path)) {
+        $bootstrap_src = get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js';
+    } else {
+        $bootstrap_src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js';
+    }
+    wp_enqueue_script('bootstrap-js', $bootstrap_src, array(), '5.3.8', true);
 
     // --- NUEVO: LIGHTGALLERY CSS ---
     wp_enqueue_style('lightgallery-core', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css', array(), '2.7.2');

@@ -84,7 +84,7 @@
                     <div class="quick-links mb-1 d-flex gap-3 fw-bold text-dark" style="font-size: 0.8rem;">
                         <a href="#" class="text-decoration-none text-dark"><i class="bi bi-credit-card-fill me-1"></i> Pagos</a>
                         <a href="#" class="text-decoration-none text-dark"><i class="bi bi-journal-text me-1"></i> Blog</a>
-                        <a href="#" class="text-decoration-none text-dark"><i class="bi bi-envelope-fill me-1"></i> Contacto</a>
+                        <a href="http://viagens-dev.local/contato/" class="text-decoration-none text-dark"><i class="bi bi-envelope-fill me-1"></i> Contacto</a>
                     </div>
                     <div class="contact-info d-flex gap-3 text-secondary" style="font-size: 0.85rem;">
                         <span><i class="bi bi-envelope text-primary"></i> info@viagensmachupicchubrasil.com</span>
@@ -212,7 +212,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link py-2" href="#" style="font-size: 0.9rem;">Nosotros</a>
+                            <a class="nav-link py-2" href="http://viagens-dev.local/nosotros/" style="font-size: 0.9rem;">Nosotros</a>
                         </li>
 
                     </ul>

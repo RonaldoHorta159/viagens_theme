@@ -173,6 +173,120 @@ get_header(); ?>
     </section>
 
     <style>
+        .trust-section {
+            background-color: #f8f9fa; /* bg-light de Bootstrap */
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .trust-card {
+            background: #fff;
+            padding: 2rem;
+            height: 100%;
+            border-top: 4px solid #2c3e50; /* Color primario o warning según tu tema */
+            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+            transition: transform 0.3s ease;
+        }
+        .trust-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        }
+        .trust-icon {
+            font-size: 2rem;
+            color: #198754; /* bg-success para el check */
+            margin-bottom: 1rem;
+        }
+        .services-box {
+            background-color: #2c3e50; /* Tu color oscuro/primario */
+            color: #fff;
+            padding: 3rem;
+            border-radius: 8px;
+            margin-top: 4rem;
+        }
+        .services-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .services-list-grid li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .services-list-grid li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f1c40f; /* Color dorado para el check */
+            font-weight: bold;
+        }
+    </style>
+
+    <section class="trust-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card rounded-0">
+                        <div class="trust-icon"><i class="bi bi-headset"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5 text-dark">Asistencia 24 Horas</h4>
+                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card rounded-0">
+                        <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5 text-dark">Atención Personalizada</h4>
+                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card rounded-0">
+                        <div class="trust-icon"><i class="bi bi-building-check"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5 text-dark">Practicidad y Comodidad</h4>
+                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card rounded-0">
+                        <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5 text-dark">Dominio Cultural</h4>
+                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="services-box shadow">
+                        <h3 class="fw-bold mb-4 text-center">¿QUÉ OFRECEMOS?</h3>
+                        <ul class="services-list-grid">
+                            <li>Tours tradicionales</li>
+                            <li>Tours de aventura</li>
+                            <li>Experiencias místicas</li>
+                            <li>Servicio de guías</li>
+                            <li>Transporte turístico</li>
+                            <li>Venta de entradas Machupicchu</li>
+                            <li>Boletos turísticos</li>
+                            <li>Tickets de Trenes</li>
+                            <li>Hoteles y Restaurantes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
         /* El truco de magia CSS para el Iframe */
         .map-container {
             border-radius: 1rem;
@@ -563,7 +677,7 @@ get_header(); ?>
 
     <section class="py-5 bg-primary text-center text-white">
         <div class="container py-3">
-            <h2 class="fw-bold mb-3 display-6">¿Listo para vivir la Sacred Experience?</h2>
+            <h2 class="fw-bold mb-3 display-6">¿Listo para vivir la mejor Experiencia?</h2>
             <p class="lead mb-4" style="opacity: 0.9;">Habla directamente con nuestros expertos locales en Cusco y personaliza tu itinerario hoy mismo.</p>
             <a href="https://wa.me/51990725647" target="_blank" class="btn btn-light btn-lg rounded-0 px-5 fw-bold text-primary shadow-sm">
                 <i class="bi bi-whatsapp me-2 text-success"></i> Escríbenos por WhatsApp
