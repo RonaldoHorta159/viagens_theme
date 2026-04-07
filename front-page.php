@@ -8,6 +8,8 @@
 
 get_header(); ?>
 
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <main id="primary" class="site-main">
 
     <section class="hero-section d-flex align-items-center justify-content-center text-center overflow-hidden position-relative" style="min-height: 85vh;">
@@ -20,7 +22,7 @@ get_header(); ?>
 
         <div class="overlay w-100 h-100 position-absolute top-0 start-0" style="background-color: rgba(0, 0, 0, 0.55); z-index: -1;"></div>
 
-        <div class="container position-relative" style="z-index: 1;">
+        <div class="container position-relative" style="z-index: 1;" data-aos="zoom-in" data-aos-duration="1200">
             <div class="row justify-content-center">
                 <div class="col-lg-9">
 
@@ -29,7 +31,7 @@ get_header(); ?>
                     </span>
 
                     <h1 class="display-3 fw-bold text-white mb-4 text-shadow-dark text-uppercase">
-                        Sacred Experience
+                        EXPERIENCIA SAGRADA
                     </h1>
 
                     <p class="lead text-white mb-5 text-shadow-dark fs-5" style="font-weight: 400; line-height: 1.6;">
@@ -49,18 +51,17 @@ get_header(); ?>
             </div>
         </div>
     </section>
+
     <style>
         /* Contenedor principal de la tarjeta: bordes rectos y oculta el zoom interno */
         .experience-card {
             position: relative;
             overflow: hidden;
-            /* Crucial para que la imagen no se salga al hacer zoom */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             min-height: 350px;
             text-decoration: none;
-            /* Quitamos el transition de elevación que tenías antes */
         }
 
         /* La capa de imagen al fondo */
@@ -73,7 +74,6 @@ get_header(); ?>
             background-size: cover;
             background-position: center;
             transition: transform 0.6s ease;
-            /* Transición suave para el zoom */
             z-index: 1;
         }
 
@@ -86,23 +86,18 @@ get_header(); ?>
             height: 100%;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
             transition: background 0.4s ease;
-            /* Transición para oscurecer */
             z-index: 2;
         }
 
-        /* El contenido (Texto) */
         .experience-card-content {
             position: relative;
             z-index: 3;
         }
 
-        /* EFECTOS HOVER */
-        /* 1. Zoom a la imagen (escala a 1.1) */
         .experience-card:hover .experience-card-bg {
             transform: scale(1.1);
         }
 
-        /* 2. Oscurecer la sombra (hace el fondo más negro) */
         .experience-card:hover .experience-card-overlay {
             background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 100%);
         }
@@ -111,7 +106,7 @@ get_header(); ?>
     <section id="mejores-experiencias" class="py-5 bg-light">
         <div class="container py-lg-5">
 
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-5 fw-bold text-primary mb-3">Nuestras Mejores Experiencias</h2>
                 <p class="lead text-secondary">Descubre la magia de los Andes con nuestros tours especializados.</p>
             </div>
@@ -121,7 +116,7 @@ get_header(); ?>
                 <div class="col-lg-10">
                     <div class="row g-4">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <a href="#" class="experience-card shadow-sm rounded-0">
                                 <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-cultural.webp');"></div>
                                 <div class="experience-card-overlay"></div>
@@ -132,7 +127,7 @@ get_header(); ?>
                             </a>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <a href="#" class="experience-card shadow-sm rounded-0">
                                 <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-mistico.webp'); background-position: top center;"></div>
                                 <div class="experience-card-overlay"></div>
@@ -143,7 +138,7 @@ get_header(); ?>
                             </a>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <a href="#" class="experience-card shadow-sm rounded-0">
                                 <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-atv.webp');"></div>
                                 <div class="experience-card-overlay"></div>
@@ -154,7 +149,7 @@ get_header(); ?>
                             </a>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <a href="#" class="experience-card shadow-sm rounded-0">
                                 <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-naturaleza.webp');"></div>
                                 <div class="experience-card-overlay"></div>
@@ -174,7 +169,7 @@ get_header(); ?>
 
     <style>
         .trust-section {
-            background-color: #f8f9fa; /* bg-light de Bootstrap */
+            background-color: #f8f9fa;
             padding-top: 5rem;
             padding-bottom: 5rem;
         }
@@ -182,7 +177,7 @@ get_header(); ?>
             background: #fff;
             padding: 2rem;
             height: 100%;
-            border-top: 4px solid #2c3e50; /* Color primario o warning según tu tema */
+            border-top: 4px solid #2c3e50;
             box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
             transition: transform 0.3s ease;
         }
@@ -192,11 +187,11 @@ get_header(); ?>
         }
         .trust-icon {
             font-size: 2rem;
-            color: #198754; /* bg-success para el check */
+            color: #198754;
             margin-bottom: 1rem;
         }
         .services-box {
-            background-color: #2c3e50; /* Tu color oscuro/primario */
+            background-color: #2c3e50;
             color: #fff;
             padding: 3rem;
             border-radius: 8px;
@@ -219,19 +214,19 @@ get_header(); ?>
             content: '✓';
             position: absolute;
             left: 0;
-            color: #f1c40f; /* Color dorado para el check */
+            color: #f1c40f;
             font-weight: bold;
         }
     </style>
 
     <section class="trust-section">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="trust-card rounded-0">
                         <div class="trust-icon"><i class="bi bi-headset"></i></div>
                         <h4 class="fw-bold mb-3 fs-5 text-dark">Asistencia 24 Horas</h4>
@@ -239,7 +234,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trust-card rounded-0">
                         <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
                         <h4 class="fw-bold mb-3 fs-5 text-dark">Atención Personalizada</h4>
@@ -247,7 +242,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trust-card rounded-0">
                         <div class="trust-icon"><i class="bi bi-building-check"></i></div>
                         <h4 class="fw-bold mb-3 fs-5 text-dark">Practicidad y Comodidad</h4>
@@ -255,7 +250,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
                     <div class="trust-card rounded-0">
                         <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
                         <h4 class="fw-bold mb-3 fs-5 text-dark">Dominio Cultural</h4>
@@ -264,7 +259,7 @@ get_header(); ?>
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-lg-10">
                     <div class="services-box shadow">
                         <h3 class="fw-bold mb-4 text-center">¿QUÉ OFRECEMOS?</h3>
@@ -287,93 +282,10 @@ get_header(); ?>
     </section>
 
     <style>
-        /* El truco de magia CSS para el Iframe */
-        .map-container {
-            border-radius: 1rem;
-            overflow: hidden;
-            /* Para que los bordes redondeados corten el mapa */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .styled-map {
-            width: 100%;
-            height: 450px;
-            border: 0;
-            /* Filtro premium: Escala de grises, un poco más de contraste y ligeramente transparente */
-            filter: grayscale(100%) contrast(1.1) opacity(0.85);
-            transition: filter 0.5s ease;
-        }
-
-        /* Al pasar el mouse, el mapa cobra vida y recupera sus colores originales */
-        .styled-map:hover {
-            filter: grayscale(0%) contrast(1) opacity(1);
-        }
-    </style>
-
-    <section class="py-5 bg-white">
-        <div class="container py-lg-4">
-
-            <div class="row align-items-center g-5">
-
-                <div class="col-lg-4">
-                    <h2 class="fw-bold text-primary mb-4">Encuéntranos en Machupicchu</h2>
-                    <p class="text-secondary mb-5">Nuestra oficina principal se encuentra estratégicamente ubicada en Machupicchu Pueblo (Aguas Calientes), listos para asistirte en el inicio de tu aventura.</p>
-
-                    <div class="d-flex flex-column gap-4">
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="bg-light text-primary p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                <i class="bi bi-geo-alt-fill fs-5"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1">Dirección</h5>
-                                <p class="text-secondary mb-0">Calle Inka Simpa-L1<br>Machupicchu Pueblo, Cusco</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="bg-light text-success p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                <i class="bi bi-whatsapp fs-5"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1">WhatsApp 24/7</h5>
-                                <p class="text-secondary mb-0">+51 990725647<br>+51 982682774</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="bg-light text-primary p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                <i class="bi bi-envelope-fill fs-5"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1">Correo Electrónico</h5>
-                                <p class="text-secondary mb-0">info@viagensmachupicchubrasil.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-8">
-                    <div class="map-container">
-                        <iframe
-                            class="styled-map"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.2644265778235!2d-72.52623312384976!3d-13.159267987173264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5f89555555%3A0x3a10370ea4a01a27!2sMachupicchu%20Pueblo!5e0!3m2!1ses-419!2spe!4v1716400000000!5m2!1ses-419!2spe"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <style>
         .tour-card {
             transition: box-shadow 0.4s ease;
             position: relative;
             overflow: hidden;
-            /* Crucial para ocultar la descripción que está "abajo" */
         }
 
         .tour-card:hover {
@@ -394,7 +306,6 @@ get_header(); ?>
 
         .tour-card:hover .tour-card-bg {
             transform: scale(1.08);
-            /* Ligero zoom in a la imagen de fondo */
         }
 
         .tour-card-overlay {
@@ -403,14 +314,12 @@ get_header(); ?>
             left: 0;
             width: 100%;
             height: 100%;
-            /* Un gradiente que empieza transparente arriba y se oscurece abajo para leer el texto */
             background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.1) 100%);
             transition: background 0.4s ease;
             z-index: 2;
         }
 
         .tour-card:hover .tour-card-overlay {
-            /* Se oscurece un poco más al hacer hover para leer la descripción */
             background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.2) 100%);
         }
 
@@ -423,24 +332,17 @@ get_header(); ?>
             justify-content: space-between;
         }
 
-        /* ---------------------------------------------------
-           EFECTO DESLIZANTE DE LA DESCRIPCIÓN (El "Magia")
-           --------------------------------------------------- */
         .tour-info-wrapper {
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            /* Transición suave */
-            /* Empujamos este bloque ligeramente hacia abajo en estado normal */
             transform: translateY(45px);
         }
 
         .tour-description {
             opacity: 1;
             transition: opacity 0.4s ease, transform 0.4s ease;
-            /* Empujamos la descripción hacia abajo para que quede oculta */
             transform: translateY(20px);
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.85);
-            /* Truncar el texto a 3 líneas por seguridad */
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -448,17 +350,13 @@ get_header(); ?>
             margin-bottom: 15px;
         }
 
-        /* Al hacer HOVER sobre la tarjeta */
         .tour-card:hover .tour-info-wrapper {
-            /* El bloque entero (Título + Descripción + Botón) sube a su posición original */
             transform: translateY(0);
         }
 
         .tour-card:hover .tour-description {
             opacity: 1;
-            /* La descripción aparece */
             transform: translateY(0);
-            /* Se acomoda en su lugar */
         }
 
         @media (hover: none) {
@@ -476,7 +374,7 @@ get_header(); ?>
     <section class="py-5 bg-white">
         <div class="container py-lg-5">
 
-            <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+            <div class="d-flex flex-wrap justify-content-between align-items-end mb-5" data-aos="fade-up">
                 <div>
                     <h2 class="display-6 fw-bold text-primary mb-2">Paquetes Más Populares</h2>
                     <p class="lead text-secondary mb-0">Itinerarios diseñados para vivir la verdadera esencia andina.</p>
@@ -495,6 +393,7 @@ get_header(); ?>
                 );
 
                 $tours_query = new WP_Query($args_tours);
+                $aos_delay = 100; // Variable para crear el efecto cascada
 
                 if ($tours_query->have_posts()) :
                     while ($tours_query->have_posts()) : $tours_query->the_post();
@@ -508,14 +407,13 @@ get_header(); ?>
                             $bg_image = get_template_directory_uri() . '/assets/images/default-tour.jpg';
                         }
 
-                        // Obtenemos un pequeño extracto del contenido
                         $excerpt = get_the_excerpt();
                         if (empty($excerpt)) {
                             $excerpt = wp_trim_words(get_the_content(), 15, '...');
                         }
                 ?>
 
-                        <div class="col-12 col-md-6 col-lg-3">
+                        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="<?php echo $aos_delay; ?>">
                             <a href="<?php the_permalink(); ?>" class="tour-card d-block rounded-0 shadow-sm text-decoration-none" style="min-height: 420px;">
 
                                 <div class="tour-card-bg" style="background-image: url('<?php echo esc_url($bg_image); ?>');"></div>
@@ -555,12 +453,13 @@ get_header(); ?>
                             </a>
                         </div>
 
-                    <?php
+                <?php
+                        $aos_delay += 100; // Aumentamos el retraso para el siguiente elemento
                     endwhile;
                     wp_reset_postdata();
                 else :
-                    ?>
-                    <div class="col-12 text-center py-5">
+                ?>
+                    <div class="col-12 text-center py-5" data-aos="fade-in">
                         <div class="p-5 bg-light rounded-0 border">
                             <i class="bi bi-journal-x text-secondary fs-1 mb-3"></i>
                             <h4 class="fw-bold text-secondary">Aún no hay paquetes disponibles</h4>
@@ -572,7 +471,8 @@ get_header(); ?>
 
         </div>
     </section>
-    <section class="py-4 bg-light border-top border-bottom">
+
+    <section class="py-4 bg-light border-top border-bottom" data-aos="fade-in" data-aos-duration="1000">
         <div class="container text-center">
             <p class="text-uppercase fw-bold text-muted mb-4" style="letter-spacing: 2px; font-size: 0.8rem;">Nuestros Aliados Estratégicos</p>
 
@@ -591,7 +491,7 @@ get_header(); ?>
 
     <section class="py-5 bg-white">
         <div class="container py-lg-5">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-primary mb-2">Lo que dicen nuestros viajeros</h2>
                 <div class="d-flex justify-content-center gap-1 text-warning mb-2 fs-4">
                     <i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i>
@@ -600,7 +500,7 @@ get_header(); ?>
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
                         <p class="fst-italic text-secondary mb-4">"Una experiencia sagrada de principio a fin. Los guías hablan un portugués perfecto y nos hicieron sentir la verdadera energía de Machu Picchu. ¡Recomendado al 100%!"</p>
                         <div class="d-flex align-items-center gap-3">
@@ -612,7 +512,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
                         <p class="fst-italic text-secondary mb-4">"Tomamos el tour místico con el chamán andino y fue transformador. La logística fue impecable, no tuvimos que preocuparnos por nada, solo disfrutar."</p>
                         <div class="d-flex align-items-center gap-3">
@@ -624,7 +524,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
                         <p class="fst-italic text-secondary mb-4">"El equipo de Viagens Machupicchu Brasil cuidó cada detalle. Desde que llegamos a Cusco nos sentimos en casa. Las cuatrimotos en Maras fueron lo mejor."</p>
                         <div class="d-flex align-items-center gap-3">
@@ -643,7 +543,7 @@ get_header(); ?>
     <section class="py-5 bg-light">
         <div class="container py-lg-4">
             <div class="row align-items-center g-5">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right">
                     <span class="badge bg-primary rounded-0 px-3 py-2 mb-3 text-uppercase">Información Útil</span>
                     <h2 class="display-6 fw-bold text-dark mb-4">Conoce los Circuitos de la Ciudadela</h2>
                     <p class="text-secondary mb-4">Para proteger la maravilla del mundo, el Ministerio de Cultura ha establecido circuitos específicos. Como operadores locales, te asesoramos para elegir el ideal para ti.</p>
@@ -665,7 +565,7 @@ get_header(); ?>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left">
                     <video autoplay loop muted playsinline class="w-100 shadow rounded-0" style="object-fit: cover;">
                         <source src="<?php echo get_template_directory_uri(); ?>/assets/video/circuitos.mp4" type="video/mp4">
                         Tu navegador no soporta la etiqueta de video.
@@ -675,7 +575,7 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="py-5 bg-primary text-center text-white">
+    <section class="py-5 bg-primary text-center text-white" data-aos="zoom-in" data-aos-duration="800">
         <div class="container py-3">
             <h2 class="fw-bold mb-3 display-6">¿Listo para vivir la mejor Experiencia?</h2>
             <p class="lead mb-4" style="opacity: 0.9;">Habla directamente con nuestros expertos locales en Cusco y personaliza tu itinerario hoy mismo.</p>
@@ -685,8 +585,16 @@ get_header(); ?>
         </div>
     </section>
 
-</main> <?php get_footer(); ?>
 </main>
 
-<?php get_footer(); // Aunque aún no lo hemos creado, dejamos la función lista 
-?>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Inicializamos la librería
+    AOS.init({
+        once: true, // Que la animación solo ocurra una vez al bajar
+        offset: 80, // Distancia desde el borde inferior de la pantalla para que inicie
+        duration: 800, // Duración por defecto
+    });
+</script>
+
+<?php get_footer(); ?>

@@ -26,27 +26,44 @@ get_header();
 
         <main class="tour-detail bg-light pb-5">
 
-            <section class="tour-hero position-relative d-flex align-items-center justify-content-center text-white" style="height: 60vh; background: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>') center/cover no-repeat;">
-                <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.4);"></div>
-                <div class="container position-relative text-center">
-                    <h1 class="display-3 fw-bold text-uppercase text-shadow-dark mb-3"><?php the_title(); ?></h1>
-                    <div class="d-flex justify-content-center gap-3">
-                        <span class="badge bg-primary rounded-0 px-3 py-2 fw-bold"><i class="bi bi-clock me-1 text-warning"></i> <?php echo esc_html($days); ?> Días / <?php echo esc_html($nights); ?> Noches</span>
-                        <span class="badge bg-dark rounded-0 px-3 py-2 fw-bold border border-secondary"><i class="bi bi-graph-up me-1"></i> <?php echo esc_html($difficulty); ?></span>
+            <section class="tour-header text-white pt-5 pb-4" style="background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%); mt-0">
+                <div class="container pt-4 pb-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-3">
+                            <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>" class="text-white-50 text-decoration-none">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/tours')); ?>" class="text-white-50 text-decoration-none">Tours</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page"><?php the_title(); ?></li>
+                        </ol>
+                    </nav>
+                    
+                    <h1 class="display-4 fw-bold text-uppercase mb-4"><?php the_title(); ?></h1>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="badge bg-primary rounded-0 px-3 py-2 fw-bold" style="font-size: 0.9rem;">
+                            <i class="bi bi-clock me-1 text-warning"></i> <?php echo esc_html($days); ?> Días / <?php echo esc_html($nights); ?> Noches
+                        </span>
+                        <span class="badge bg-transparent border border-light rounded-0 px-3 py-2 fw-bold" style="font-size: 0.9rem;">
+                            <i class="bi bi-graph-up me-1 text-warning"></i> Dificultad: <?php echo esc_html($difficulty); ?>
+                        </span>
                     </div>
                 </div>
             </section>
 
-            <div class="container mt-5">
+            <div class="container mt-4">
                 <div class="row g-5">
 
                     <div class="col-lg-8">
 
+                        <?php if (has_post_thumbnail()) : ?>
+                            <div class="mb-4 shadow-sm">
+                                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>" class="img-fluid w-100 rounded-0" style="max-height: 500px; object-fit: cover;">
+                            </div>
+                        <?php endif; ?>
+
                         <div class="bg-white p-4 mb-4 shadow-sm border-0 rounded-0">
                             <h4 class="fw-bold text-primary border-bottom pb-2 mb-3 text-uppercase" style="font-size: 1.1rem;">Descripción del Viaje</h4>
                             <div class="text-secondary lh-lg">
-                                <?php the_content(); // Esto jala el contenido del editor que acabamos de habilitar 
-                                ?>
+                                <?php the_content(); // Esto jala el contenido del editor que acabamos de habilitar ?>
                             </div>
                         </div>
 

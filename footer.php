@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plantilla del Pie de Página (Footer)
  *
@@ -9,7 +8,7 @@
 
 <style>
     .site-footer {
-        /* Nivel de oscuridad reducido (de 0.85 a 0.3) para que la imagen resalte mucho más */
+        /* Nivel de oscuridad reducido para que la imagen resalte mucho más */
         background-image: linear-gradient(rgba(10, 15, 25, 0.3), rgba(10, 15, 25, 0.5)), url('<?php echo get_template_directory_uri(); ?>/assets/images/footer-bg.webp');
         background-size: cover;
         background-position: center;
@@ -37,20 +36,19 @@
                     Operadores 100% locales en los Andes. Especialistas en el público brasilero e hispanohablante. Garantizamos experiencias inolvidables, auténticas y profundamente transformadoras.
                 </p>
                 <div class="d-flex gap-3 mt-4">
-                    <a href="#" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-youtube"></i></a>
+                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-facebook"></i></a>
+                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-instagram"></i></a>
+                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold text-uppercase mb-4" style="letter-spacing: 1px; font-size: 1rem;">Enlaces Rápidos</h5>
                 <ul class="list-unstyled d-flex flex-column gap-3 text-white-50">
-                    <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Inicio</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Quiénes Somos</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Circuitos Machu Picchu</a></li>
-                    <li><a href="http://viagens-dev.local/terminos-condiciones/" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Políticas y Reservas</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Contacto</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Inicio</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/nosotros')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Quiénes Somos</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/terminos-y-condiciones')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Políticas y Reservas</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/contacto')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Contacto</a></li>
                 </ul>
             </div>
 
@@ -75,13 +73,13 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="fw-bold text-uppercase mb-4" style="letter-spacing: 1px; font-size: 1rem;">Nuestra Ubicación</h5>
                 <div class="rounded-0 overflow-hidden shadow-sm" style="height: 200px;">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.2644265778235!2d-72.52623312384976!3d-13.159267987173264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5f89555555%3A0x3a10370ea4a01a27!2sMachupicchu%20Pueblo!5e0!3m2!1ses-419!2spe!4v1716400000000!5m2!1ses-419!2spe"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15533.858064508493!2d-72.5332766!3d-13.1557929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5f89555555%3A0x3a10370ea4a01a27!2sAguas%20Calientes%2C%20Per%C3%BA!5e0!3m2!1ses-419!2sbr!4v1700000000000!5m2!1ses-419!2sbr" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -93,7 +91,8 @@
             <div class="col-md-6 text-center text-md-start text-white-50" style="font-size: 0.85rem;">
                 © <?php echo date('Y'); ?> Viagens Machupicchu Brasil. Todos los derechos reservados.
             </div>
-            
+            <div class="col-md-6 text-center text-md-end text-white-50 mt-3 mt-md-0" style="font-size: 0.85rem;">
+                </div>
         </div>
 
     </div>
@@ -102,5 +101,4 @@
 <?php wp_footer(); ?>
 
 </body>
-
 </html>

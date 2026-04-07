@@ -17,7 +17,7 @@ get_header();
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 15px;
-        color: #f1c40f; /* Tono aventura/dorado */
+        color: #f1c40f; 
     }
     .atv-hero p {
         font-size: 1.2rem;
@@ -32,7 +32,6 @@ get_header();
         padding: 0 20px;
     }
     
-    /* CSS Grid para la Galería */
     .atv-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -47,7 +46,6 @@ get_header();
         height: 250px;
     }
     
-    /* Hacer algunas fotos más grandes para romper la monotonía */
     .atv-item.large {
         grid-column: span 2;
         grid-row: span 2;
@@ -96,18 +94,50 @@ get_header();
 
 <div class="atv-gallery-wrapper">
     <div class="atv-grid">
-        <div class="atv-item large"><img src="/wp-content/uploads/cuatri-1.jpg" alt="Cuatrimotos Cusco"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-2.jpg" alt="Aventura Valle Sagrado"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-3.jpg" alt="Ruta Maras Moray"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-4.jpg" alt="Montaña de Colores ATV"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-5.jpg" alt="Laguna Piuray"></div>
-        <div class="atv-item large"><img src="/wp-content/uploads/cuatri-6.jpg" alt="Turistas en Cuatrimoto"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-7.jpg" alt="Adrenalina Cusco"></div>
-        <div class="atv-item"><img src="/wp-content/uploads/cuatri-8.jpg" alt="Guías Cuatrimotos"></div>
+        
+        <?php 
+        $hay_imagenes = false;
+        $contador_diseno = 1; 
+
+        // Hacemos un bucle del 1 al 20 (Si creaste más de 20 campos, cambia este número)
+        for ( $i = 1; $i <= 20; $i++ ) {
+            
+            // Construimos el nombre del campo (foto_1, foto_2, etc.)
+            $nombre_campo = 'foto_' . $i;
+            $imagen = get_field($nombre_campo);
+            
+            // Si el campo tiene una imagen subida, la mostramos
+            if ( $imagen ) {
+                $hay_imagenes = true;
+                
+                // Lógica de diseño: la foto 1 y la 6 son grandes
+                $clase_extra = ($contador_diseno == 1 || $contador_diseno == 6) ? 'large' : '';
+                ?>
+                
+                <div class="atv-item <?php echo esc_attr($clase_extra); ?>">
+                    <img src="<?php echo esc_url($imagen['url']); ?>" alt="<?php echo esc_attr($imagen['alt']); ?>">
+                </div>
+                
+                <?php
+                $contador_diseno++;
+                // Reiniciamos el patrón de diseño cada 8 fotos
+                if ( $contador_diseno > 8 ) {
+                    $contador_diseno = 1;
+                }
+            }
+        }
+
+        // Si el bucle terminó y no encontró ni una sola imagen, mostramos este mensaje
+        if ( ! $hay_imagenes ) : ?>
+            <p style="text-align:center; grid-column: 1 / -1; padding: 40px; background: #f9f9f9; border-radius: 8px;">
+                Aún no se han subido fotos a la galería. Añádelas desde el panel de edición de la página.
+            </p>
+        <?php endif; ?>
+
     </div>
     
     <div class="atv-cta">
-        <a href="/tours/?tipo_tour=cuatrimotos">Ver Todos los Tours de Cuatrimotos</a>
+        <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=cuatrimotos')); ?>">Ver Todos los Tours de Cuatrimotos</a>
     </div>
 </div>
 
