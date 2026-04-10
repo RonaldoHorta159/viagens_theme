@@ -39,7 +39,7 @@ get_header();
         gap: 50px;
         background: #fff;
         padding: 40px;
-        border-radius: 8px;
+        border-radius: 0;
         border: 1px solid #eaeaea;
         box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     }
@@ -60,7 +60,7 @@ get_header();
     .info-icon {
         font-size: 1.5rem;
         margin-right: 15px;
-        color: #2c3e50;
+        color: var(--bs-primary);
         line-height: 1;
     }
 
@@ -104,7 +104,7 @@ get_header();
         width: 100% !important;
         padding: 12px !important;
         border: 1px solid #ccc !important;
-        border-radius: 4px !important;
+        border-radius: 0 !important;
         font-family: inherit !important;
         font-size: 1rem !important;
     }
@@ -121,7 +121,7 @@ get_header();
         border: none !important;
         padding: 12px 25px !important;
         font-size: 1rem !important;
-        border-radius: 4px !important;
+        border-radius: 0 !important;
         cursor: pointer !important;
         width: 100% !important;
         transition: background 0.3s ease !important;
@@ -154,7 +154,7 @@ get_header();
             <h3>Información de Contacto</h3>
             
             <div class="info-item">
-                <div class="info-icon">📍</div>
+                <div class="info-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
                 <div class="info-text">
                     <h4>Dirección</h4>
                     <p>Calle Inka Simpa-L1, Machupicchu</p>
@@ -162,7 +162,7 @@ get_header();
             </div>
 
             <div class="info-item">
-                <div class="info-icon">📧</div>
+                <div class="info-icon"><i class="bi bi-envelope-fill" aria-hidden="true"></i></div>
                 <div class="info-text">
                     <h4>Email</h4>
                     <a href="mailto:info@viagensmachupicchubrasil.com">info@viagensmachupicchubrasil.com</a>
@@ -170,7 +170,7 @@ get_header();
             </div>
 
             <div class="info-item">
-                <div class="info-icon">📲</div>
+                <div class="info-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></div>
                 <div class="info-text">
                     <h4>Teléfonos / WhatsApp</h4>
                     <p><a href="tel:+51990725647">+51 990 725 647</a></p>
@@ -179,10 +179,10 @@ get_header();
             </div>
 
             <div class="info-item">
-                <div class="info-icon">🌐</div>
+                <div class="info-icon"><i class="bi bi-globe2" aria-hidden="true"></i></div>
                 <div class="info-text">
                     <h4>Sitio Web</h4>
-                    <a href="https://www.viagensmachupicchubrasil.com" target="_blank">www.viagensmachupicchubrasil.com</a>
+                    <a href="https://www.viagensmachupicchubrasil.com" target="_blank" rel="noopener noreferrer">www.viagensmachupicchubrasil.com</a>
                 </div>
             </div>
         </div>

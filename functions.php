@@ -38,6 +38,9 @@ function viagens_enqueue_assets()
     // CSS Principal
     wp_enqueue_style('viagens-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), $theme_version);
 
+    // Bootstrap Icons (CDN)
+    wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css', array(), '1.13.1');
+
     // JS de Bootstrap
     $bootstrap_local_path = get_template_directory() . '/assets/js/bootstrap.bundle.min.js';
     if (file_exists($bootstrap_local_path)) {
@@ -47,17 +50,16 @@ function viagens_enqueue_assets()
     }
     wp_enqueue_script('bootstrap-js', $bootstrap_src, array(), '5.3.8', true);
 
-    // --- NUEVO: LIGHTGALLERY CSS ---
+    // --- LIGHTGALLERY CSS ---
     wp_enqueue_style('lightgallery-core', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css', array(), '2.7.2');
     wp_enqueue_style('lightgallery-thumbnails', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css', array(), '2.7.2');
 
-    // --- NUEVO: LIGHTGALLERY JS ---
-    // Core JS
+    // --- LIGHTGALLERY JS ---
     wp_enqueue_script('lightgallery-js', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js', array(), '2.7.2', true);
-    // Plugin de Miniaturas (Thumbnails)
     wp_enqueue_script('lightgallery-thumb-js', 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js', array('lightgallery-js'), '2.7.2', true);
 }
 add_action('wp_enqueue_scripts', 'viagens_enqueue_assets');
+
 
 
 // -------------------------------------------------------------------------
@@ -83,13 +85,13 @@ function viagens_register_cpts_and_taxonomies()
     );
 
     $args_destinos = array(
-        'hierarchical'      => true, // True = como categorías (con padres e hijos)
+        'hierarchical'      => true,
         'labels'            => $labels_destinos,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array('slug' => 'destino'),
-        'show_in_rest'      => true, // Vital para Gutenberg y llamadas a la API
+        'show_in_rest'      => true,
     );
     register_taxonomy('destino', array('tour'), $args_destinos);
 
@@ -149,13 +151,12 @@ function viagens_register_cpts_and_taxonomies()
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-location-alt',
-        // AGREGAMOS 'editor' AQUÍ ABAJO:
         'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'show_in_rest'       => false, // Esto activa el editor de bloques moderno
+        'show_in_rest'       => false,
     );
     register_post_type('tour', $args_tours);
 }
 add_action('init', 'viagens_register_cpts_and_taxonomies', 0);
 
-// Incluir el Walker Nav Menu de Bootstrap 5
+// Incluir el Meta Box
 require_once get_template_directory() . '/inc/itinerary-meta-box.php';

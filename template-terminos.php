@@ -39,7 +39,7 @@ get_header();
     .terminos-content {
         background: #fff;
         padding: 40px;
-        border-radius: 8px;
+        border-radius: 0;
         border: 1px solid #eaeaea;
         box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     }
@@ -49,7 +49,7 @@ get_header();
         color: #2c3e50;
         margin-top: 30px;
         margin-bottom: 15px;
-        border-left: 4px solid #2c3e50;
+        border-left: 0px solid #2c3e50;
         padding-left: 10px;
     }
 

@@ -30,14 +30,18 @@ $headings-font-family: 'Montserrat', sans-serif;
 $headings-font-weight: 700;
 
 // Opcional: Ajustar el border-radius global para un look más amigable
-$border-radius: 0.5rem;
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$border-radius-xl: 0;
+$border-radius-xxl: 0;
+$border-radius-pill: 0;
 
 // ==========================================================================
 // 4. IMPORTAR BOOTSTRAP Y BOOTSTRAP ICONS
 // ==========================================================================
 // Asegúrate de que la ruta apunte correctamente a tu carpeta node_modules
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 // ==========================================================================
 // 5. ESTILOS PERSONALIZADOS ADICIONALES (Mixins, Clases utilitarias)
@@ -69,7 +73,7 @@ $border-radius: 0.5rem;
     width: 25%;
     background: #f9f9f9;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 0;
     height: fit-content;
 }
 
@@ -88,7 +92,7 @@ $border-radius: 0.5rem;
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 .btn-filter, .btn-clear {
@@ -97,7 +101,7 @@ $border-radius: 0.5rem;
     text-align: center;
     padding: 10px;
     margin-top: 10px;
-    border-radius: 4px;
+    border-radius: 0;
     text-decoration: none;
 }
 
@@ -128,7 +132,7 @@ $border-radius: 0.5rem;
 /* Tarjeta de Tour (Minimalista) */
 .tour-card {
     border: 1px solid #eee;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
     transition: transform 0.3s ease;
     background: #fff;
@@ -172,6 +176,216 @@ $border-radius: 0.5rem;
     padding: 8px 15px;
     background: #f1f1f1;
     color: #333;
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 0.9rem;
+}
+
+.rounded,
+.rounded-0,
+.rounded-1,
+.rounded-2,
+.rounded-3,
+.rounded-4,
+.rounded-5,
+.rounded-circle,
+.rounded-pill {
+    border-radius: 0 !important;
+}
+
+.site-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.mega-menu-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    .mega-menu-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+}
+
+.mega-menu-card {
+    /* Cambiar 'cover, contain' por simplemente 'cover' */
+    background-size: cover !important; 
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    height: 200px; /* Altura base para móviles/tablets */
+    min-width: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mega-menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+.text-shadow-dark {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.mega-menu-link {
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    padding: 0.3rem 0;
+}
+
+.mega-menu-link i {
+    font-size: 0.75rem;
+    color: #888;
+    transition: transform 0.2s ease;
+}
+
+.mega-menu-link:hover {
+    color: var(--bs-primary) !important;
+}
+
+.mega-menu-link:hover i {
+    color: var(--bs-primary);
+    transform: translateX(3px);
+}
+
+.mega-menu-title {
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 992px) {
+    .mega-menu-cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .mega-menu-card {
+        /* EL PROBLEMA ESTABA AQUÍ: height: 500px; */
+        height: 260px; /* Una altura mucho más equilibrada para las tarjetas */
+    }
+
+    .site-header .navbar .nav-item.mega-menu {
+        position: static;
+    }
+
+    .site-header .navbar .dropdown-menu.mega-menu-content {
+        width: 100%;
+        left: 0;
+        right: 0;
+        transform: translateY(0.5rem);
+        margin-top: 0;
+        border-top: none;
+        border-radius: 0;
+        padding: 1.5rem !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+
+    .site-header .navbar .nav-item.dropdown.mega-menu.show > .dropdown-menu.mega-menu-content,
+    .site-header .navbar .nav-item.dropdown.mega-menu:hover > .dropdown-menu.mega-menu-content {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+
+/* --- PÁGINA ARCHIVE TOURS --- */
+
+.tours-archive-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 60px auto;
+    gap: 40px;
+    padding: 0 20px;
+    
+    @media (max-width: 991px) {
+        flex-direction: column;
+    }
+}
+
+.tours-sidebar {
+    width: 25%;
+    background: #f8f9fa;
+    padding: 30px;
+    border: 1px solid #eee;
+    height: fit-content;
+    
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+}
+
+.tours-sidebar label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    display: block;
+}
+
+.tours-sidebar .filter-group {
+    margin-bottom: 20px;
+}
+
+.tours-grid-content {
+    width: 75%;
+    
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.tour-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+}
+
+.tour-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+/* Paginación de WordPress adaptada a Bootstrap */
+.tours-pagination ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+}
+
+.tours-pagination ul li a, 
+.tours-pagination ul li span {
+    padding: 10px 15px;
+    border: 1px solid #dee2e6;
+    color: $primary;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tours-pagination ul li span.current {
+    background-color: $primary;
+    color: white;
+    border-color: $primary;
+}
+
+.tours-pagination ul li a:hover {
+    background-color: #e9ecef;
 }

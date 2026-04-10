@@ -8,8 +8,7 @@
 
 <style>
     .site-footer {
-        /* Nivel de oscuridad reducido para que la imagen resalte mucho más */
-        background-image: linear-gradient(rgba(10, 15, 25, 0.3), rgba(10, 15, 25, 0.5)), url('<?php echo get_template_directory_uri(); ?>/assets/images/footer-bg.webp');
+        background-image: linear-gradient(rgba(10, 15, 25, 0.3), rgba(10, 15, 25, 0.5)), url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-bg.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -17,11 +16,8 @@
 </style>
 
 <footer class="site-footer text-white pt-5 pb-3">
-
     <div class="container py-lg-5 mt-3">
-
         <div class="row g-4 mb-5">
-
             <div class="col-lg-3 col-md-6">
                 <?php
                 if (has_custom_logo()) {
@@ -36,9 +32,9 @@
                     Operadores 100% locales en los Andes. Especialistas en el público brasilero e hispanohablante. Garantizamos experiencias inolvidables, auténticas y profundamente transformadoras.
                 </p>
                 <div class="d-flex gap-3 mt-4">
-                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-facebook"></i></a>
-                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-instagram"></i></a>
-                    <a href="#" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-youtube"></i></a>
+                    <a href="javascript:void(0);" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-facebook"></i></a>
+                    <a href="javascript:void(0);" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-instagram"></i></a>
+                    <a href="javascript:void(0);" target="_blank" class="text-white-50 text-decoration-none fs-5 custom-hover"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
 
@@ -47,6 +43,7 @@
                 <ul class="list-unstyled d-flex flex-column gap-3 text-white-50">
                     <li><a href="<?php echo esc_url(home_url('/')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Inicio</a></li>
                     <li><a href="<?php echo esc_url(home_url('/nosotros')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Quiénes Somos</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/#circuitos-machupicchu')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Circuitos Machu Picchu</a></li>
                     <li><a href="<?php echo esc_url(home_url('/terminos-y-condiciones')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Políticas y Reservas</a></li>
                     <li><a href="<?php echo esc_url(home_url('/contacto')); ?>" class="text-white-50 text-decoration-none custom-hover"><i class="bi bi-chevron-right me-1" style="font-size: 0.7rem;"></i> Contacto</a></li>
                 </ul>
@@ -84,7 +81,6 @@
                     </iframe>
                 </div>
             </div>
-
         </div>
 
         <div class="row border-top border-secondary pt-4 pb-2 mt-4">
@@ -92,9 +88,8 @@
                 © <?php echo date('Y'); ?> Viagens Machupicchu Brasil. Todos los derechos reservados.
             </div>
             <div class="col-md-6 text-center text-md-end text-white-50 mt-3 mt-md-0" style="font-size: 0.85rem;">
-                </div>
+            </div>
         </div>
-
     </div>
 </footer>
 

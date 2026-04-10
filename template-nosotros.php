@@ -38,7 +38,7 @@ get_header();
     .quienes-somos-content {
         background: #fdfdfd;
         padding: 40px;
-        border-radius: 8px;
+        border-radius: 0;
         border: 1px solid #eaeaea;
         margin-bottom: 60px;
         line-height: 1.8;
@@ -70,7 +70,7 @@ get_header();
     .razon-card {
         background: #fff;
         padding: 30px;
-        border-radius: 8px;
+        border-radius: 0;
         border: 1px solid #eaeaea;
         box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         transition: transform 0.3s ease;
@@ -85,6 +85,7 @@ get_header();
         font-size: 2.5rem;
         margin-bottom: 20px;
         text-align: center;
+        color: var(--bs-primary);
     }
 
     .razon-card h3 {
@@ -118,7 +119,6 @@ get_header();
 
     <section class="nosotros-hero">
         <h1>Viagens Machupicchu Brasil</h1>
-        <h2>Sacred Experience</h2>
     </section>
 
     <section class="quienes-somos-content">
@@ -133,19 +133,19 @@ get_header();
         
         <div class="razones-grid">
             <div class="razon-card">
-                <div class="razon-icon">🌎</div>
+                <div class="razon-icon"><i class="bi bi-globe2" aria-hidden="true"></i></div>
                 <h3>Conexión Cultural</h3>
                 <p>Nos especializamos en entender la cultura y perfil del público hispanohablante y Brasileño, asegurando una atención cercana y personalizada en cada etapa de su viaje.</p>
             </div>
 
             <div class="razon-card">
-                <div class="razon-icon">🗣️</div>
+                <div class="razon-icon"><i class="bi bi-translate" aria-hidden="true"></i></div>
                 <h3>Guías Nativos y Bilingües</h3>
                 <p>Nuestros guías nativos, tienen como lengua materna el Quechua (lengua oficial de los incas) con dominio amplio del idioma Portugués y Español, para brindar experiencias únicas y memorables.</p>
             </div>
 
             <div class="razon-card">
-                <div class="razon-icon">✨</div>
+                <div class="razon-icon"><i class="bi bi-stars" aria-hidden="true"></i></div>
                 <h3>Experiencias a Medida</h3>
                 <p>¡Vaya más allá de las fotos! Con itinerarios 100% pensados para usted, ofrecemos tours personalizados para garantizar la mejor experiencia y que disfrute al máximo su estadía en el Perú.</p>
             </div>

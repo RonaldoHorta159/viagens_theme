@@ -14,42 +14,35 @@ get_header(); ?>
 
     <section class="hero-section d-flex align-items-center justify-content-center text-center overflow-hidden position-relative" style="min-height: 85vh;">
 
-        <div class="hero-fallback w-100 h-100 position-absolute top-0 start-0 bg-cover" style="z-index: -3; background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-fallback.jpg');"></div>
+        <div class="hero-fallback w-100 h-100 position-absolute top-0 start-0 bg-cover" style="z-index: -3; background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-fallback.jpg');"></div>
 
         <video autoplay loop muted playsinline class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; z-index: -2;">
-            <source src="<?php echo get_template_directory_uri(); ?>/assets/video/hero-video.mp4" type="video/mp4">
+            <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/video/hero-video.mp4" type="video/mp4">
         </video>
 
         <div class="overlay w-100 h-100 position-absolute top-0 start-0" style="background-color: rgba(0, 0, 0, 0.55); z-index: -1;"></div>
 
         <div class="container position-relative" style="z-index: 1;" data-aos="zoom-in" data-aos-duration="1200">
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
 
-                    <span class="badge bg-primary text-white mb-3 px-3 py-2 text-uppercase" style="letter-spacing: 2px; font-weight: 600;">
-                        Viagens Machupicchu Brasil
-                    </span>
+            <span class="badge bg-primary rounded-0 text-white mb-3 px-3 py-2 text-uppercase" style="letter-spacing: 2px; font-weight: 600;">
+                Viagens Machupicchu Brasil
+            </span>
 
-                    <h1 class="display-3 fw-bold text-white mb-4 text-shadow-dark text-uppercase">
-                        EXPERIENCIA SAGRADA
-                    </h1>
+            <h1 class="display-3 fw-bold text-white mb-4 text-shadow-dark text-uppercase">
+                EXPERIENCIA SAGRADA
+            </h1>
 
-                    <p class="lead text-white mb-5 text-shadow-dark fs-5" style="font-weight: 400; line-height: 1.6;">
-                        Somos operadores 100% locales, de Machupicchu para el mundo. Garantizamos que usted viva una experiencia inolvidable, auténtica y profundamente transformadora en los Andes.
-                    </p>
-
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a href="#mejores-experiencias" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">
-                            Descubrir Tours
-                        </a>
-                        <a href="https://wa.me/51990725647" target="_blank" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-bold shadow-sm">
-                            <i class="bi bi-whatsapp me-2"></i> Asesoría Gratis
-                        </a>
-                    </div>
-
-                </div>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://wa.me/51990725647" target="_blank" class="btn btn-outline-light btn-lg rounded-0 px-4 fw-bold shadow-sm">
+                    <i class="bi bi-whatsapp me-2"></i> Asesoría Gratis
+                </a>
             </div>
+
         </div>
+    </div>
+</div>
     </section>
 
     <style>
@@ -103,7 +96,7 @@ get_header(); ?>
         }
     </style>
 
-    <section id="mejores-experiencias" class="py-5 bg-light">
+    <section id="mejores-experiencias" class="py-5 bg-light" style="scroll-margin-top: 100px;">
         <div class="container py-lg-5">
 
             <div class="text-center mb-5" data-aos="fade-up">
@@ -117,8 +110,8 @@ get_header(); ?>
                     <div class="row g-4">
 
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <a href="#" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-cultural.webp');"></div>
+                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=cultural-y-arqueologico')); ?>" class="experience-card shadow-sm rounded-0">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-cultural.webp');"></div>
                                 <div class="experience-card-overlay"></div>
                                 <div class="experience-card-content p-4 p-lg-5">
                                     <h3 class="text-white fw-bold fs-3 mb-2">Culturales y Clásicos</h3>
@@ -128,8 +121,8 @@ get_header(); ?>
                         </div>
 
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <a href="#" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-mistico.webp'); background-position: top center;"></div>
+                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=ceremonias-y-retiros')); ?>" class="experience-card shadow-sm rounded-0">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-mistico.webp'); background-position: top center;"></div>
                                 <div class="experience-card-overlay"></div>
                                 <div class="experience-card-content p-4 p-lg-5">
                                     <h3 class="text-white fw-bold fs-3 mb-2">Rituales Místicos</h3>
@@ -139,8 +132,8 @@ get_header(); ?>
                         </div>
 
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <a href="#" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-atv.webp');"></div>
+                            <a href="<?php echo esc_url(home_url('/aventura-en-cuatrimotos')); ?>" class="experience-card shadow-sm rounded-0">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-atv.webp');"></div>
                                 <div class="experience-card-overlay"></div>
                                 <div class="experience-card-content p-4 p-lg-5">
                                     <h3 class="text-white fw-bold fs-3 mb-2">Aventura en Cuatrimotos</h3>
@@ -150,8 +143,8 @@ get_header(); ?>
                         </div>
 
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <a href="#" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/cat-naturaleza.webp');"></div>
+                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=naturaleza-y-trekking')); ?>" class="experience-card shadow-sm rounded-0">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-naturaleza.webp');"></div>
                                 <div class="experience-card-overlay"></div>
                                 <div class="experience-card-content p-4 p-lg-5">
                                     <h3 class="text-white fw-bold fs-3 mb-2">Naturaleza y Trekking</h3>
@@ -477,13 +470,13 @@ get_header(); ?>
             <p class="text-uppercase fw-bold text-muted mb-4" style="letter-spacing: 2px; font-size: 0.8rem;">Nuestros Aliados Estratégicos</p>
 
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-lg-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-mincetur.png" alt="Mincetur" style="height: 45px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-dircetur.png" alt="Dircetur" style="height: 45px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-gercetur.png" alt="Gercetur" style="height: 45px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-peru.png" alt="Marca Perú" style="height: 40px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-perurail.png" alt="PeruRail" style="height: 35px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-incarail.png" alt="IncaRail" style="height: 35px; width: auto; object-fit: contain;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-consettur.png" alt="Consettur" style="height: 55px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-mincetur.png" alt="Mincetur" style="height: 45px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-dircetur.png" alt="Dircetur" style="height: 45px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-gercetur.png" alt="Gercetur" style="height: 45px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-peru.png" alt="Marca Perú" style="height: 40px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-perurail.png" alt="PeruRail" style="height: 35px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-incarail.png" alt="IncaRail" style="height: 35px; width: auto; object-fit: contain;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-consettur.png" alt="Consettur" style="height: 55px; width: auto; object-fit: contain;">
             </div>
 
         </div>
@@ -540,7 +533,7 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="py-5 bg-light">
+    <section id="circuitos-machupicchu" class="py-5 bg-light" style="scroll-margin-top: 100px;">
         <div class="container py-lg-4">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
@@ -567,7 +560,7 @@ get_header(); ?>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <video autoplay loop muted playsinline class="w-100 shadow rounded-0" style="object-fit: cover;">
-                        <source src="<?php echo get_template_directory_uri(); ?>/assets/video/circuitos.mp4" type="video/mp4">
+                        <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/video/circuitos.mp4" type="video/mp4">
                         Tu navegador no soporta la etiqueta de video.
                     </video>
                 </div>
