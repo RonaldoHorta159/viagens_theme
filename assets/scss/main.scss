@@ -1,9 +1,7 @@
 // ==========================================================================
 // 1. IMPORTAR FUENTES (Google Fonts)
-// Nota: Para máximo rendimiento en producción, luego podemos descargar 
-// los archivos .woff2, pero para desarrollo esto es perfecto.
 // ==========================================================================
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Yanone+Kaffeesatz:wght@400;500;600;700&display=swap');
 
 // ==========================================================================
 // 2. VARIABLES DE COLOR (Paleta Brasil / Viagens Machupicchu)
@@ -25,9 +23,9 @@ $info: $solitude; // Celeste claro (Ideal para fondos de secciones como "Aliados
 $yellow: $starship; // Amarillo vibrante
 
 // Tipografía global
-$font-family-sans-serif: 'Open Sans', sans-serif;
-$headings-font-family: 'Montserrat', sans-serif;
-$headings-font-weight: 700;
+$font-family-sans-serif: 'Inter', sans-serif;
+$headings-font-family: 'Yanone Kaffeesatz', sans-serif;
+$headings-font-weight: 600;
 
 // Opcional: Ajustar el border-radius global para un look más amigable
 $border-radius: 0;
@@ -192,112 +190,114 @@ $border-radius-pill: 0;
     border-radius: 0 !important;
 }
 
-.site-header img {
-    max-width: 100%;
-    height: auto;
+/* --- HEADER REDESIGN --- */
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.mega-menu-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-}
-
-@media (min-width: 576px) {
-    .mega-menu-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.75rem;
-    }
-}
-
-.mega-menu-card {
-    /* Cambiar 'cover, contain' por simplemente 'cover' */
-    background-size: cover !important; 
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    height: 200px; /* Altura base para móviles/tablets */
-    min-width: 0;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.mega-menu-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15) !important;
-}
-
-.text-shadow-dark {
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
-}
-
-.mega-menu-link {
-    color: #333;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    transition: all 0.2s ease;
-    padding: 0.3rem 0;
-}
-
-.mega-menu-link i {
-    font-size: 0.75rem;
-    color: #888;
-    transition: transform 0.2s ease;
-}
-
-.mega-menu-link:hover {
+.hover-opacity:hover {
+    opacity: 1 !important;
     color: var(--bs-primary) !important;
 }
 
-.mega-menu-link:hover i {
-    color: var(--bs-primary);
-    transform: translateX(3px);
+/* Header Base */
+.site-header {
+    width: 100%;
+    z-index: 1030;
+    background-color: #fff;
 }
 
-.mega-menu-title {
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: #333 !important;
+    transition: all 0.2s ease;
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+    font-size: 1.4rem !important; /* Increased font size */
     letter-spacing: 0.5px;
-    font-size: 0.9rem;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    position: relative;
+    
+    &:hover, &:focus, &.active {
+        color: var(--bs-primary) !important;
+    }
 }
 
+/* Dropdown Menu Simple */
+.dropdown-menu {
+    border-radius: 0;
+    padding: 10px 0;
+    min-width: 240px; /* Slightly wider */
+    margin-top: 0;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+    .dropdown-item {
+        padding: 12px 20px;
+        color: #444;
+        transition: all 0.2s ease;
+        font-family: 'Inter', sans-serif; /* Keep inner links clean */
+        
+        &:hover, &:focus, &.active {
+            background-color: rgba(var(--bs-primary-rgb), 0.05);
+            color: var(--bs-primary);
+            padding-left: 25px;
+        }
+    }
+}
+
+/* Hover effect for desktop dropdowns */
 @media (min-width: 992px) {
-    .mega-menu-cards {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.75rem;
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.2s ease;
     }
+}
 
-    .mega-menu-card {
-        /* EL PROBLEMA ESTABA AQUÍ: height: 500px; */
-        height: 260px; /* Una altura mucho más equilibrada para las tarjetas */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Posicionamiento Absoluto para Contactos */
+@media (min-width: 992px) {
+    .position-lg-absolute {
+        position: absolute !important;
     }
-
-    .site-header .navbar .nav-item.mega-menu {
-        position: static;
-    }
-
-    .site-header .navbar .dropdown-menu.mega-menu-content {
-        width: 100%;
+}
+@media (max-width: 991.98px) {
+    #navbarNav {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
-        transform: translateY(0.5rem);
-        margin-top: 0;
-        border-top: none;
-        border-radius: 0;
-        padding: 1.5rem !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
-        display: block;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        max-height: 80vh;
+        overflow-y: auto;
+        
+        .nav-link {
+            border-bottom: 1px solid #eee;
+            padding: 12px 0 !important;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: none;
+            background-color: #f8f9fa;
+            padding-left: 15px;
+            display: block; /* Show in mobile by default or handle with collapse */
+        }
     }
+}
 
-    .site-header .navbar .nav-item.dropdown.mega-menu.show > .dropdown-menu.mega-menu-content,
-    .site-header .navbar .nav-item.dropdown.mega-menu:hover > .dropdown-menu.mega-menu-content {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
+/* Button CTA Hover Lift */
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* --- PÁGINA ARCHIVE TOURS --- */

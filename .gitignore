@@ -19,6 +19,7 @@ desktop.ini
 .env.local
 .vscode/
 .idea/
+.info-agencia/
 *.suo
 *.ntvs*
 *.njsproj
@@ -31,3 +32,4 @@ desktop.ini
 
 # Nota: No estamos ignorando assets/css/main.css para que el código compilado 
 # esté disponible directamente en el repositorio y facilite los despliegues.
+info-agencia/SITE VMB ESPAÑOL.docx
