@@ -9,41 +9,210 @@
 get_header(); ?>
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 
 <main id="primary" class="site-main">
 
-    <section class="hero-section d-flex align-items-center justify-content-center text-center overflow-hidden position-relative" style="min-height: 85vh;">
+    <section class="hero-grid container-fluid p-0 position-relative">
+        <div class="hero-progress-bar" aria-hidden="true">
+            <span class="hero-progress-fill"></span>
+        </div>
+        <div class="row g-0" style="height: 100vh; min-height: 600px;">
+            <!-- Left Side: Carousel -->
+            <div class="col-12 col-lg-8 p-0 position-relative" style="height: 100%;">
+                <div id="heroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-pause="false" data-bs-interval="5000">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators justify-content-start" style="margin-left: 5%; margin-bottom: 2rem;">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    
+                    <div class="carousel-inner h-100">
+                        <!-- Item 1 -->
+                        <div class="carousel-item active h-100">
+                            <div class="w-100 h-100" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/mp-1.webp'); background-size: cover; background-position: center;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);"></div>
+                                <div class="container h-100 d-flex align-items-center position-relative" style="z-index: 2;">
+                                    <div class="row w-100">
+                                        <div class="col-md-10 col-lg-9 ps-md-5">
+                                            <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
+                                                El viaje de<br>tus sueños
+                                            </h1>
+                                            <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
+                                                Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.
+                                            </p>
+                                            <div class="price-info text-white mt-4 hero-animated-element hero-price">
+                                                <div class="mb-1">
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Machu Picchu</span> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="carousel-item h-100">
+                            <div class="w-100 h-100" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/mp-2.webp'); background-size: cover; background-position: center;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);"></div>
+                                <div class="container h-100 d-flex align-items-center position-relative" style="z-index: 2;">
+                                    <div class="row w-100">
+                                        <div class="col-md-10 col-lg-9 ps-md-5">
+                                            <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
+                                                Auténtica cultura<br>Andina
+                                            </h1>
+                                            <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
+                                                Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.
+                                            </p>
+                                            <div class="price-info text-white mt-4 hero-animated-element hero-price">
+                                                <div class="mb-1">
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Tours Tradicionales</span> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="hero-fallback w-100 h-100 position-absolute top-0 start-0 bg-cover" style="z-index: -3; background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-fallback.jpg');"></div>
-
-        <video autoplay loop muted playsinline class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover; z-index: -2;">
-            <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/video/hero-video.mp4" type="video/mp4">
-        </video>
-
-        <div class="overlay w-100 h-100 position-absolute top-0 start-0" style="background-color: rgba(0, 0, 0, 0.55); z-index: -1;"></div>
-
-        <div class="container position-relative" style="z-index: 1;" data-aos="zoom-in" data-aos-duration="1200">
-    <div class="row justify-content-center">
-        <div class="col-lg-9">
-
-            <span class="badge bg-primary rounded-0 text-white mb-3 px-3 py-2 text-uppercase" style="letter-spacing: 2px; font-weight: 600;">
-                Viagens Machupicchu Brasil
-            </span>
-
-            <h1 class="display-3 fw-bold text-white mb-4 text-shadow-dark text-uppercase">
-                EXPERIENCIA SAGRADA
-            </h1>
-
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="https://wa.me/51990725647" target="_blank" class="btn btn-outline-light btn-lg rounded-0 px-4 fw-bold shadow-sm">
-                    <i class="bi bi-whatsapp me-2"></i> Asesoría Gratis
-                </a>
+                        <!-- Item 3 -->
+                        <div class="carousel-item h-100">
+                            <div class="w-100 h-100" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/mp-3.webp'); background-size: cover; background-position: center;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);"></div>
+                                <div class="container h-100 d-flex align-items-center position-relative" style="z-index: 2;">
+                                    <div class="row w-100">
+                                        <div class="col-md-10 col-lg-9 ps-md-5">
+                                            <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
+                                                Conexión<br>Mística
+                                            </h1>
+                                            <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
+                                                Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.
+                                            </p>
+                                            <div class="price-info text-white mt-4 hero-animated-element hero-price">
+                                                <div class="mb-1">
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Experiencias Místicas</span> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Right Side: 2 Static Images -->
+            <div class="col-lg-4 d-none d-lg-flex flex-column p-0" style="height: 100%;">
+                <!-- Top Image -->
+                <div class="flex-grow-1 position-relative border-start border-bottom border-white border-2 overflow-hidden">
+                    <div class="w-100 h-100 transition-transform" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-img.webp'); background-size: cover; background-position: center; transition: transform 0.6s ease;"></div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);"></div>
+                    <div class="position-absolute bottom-0 start-0 p-4 w-100 z-3" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-white fw-bold text-uppercase fs-4 mb-0 text-shadow-dark" style="line-height: 1.2;">
+                            Atención<br>Personalizada
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Bottom Image -->
+                <div class="flex-grow-1 position-relative border-start border-white border-2 overflow-hidden">
+                    <div class="w-100 h-100 transition-transform" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-img-2.webp'); background-size: cover; background-position: center; transition: transform 0.6s ease;"></div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);"></div>
+                    <div class="position-absolute bottom-0 start-0 p-4 w-100 z-3" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-white fw-bold text-uppercase fs-4 mb-0 text-shadow-dark" style="line-height: 1.2;">
+                            Asistencia 24 Horas<br>en todo momento
+                        </h3>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </section>
+
+    <style>
+        .text-shadow-dark {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-progress-bar {
+            position: absolute;
+            top: clamp(72px, 7vw, 92px);
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.18);
+            z-index: 20;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-progress-fill {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.72);
+            transform-origin: left center;
+            animation: heroProgress 5s linear infinite;
+        }
+        
+        /* Animaciones para el Carrusel */
+        @keyframes heroProgress {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRightText {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 0.95;
+                transform: translateX(0);
+            }
+        }
+
+        /* Ocultar elementos cuando el slide no está activo */
+        .carousel-item:not(.active) .hero-animated-element {
+            opacity: 0;
+            transform: translateX(100px); /* Mantenerlos a la derecha mientras están ocultos */
+        }
+
+        .carousel-item.active .hero-title {
+            animation: slideInFromRight 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0; /* Asegurar que inicien invisibles */
+        }
+
+        .carousel-item.active .hero-text {
+            animation: slideInFromRightText 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+
+        .carousel-item.active .hero-price {
+            animation: slideInFromRight 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            animation-delay: 1.1s;
+            opacity: 0;
+        }
+    </style>
 
     <style>
         /* Contenedor principal de la tarjeta: bordes rectos y oculta el zoom interno */
@@ -588,6 +757,17 @@ get_header(); ?>
         offset: 80, // Distancia desde el borde inferior de la pantalla para que inicie
         duration: 800, // Duración por defecto
     });
+
+    const heroCarousel = document.getElementById('heroCarousel');
+    const heroProgressFill = document.querySelector('.hero-progress-fill');
+
+    if (heroCarousel && heroProgressFill) {
+        heroCarousel.addEventListener('slide.bs.carousel', function() {
+            heroProgressFill.style.animation = 'none';
+            heroProgressFill.offsetHeight;
+            heroProgressFill.style.animation = '';
+        });
+    }
 </script>
 
 <?php get_footer(); ?>
