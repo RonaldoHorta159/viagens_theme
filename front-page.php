@@ -215,231 +215,498 @@ get_header(); ?>
     </style>
 
     <style>
-        /* Contenedor principal de la tarjeta: bordes rectos y oculta el zoom interno */
+        .mejores-experiencias-section {
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .mejores-experiencias-section::before,
+        .mejores-experiencias-section::after {
+            display: none;
+        }
+
+        .mejores-experiencias-section::before {
+            top: 70px;
+            left: -80px;
+            width: 220px;
+            height: 220px;
+            background: rgba(220, 169, 72, 0.18);
+        }
+
+        .mejores-experiencias-section::after {
+            right: -90px;
+            bottom: 40px;
+            width: 240px;
+            height: 240px;
+            background: rgba(25, 118, 210, 0.12);
+        }
+
+        .experience-intro {
+            max-width: 760px;
+            margin: 0 auto 4rem;
+        }
+
+        .experience-heading {
+            color: #143a52;
+            letter-spacing: -0.03em;
+        }
+
+        .experience-subheading {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #5e6d79;
+        }
+
+        .experience-grid {
+            position: relative;
+            z-index: 1;
+            --bs-gutter-x: 2.25rem;
+            --bs-gutter-y: 2.5rem;
+        }
+
+        .experience-grid > [class*="col-"] {
+            display: flex;
+        }
+
+        .experience-card-wrap {
+            width: 100%;
+            perspective: 1200px;
+        }
+
         .experience-card {
+            --card-radius: 28px;
+            --card-inner-radius: 22px;
+            --card-rotate: -4deg;
+            --card-offset: 0px;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            min-height: 350px;
+            min-height: 460px;
+            width: 100%;
+            padding: 1.25rem;
+            border-radius: var(--card-radius);
             text-decoration: none;
+            isolation: isolate;
+            transform: translateY(var(--card-offset)) rotate(var(--card-rotate));
+            transform-origin: center bottom;
+            box-shadow: 0 22px 55px rgba(8, 30, 44, 0.16);
+            transition: transform 0.45s ease, box-shadow 0.45s ease;
+            clip-path: inset(0 round var(--card-radius));
         }
 
-        /* La capa de imagen al fondo */
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border-radius: var(--card-inner-radius);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .experience-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 26%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .experience-card-media {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border-radius: inherit;
+            z-index: 0;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            clip-path: inset(0 round var(--card-radius));
+        }
+
         .experience-card-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            border-radius: inherit;
             background-size: cover;
             background-position: center;
-            transition: transform 0.6s ease;
-            z-index: 1;
+            transition: transform 0.7s ease;
+            z-index: 0;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
-        /* Capa oscura (Gradiente) para leer el texto */
         .experience-card-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%);
+            inset: 0;
+            border-radius: inherit;
+            background:
+                linear-gradient(180deg, rgba(5, 20, 30, 0.14) 0%, rgba(5, 20, 30, 0.08) 28%, rgba(5, 20, 30, 0.88) 100%),
+                linear-gradient(135deg, rgba(10, 39, 56, 0.15) 0%, rgba(10, 39, 56, 0.6) 100%);
             transition: background 0.4s ease;
-            z-index: 2;
+            z-index: 1;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         .experience-card-content {
             position: relative;
-            z-index: 3;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
         }
 
-        .experience-card:hover .experience-card-bg {
-            transform: scale(1.1);
+        .experience-card-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: auto;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
         }
 
-        .experience-card:hover .experience-card-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 100%);
+        .experience-card-copy {
+            margin-top: 2rem;
+        }
+
+        .experience-card h3 {
+            font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .experience-card p {
+            max-width: 24ch;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .experience-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .experience-card-cta::after {
+            content: "↗";
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .experience-card--one {
+            --card-rotate: -5deg;
+            --card-offset: 22px;
+        }
+
+        .experience-card--two {
+            --card-rotate: 4deg;
+            --card-offset: 0px;
+        }
+
+        .experience-card--three {
+            --card-rotate: -3.5deg;
+            --card-offset: 34px;
+        }
+
+        .experience-card--four {
+            --card-rotate: 5deg;
+            --card-offset: 12px;
+        }
+
+        .experience-card:hover,
+        .experience-card:focus-visible {
+            transform: translateY(calc(var(--card-offset) - 14px)) rotate(calc(var(--card-rotate) * 0.35));
+            box-shadow: 0 30px 70px rgba(8, 30, 44, 0.24);
+        }
+
+        .experience-card:hover .experience-card-bg,
+        .experience-card:focus-visible .experience-card-bg {
+            transform: scale(1.09);
+        }
+
+        .experience-card:hover .experience-card-overlay,
+        .experience-card:focus-visible .experience-card-overlay {
+            background:
+                linear-gradient(180deg, rgba(5, 20, 30, 0.08) 0%, rgba(5, 20, 30, 0.14) 24%, rgba(5, 20, 30, 0.94) 100%),
+                linear-gradient(135deg, rgba(10, 39, 56, 0.08) 0%, rgba(10, 39, 56, 0.72) 100%);
+        }
+
+        .experience-card:focus-visible {
+            outline: 3px solid rgba(244, 198, 111, 0.9);
+            outline-offset: 6px;
+        }
+
+        .experience-card::after {
+            border-radius: inherit;
+        }
+
+        @media (min-width: 1200px) {
+            .experience-grid {
+                --bs-gutter-x: 3rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .experience-intro {
+                margin-bottom: 3rem;
+            }
+
+            .experience-card {
+                min-height: 420px;
+                transform: rotate(var(--card-rotate));
+            }
+
+            .experience-card--one,
+            .experience-card--two,
+            .experience-card--three,
+            .experience-card--four {
+                --card-offset: 0px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .experience-card {
+                min-height: 360px;
+                --card-radius: 24px;
+                --card-inner-radius: 18px;
+                transform: none;
+            }
+
+            .experience-card:hover,
+            .experience-card:focus-visible {
+                transform: translateY(-8px);
+            }
+
+            .experience-card::before {
+                inset: 8px;
+                border-radius: var(--card-inner-radius);
+            }
         }
     </style>
 
-    <section id="mejores-experiencias" class="py-5 bg-light" style="scroll-margin-top: 100px;">
+    <section id="mejores-experiencias" class="mejores-experiencias-section py-5" style="scroll-margin-top: 100px;">
         <div class="container py-lg-5">
-
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-5 fw-bold text-primary mb-3">Nuestras Mejores Experiencias</h2>
-                <p class="lead text-secondary">Descubre la magia de los Andes con nuestros tours especializados.</p>
+            <div class="experience-intro text-center" data-aos="fade-up">
+                <h2 class="experience-heading display-4 fw-bold mb-3">Nuestras Mejores Experiencias</h2>
+                <p class="experience-subheading lead mb-0">Descubre la magia de los Andes con nuestros tours especializados.</p>
             </div>
 
-            <div class="row g-4 justify-content-center">
-
-                <div class="col-lg-10">
-                    <div class="row g-4">
-
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=cultural-y-arqueologico')); ?>" class="experience-card shadow-sm rounded-0">
+            <div class="row g-4 g-xl-5 experience-grid justify-content-center">
+                <div class="col-sm-6 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-card-wrap">
+                        <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=cultural-y-arqueologico')); ?>" class="experience-card experience-card--one">
+                            <div class="experience-card-media" aria-hidden="true">
                                 <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-cultural.webp');"></div>
                                 <div class="experience-card-overlay"></div>
-                                <div class="experience-card-content p-4 p-lg-5">
-                                    <h3 class="text-white fw-bold fs-3 mb-2">Culturales y Clásicos</h3>
-                                    <p class="text-white mb-0 fs-6" style="opacity: 0.9;">Descubre la Capital Arqueológica de América y el Valle Sagrado.</p>
+                            </div>
+                            <div class="experience-card-content p-4 p-xl-4">
+                                <span class="experience-card-chip">01</span>
+                                <div class="experience-card-copy">
+                                    <h3 class="text-white fw-bold mb-3">Culturales y Clásicos</h3>
+                                    <p class="mb-0 fs-6">Descubre la Capital Arqueológica de América y el Valle Sagrado.</p>
+                                    <span class="experience-card-cta">Explorar</span>
                                 </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=ceremonias-y-retiros')); ?>" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-mistico.webp'); background-position: top center;"></div>
-                                <div class="experience-card-overlay"></div>
-                                <div class="experience-card-content p-4 p-lg-5">
-                                    <h3 class="text-white fw-bold fs-3 mb-2">Rituales Místicos</h3>
-                                    <p class="text-white mb-0 fs-6" style="opacity: 0.9;">Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <a href="<?php echo esc_url(home_url('/aventura-en-cuatrimotos')); ?>" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-atv.webp');"></div>
-                                <div class="experience-card-overlay"></div>
-                                <div class="experience-card-content p-4 p-lg-5">
-                                    <h3 class="text-white fw-bold fs-3 mb-2">Aventura en Cuatrimotos</h3>
-                                    <p class="text-white mb-0 fs-6" style="opacity: 0.9;">Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=naturaleza-y-trekking')); ?>" class="experience-card shadow-sm rounded-0">
-                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-naturaleza.webp');"></div>
-                                <div class="experience-card-overlay"></div>
-                                <div class="experience-card-content p-4 p-lg-5">
-                                    <h3 class="text-white fw-bold fs-3 mb-2">Naturaleza y Trekking</h3>
-                                    <p class="text-white mb-0 fs-6" style="opacity: 0.9;">Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.</p>
-                                </div>
-                            </a>
-                        </div>
-
+                            </div>
+                        </a>
                     </div>
                 </div>
 
+                <div class="col-sm-6 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="experience-card-wrap">
+                        <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=ceremonias-y-retiros')); ?>" class="experience-card experience-card--two">
+                            <div class="experience-card-media" aria-hidden="true">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-mistico.webp'); background-position: top center;"></div>
+                                <div class="experience-card-overlay"></div>
+                            </div>
+                            <div class="experience-card-content p-4 p-xl-4">
+                                <span class="experience-card-chip">02</span>
+                                <div class="experience-card-copy">
+                                    <h3 class="text-white fw-bold mb-3">Rituales Místicos</h3>
+                                    <p class="mb-0 fs-6">Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.</p>
+                                    <span class="experience-card-cta">Explorar</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="experience-card-wrap">
+                        <a href="<?php echo esc_url(home_url('/aventura-en-cuatrimotos')); ?>" class="experience-card experience-card--three">
+                            <div class="experience-card-media" aria-hidden="true">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-atv.webp');"></div>
+                                <div class="experience-card-overlay"></div>
+                            </div>
+                            <div class="experience-card-content p-4 p-xl-4">
+                                <span class="experience-card-chip">03</span>
+                                <div class="experience-card-copy">
+                                    <h3 class="text-white fw-bold mb-3">Aventura en Cuatrimotos</h3>
+                                    <p class="mb-0 fs-6">Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.</p>
+                                    <span class="experience-card-cta">Explorar</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="experience-card-wrap">
+                        <a href="<?php echo esc_url(home_url('/tours/?tipo_tour=naturaleza-y-trekking')); ?>" class="experience-card experience-card--four">
+                            <div class="experience-card-media" aria-hidden="true">
+                                <div class="experience-card-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cat-naturaleza.webp');"></div>
+                                <div class="experience-card-overlay"></div>
+                            </div>
+                            <div class="experience-card-content p-4 p-xl-4">
+                                <span class="experience-card-chip">04</span>
+                                <div class="experience-card-copy">
+                                    <h3 class="text-white fw-bold mb-3">Naturaleza y Trekking</h3>
+                                    <p class="mb-0 fs-6">Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.</p>
+                                    <span class="experience-card-cta">Explorar</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <style>
         .trust-section {
-            background-color: #f8f9fa;
-            padding-top: 5rem;
-            padding-bottom: 5rem;
+            position: relative;
+            padding: clamp(4.5rem, 7vw, 6rem) 0;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(var(--bs-info-rgb), 0.42) 100%);
+        }
+        .trust-intro {
+            max-width: 640px;
+            margin: 0 auto 3rem;
+        }
+        .trust-intro h2 {
+            color: #143a52;
+            letter-spacing: -0.03em;
         }
         .trust-card {
-            background: #fff;
-            padding: 2rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             height: 100%;
-            border-top: 4px solid #2c3e50;
-            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-            transition: transform 0.3s ease;
+            padding: 2rem 1.75rem;
+            text-align: center;
+            background: transparent;
+           box-shadow: none;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .trust-card::before {
+            content: "";
+            width: 52px;
+            height: 3px;
+            margin-bottom: 1.5rem;
+            background: var(--bs-warning);
         }
         .trust-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px rgba(20, 58, 82, 0.14);
         }
         .trust-icon {
-            font-size: 2rem;
-            color: #198754;
-            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(var(--bs-primary-rgb), 0.16);
+            background: rgba(var(--bs-primary-rgb), 0.06);
+            color: var(--bs-primary);
+            font-size: 1.85rem;
+            transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
         }
-        .services-box {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 3rem;
-            border-radius: 8px;
-            margin-top: 4rem;
+        .trust-card:hover .trust-icon {
+            background: var(--bs-primary);
+            border-color: var(--bs-primary);
+            color: #ffffff;
         }
-        .services-list-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 0;
+        .trust-card h4 {
+            color: #143a52;
+            line-height: 1;
+            letter-spacing: -0.02em;
         }
-        .services-list-grid li {
-            position: relative;
-            padding-left: 1.5rem;
-            font-size: 1.05rem;
+        .trust-card p {
+            max-width: 29ch;
+            margin: 0 auto;
+            color: #5e6d79;
+            line-height: 1.7;
+            font-size: 0.98rem;
         }
-        .services-list-grid li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #f1c40f;
-            font-weight: bold;
+        @media (max-width: 767.98px) {
+            .trust-card {
+                padding: 1.75rem 1.5rem;
+            }
+            .trust-card p {
+                max-width: none;
+            }
         }
     </style>
 
     <section class="trust-section">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="trust-intro text-center" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="trust-card rounded-0">
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-headset"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5 text-dark">Asistencia 24 Horas</h4>
-                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
+                        <h4 class="fw-bold mb-3 fs-5">Asistencia 24 Horas</h4>
+                        <p class="mb-0">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="trust-card rounded-0">
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5 text-dark">Atención Personalizada</h4>
-                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
+                        <h4 class="fw-bold mb-3 fs-5">Atención Personalizada</h4>
+                        <p class="mb-0">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="trust-card rounded-0">
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-building-check"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5 text-dark">Practicidad y Comodidad</h4>
-                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
+                        <h4 class="fw-bold mb-3 fs-5">Practicidad y Comodidad</h4>
+                        <p class="mb-0">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="trust-card rounded-0">
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5 text-dark">Dominio Cultural</h4>
-                        <p class="text-secondary mb-0" style="font-size: 0.95rem;">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
+                        <h4 class="fw-bold mb-3 fs-5">Dominio Cultural</h4>
+                        <p class="mb-0">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-10">
-                    <div class="services-box shadow">
-                        <h3 class="fw-bold mb-4 text-center">¿QUÉ OFRECEMOS?</h3>
-                        <ul class="services-list-grid">
-                            <li>Tours tradicionales</li>
-                            <li>Tours de aventura</li>
-                            <li>Experiencias místicas</li>
-                            <li>Servicio de guías</li>
-                            <li>Transporte turístico</li>
-                            <li>Venta de entradas Machupicchu</li>
-                            <li>Boletos turísticos</li>
-                            <li>Tickets de Trenes</li>
-                            <li>Hoteles y Restaurantes</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
