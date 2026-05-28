@@ -208,6 +208,17 @@ $border-radius-pill: 0;
     background-color: #fff;
 }
 
+/* Logo Styles */
+.header-logo {
+    max-height: 50px;
+    width: auto;
+}
+
+.header-logo-text {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 1px;
+}
+
 /* Navbar Links */
 .navbar-nav .nav-link {
     color: #333 !important;

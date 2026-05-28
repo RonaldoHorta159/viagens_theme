@@ -624,10 +624,7 @@ get_header(); ?>
             margin-bottom: 1.5rem;
             background: var(--bs-warning);
         }
-        .trust-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(20, 58, 82, 0.14);
-        }
+        
         .trust-icon {
             display: inline-flex;
             align-items: center;
@@ -918,53 +915,369 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="py-5 bg-white">
-        <div class="container py-lg-5">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 fw-bold text-primary mb-2">Lo que dicen nuestros viajeros</h2>
-                <div class="d-flex justify-content-center gap-1 text-warning mb-2 fs-4">
-                    <i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i><i class="bi bi-circle-fill"></i>
-                </div>
-                <p class="text-secondary">Excelencia y confianza avalada en TripAdvisor</p>
+    <style>
+    /* 1. Fondos y Contenedor Principal */
+    .testimonials-masonry-section {
+        position: relative;
+        overflow: hidden;
+        background: rgba(var(--bs-info-rgb), 0.42);
+    }
+
+    .testimonials-masonry-shell {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Cabecera */
+    .testimonials-masonry-head {
+        max-width: 640px;
+        margin: 0 auto 3rem;
+        text-align: center;
+    }
+
+    .testimonials-masonry-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 999px;
+        background: rgba(var(--bs-secondary-rgb), 0.12);
+        color: var(--bs-secondary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .testimonials-masonry-heading {
+        color: var(--bs-primary);
+        font-size: clamp(2.2rem, 1.7rem + 1.8vw, 3.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+    }
+
+    .testimonials-masonry-lead {
+        color: rgba(var(--bs-primary-rgb), 0.72);
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    /* 2. Grid de 3 Columnas Exacto a la Imagen */
+    .testimonials-masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem;
+        align-items: center; /* Centra los elementos para que las rotaciones se vean naturales */
+    }
+
+    /* 3. Diseño Base de las Tarjetas (Bordes orgánicos y sombras suaves) */
+    .testimonial-masonry-card {
+        position: relative;
+        overflow: hidden;
+        /* Bordes ligeramente asimétricos para dar aspecto orgánico/dibujado */
+        border-radius: 18px 24px 20px 22px; 
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .testimonial-masonry-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 2rem 1.8rem;
+        background: rgba(255, 255, 255, 0.92);
+        border: none;
+    }
+
+    /* 4. Asignación de posiciones e inclinaciones (Rotaciones) */
+    
+    /* Columna 1: Izquierda */
+    .testimonial-masonry-image--a { 
+        grid-column: 1; grid-row: 1; 
+        transform: rotate(-3deg); 
+        min-height: 280px;
+    }
+    .testimonial-masonry-text--a { 
+        grid-column: 1; grid-row: 2; 
+        transform: rotate(2deg); 
+    }
+
+    /* Columna 2: Centro */
+    .testimonial-masonry-text--b { 
+        grid-column: 2; grid-row: 1; 
+        transform: rotate(1deg); 
+    }
+    .testimonial-masonry-text--c { 
+        grid-column: 2; grid-row: 2; 
+        transform: rotate(-1.5deg); 
+    }
+
+    /* Columna 3: Derecha */
+    .testimonial-masonry-text--d { 
+        grid-column: 3; grid-row: 1; 
+        transform: rotate(-2.5deg); 
+    }
+    .testimonial-masonry-image--b { 
+        grid-column: 3; grid-row: 2; 
+        transform: rotate(3deg); 
+        min-height: 280px;
+    }
+
+    /* Imágenes de las tarjetas */
+    .testimonial-masonry-figure {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        margin: 0;
+    }
+
+    .testimonial-masonry-figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+    }
+
+    .testimonial-masonry-caption { display: none; /* Ocultamos el caption que no está en tu diseño base */ }
+
+    /* 5. Íconos de Comillas y Estrellas (Limpios, sin fondos) */
+    .testimonial-masonry-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.9rem;
+    }
+
+    .testimonial-masonry-quote {
+        color: var(--bs-primary);
+        font-size: 2rem; /* Comillas más grandes */
+        line-height: 1;
+    }
+
+    .testimonial-masonry-stars {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.15rem;
+        color: var(--bs-warning);
+        font-size: 0.9rem;
+    }
+
+    /* 6. Textos de los testimonios */
+    .testimonial-masonry-label { display: none; /* Ocultamos los labels para que quede tan limpio como tu imagen */ }
+
+    .testimonial-masonry-body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+    }
+
+    .testimonial-masonry-body blockquote {
+        margin: 0;
+        color: rgba(var(--bs-primary-rgb), 0.82);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* 7. Footer (Avatar y Autor) */
+    .testimonial-masonry-footer {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: auto;
+    }
+
+    .testimonial-masonry-avatar {
+        flex: 0 0 auto;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%; /* Circulo perfecto para las fotos */
+        background: rgba(var(--bs-secondary-rgb), 0.18);
+        overflow: hidden;
+    }
+    
+    /* Eliminar formas geométricas previas del avatar */
+    .testimonial-masonry-avatar::before,
+    .testimonial-masonry-avatar::after { display: none; }
+
+    .testimonial-masonry-author strong {
+        display: block;
+        color: var(--bs-primary);
+        font-size: 0.95rem;
+        line-height: 1.2;
+    }
+
+    .testimonial-masonry-author span {
+        display: block;
+        color: rgba(var(--bs-secondary-rgb), 0.92);
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    /* 8. Responsive (Móviles y Tablets) */
+    @media (max-width: 991.98px) {
+        .testimonials-masonry-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        /* Reacomodamos para tablet */
+        .testimonial-masonry-image--a { grid-column: 1; grid-row: 1; }
+        .testimonial-masonry-text--a { grid-column: 1; grid-row: 2; }
+        .testimonial-masonry-text--b { grid-column: 2; grid-row: 1; }
+        .testimonial-masonry-text--c { grid-column: 2; grid-row: 2; }
+        .testimonial-masonry-text--d { grid-column: 1; grid-row: 3; }
+        .testimonial-masonry-image--b { grid-column: 2; grid-row: 3; }
+    }
+
+    @media (max-width: 767.98px) {
+        .testimonials-masonry-grid {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+        .testimonial-masonry-card {
+            grid-column: 1 !important;
+            grid-row: auto !important;
+            transform: rotate(0) !important; /* Quitamos la rotación en móvil para facilitar la lectura */
+            border-radius: 16px;
+        }
+    }
+</style>
+
+    <section class="testimonials-masonry-section py-5">
+        <div class="container py-lg-5 testimonials-masonry-shell">
+            <div class="testimonials-masonry-head" data-aos="fade-up">
+                <span class="testimonials-masonry-tag">Testimonios</span>
+                <h2 class="testimonials-masonry-heading fw-bold mb-3">Historias reales en un mosaico editorial</h2>
+                <p class="testimonials-masonry-lead mb-0">La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.</p>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
-                        <p class="fst-italic text-secondary mb-4">"Una experiencia sagrada de principio a fin. Los guías hablan un portugués perfecto y nos hicieron sentir la verdadera energía de Machu Picchu. ¡Recomendado al 100%!"</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold" style="width: 45px; height: 45px;">CM</div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Carlos M.</h6>
-                                <span class="text-muted" style="font-size: 0.8rem;">São Paulo, Brasil</span>
-                            </div>
+            <div class="testimonials-masonry-grid">
+                <article class="testimonial-masonry-card testimonial-masonry-text testimonial-masonry-text--a" data-aos="fade-up">
+                    <div class="testimonial-masonry-top">
+                        <span class="testimonial-masonry-quote" aria-hidden="true">
+                            <i class="bi bi-quote"></i>
+                        </span>
+                        <div class="testimonial-masonry-stars" aria-label="Cinco estrellas">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
-                        <p class="fst-italic text-secondary mb-4">"Tomamos el tour místico con el chamán andino y fue transformador. La logística fue impecable, no tuvimos que preocuparnos por nada, solo disfrutar."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold" style="width: 45px; height: 45px;">AR</div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Ana y Roberto</h6>
-                                <span class="text-muted" style="font-size: 0.8rem;">Bogotá, Colombia</span>
-                            </div>
+
+                    <div class="testimonial-masonry-body">
+                        <span class="testimonial-masonry-label">Reseña destacada</span>
+                        <blockquote>“La experiencia se sintió cuidada desde el primer mensaje. Todo tuvo un ritmo tranquilo, elegante y perfectamente coordinado para que solo pensáramos en disfrutar.”</blockquote>
+                    </div>
+
+                    <div class="testimonial-masonry-footer">
+                        <span class="testimonial-masonry-avatar" aria-hidden="true"></span>
+                        <div class="testimonial-masonry-author">
+                            <strong>Lucía Mendoza</strong>
+                            <span>Lima, Perú · Ruta premium</span>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="p-4 bg-light rounded-0 h-100 border-top border-warning border-4 shadow-sm">
-                        <p class="fst-italic text-secondary mb-4">"El equipo de Viagens Machupicchu Brasil cuidó cada detalle. Desde que llegamos a Cusco nos sentimos en casa. Las cuatrimotos en Maras fueron lo mejor."</p>
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold" style="width: 45px; height: 45px;">JL</div>
-                            <div>
-                                <h6 class="fw-bold mb-0">Juliana L.</h6>
-                                <span class="text-muted" style="font-size: 0.8rem;">Río de Janeiro, Brasil</span>
-                            </div>
+                </article>
+
+                <article class="testimonial-masonry-card testimonial-masonry-image testimonial-masonry-image--a" data-aos="fade-up" data-aos-delay="100">
+                    <figure class="testimonial-masonry-figure">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-1.webp" alt="Pareja viajando en Cusco" loading="lazy">
+                        <figcaption class="testimonial-masonry-caption">Imagen 01</figcaption>
+                    </figure>
+                </article>
+
+                <article class="testimonial-masonry-card testimonial-masonry-text testimonial-masonry-text--b" data-aos="fade-up" data-aos-delay="150">
+                    <div class="testimonial-masonry-top">
+                        <span class="testimonial-masonry-quote" aria-hidden="true">
+                            <i class="bi bi-quote"></i>
+                        </span>
+                        <div class="testimonial-masonry-stars" aria-label="Cinco estrellas">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
                         </div>
                     </div>
-                </div>
+
+                    <div class="testimonial-masonry-body">
+                        <span class="testimonial-masonry-label">Servicio</span>
+                        <blockquote>“Todo llegó claro y a tiempo. Nos sentimos acompañados de verdad, no dentro de un proceso frío.”</blockquote>
+                    </div>
+
+                    <div class="testimonial-masonry-footer">
+                        <span class="testimonial-masonry-avatar" aria-hidden="true"></span>
+                        <div class="testimonial-masonry-author">
+                            <strong>Renata Vieira</strong>
+                            <span>Curitiba, Brasil</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-masonry-card testimonial-masonry-text testimonial-masonry-text--c" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-masonry-top">
+                        <span class="testimonial-masonry-quote" aria-hidden="true">
+                            <i class="bi bi-quote"></i>
+                        </span>
+                        <div class="testimonial-masonry-stars" aria-label="Cinco estrellas">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-masonry-body">
+                        <span class="testimonial-masonry-label">Experiencia</span>
+                        <blockquote>“El amanecer en Machu Picchu fue inolvidable y la logística permitió vivirlo sin estrés. Todo fluyó con naturalidad y muchísima sensibilidad.”</blockquote>
+                    </div>
+
+                    <div class="testimonial-masonry-footer">
+                        <span class="testimonial-masonry-avatar" aria-hidden="true"></span>
+                        <div class="testimonial-masonry-author">
+                            <strong>Daniel Torres</strong>
+                            <span>Quito, Ecuador</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-masonry-card testimonial-masonry-text testimonial-masonry-text--d" data-aos="fade-up" data-aos-delay="250">
+                    <div class="testimonial-masonry-top">
+                        <span class="testimonial-masonry-quote" aria-hidden="true">
+                            <i class="bi bi-quote"></i>
+                        </span>
+                        <div class="testimonial-masonry-stars" aria-label="Cinco estrellas">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-masonry-body">
+                        <span class="testimonial-masonry-label">Logística</span>
+                        <blockquote>“Las conexiones, entradas y tiempos salieron perfectos. Solo tuvimos que dejarnos llevar por el viaje.”</blockquote>
+                    </div>
+
+                    <div class="testimonial-masonry-footer">
+                        <span class="testimonial-masonry-avatar" aria-hidden="true"></span>
+                        <div class="testimonial-masonry-author">
+                            <strong>María Salazar</strong>
+                            <span>Bogotá, Colombia</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-masonry-card testimonial-masonry-image testimonial-masonry-image--b" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="testimonial-masonry-figure">
+                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-3.webp" alt="Vista de experiencia en Machu Picchu" loading="lazy">
+                        <figcaption class="testimonial-masonry-caption">Imagen 02</figcaption>
+                    </figure>
+                </article>
             </div>
         </div>
     </section>

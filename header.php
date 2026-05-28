@@ -21,23 +21,17 @@
                 <!-- GRUPO IZQUIERDO: Logo + Menú -->
                 <div class="d-flex align-items-center">
                     <!-- Logo Left -->
+                <?php
+                if (has_custom_logo()) {
+                    the_custom_logo();
+                } else {
+                    ?>
                     <a class="navbar-brand me-2 me-lg-4" href="<?php echo esc_url(home_url('/')); ?>">
-                        <?php
-                        if (has_custom_logo()) {
-                            $custom_logo_id = get_theme_mod('custom_logo');
-                            $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-                            // Ensure we actually got an image back
-                            if ($logo) {
-                                echo '<img src="' . esc_url($logo[0]) . '" alt="Viagens Machupicchu" class="header-logo transition-all" style="max-height: 50px; width: auto;">';
-                            } else {
-                                // Fallback if ID exists but image doesn't load
-                                echo '<h1 class="m-0 fs-3 fw-bold text-primary header-logo-text transition-all" style="font-family: \'Yanone Kaffeesatz\', sans-serif; letter-spacing: 1px;">Viagens Machupicchu</h1>';
-                            }
-                        } else {
-                            echo '<h1 class="m-0 fs-3 fw-bold text-primary header-logo-text transition-all" style="font-family: \'Yanone Kaffeesatz\', sans-serif; letter-spacing: 1px;">Viagens Machupicchu</h1>';
-                        }
-                        ?>
+                        <h1 class="m-0 fs-3 fw-bold text-primary header-logo-text transition-all">Viagens Machupicchu</h1>
                     </a>
+                    <?php
+                }
+                ?>
 
                     <!-- Toggler Mobile -->
                     <button class="navbar-toggler border-0 focus-ring focus-ring-light p-0 d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">

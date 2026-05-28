@@ -21,6 +21,14 @@ function viagens_theme_setup()
     // Enable support for Post Thumbnails.
     add_theme_support('post-thumbnails');
 
+    // Enable support for Custom Logo.
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+
     // Registrar el menú de navegación para el Header
     register_nav_menus(array(
         'primary' => __('Menú Principal', 'viagens-theme'),
@@ -160,3 +168,24 @@ add_action('init', 'viagens_register_cpts_and_taxonomies', 0);
 
 // Incluir el Meta Box
 require_once get_template_directory() . '/inc/itinerary-meta-box.php';
+
+// -------------------------------------------------------------------------
+// Modificar salida del Custom Logo
+// -------------------------------------------------------------------------
+function viagens_custom_logo_output($html, $logo_id)
+{
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+    if ($image) {
+        $html = sprintf(
+            '<a href="%1$s" class="navbar-brand me-2 me-lg-4" rel="home">
+                <img src="%2$s" class="header-logo transition-all" alt="%3$s">
+            </a>',
+            esc_url(home_url('/')),
+            esc_url($image[0]),
+            esc_attr(get_bloginfo('name'))
+        );
+    }
+    return $html;
+}
+add_filter('get_custom_logo', 'viagens_custom_logo_output', 10, 2);
