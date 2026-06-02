@@ -6,7 +6,10 @@
  * @package viagens-theme
  */
 
-get_header(); ?>
+get_header();
+
+$contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+?>
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
@@ -920,7 +923,7 @@ get_header(); ?>
     .testimonials-masonry-section {
         position: relative;
         overflow: hidden;
-        background: rgba(var(--bs-info-rgb), 0.42);
+        background: #ffffff;
     }
 
     .testimonials-masonry-shell {
@@ -986,8 +989,23 @@ get_header(); ?>
         flex-direction: column;
         gap: 1.25rem;
         padding: 2rem 1.8rem;
-        background: rgba(255, 255, 255, 0.92);
-        border: none;
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.08);
+    }
+
+    .testimonial-masonry-text--a {
+        background: #f3f8f5;
+    }
+
+    .testimonial-masonry-text--b {
+        background: #eef4fb;
+    }
+
+    .testimonial-masonry-text--c {
+        background: #f8f6ea;
+    }
+
+    .testimonial-masonry-text--d {
+        background: #f2f7f1;
     }
 
     /* 4. Asignación de posiciones e inclinaciones (Rotaciones) */
@@ -1076,7 +1094,7 @@ get_header(); ?>
 
     .testimonial-masonry-body blockquote {
         margin: 0;
-        color: rgba(var(--bs-primary-rgb), 0.82);
+        color: rgba(var(--bs-primary-rgb), 0.84);
         font-size: 1rem;
         line-height: 1.7;
     }
@@ -1111,7 +1129,7 @@ get_header(); ?>
 
     .testimonial-masonry-author span {
         display: block;
-        color: rgba(var(--bs-secondary-rgb), 0.92);
+        color: rgba(var(--bs-primary-rgb), 0.7);
         font-size: 0.8rem;
         margin-top: 0.2rem;
     }
@@ -1282,48 +1300,100 @@ get_header(); ?>
         </div>
     </section>
 
-    <section id="circuitos-machupicchu" class="py-5 bg-light" style="scroll-margin-top: 100px;">
-        <div class="container py-lg-4">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <span class="badge bg-primary rounded-0 px-3 py-2 mb-3 text-uppercase">Información Útil</span>
-                    <h2 class="display-6 fw-bold text-dark mb-4">Conoce los Circuitos de la Ciudadela</h2>
-                    <p class="text-secondary mb-4">Para proteger la maravilla del mundo, el Ministerio de Cultura ha establecido circuitos específicos. Como operadores locales, te asesoramos para elegir el ideal para ti.</p>
+    <section id="formulario-contacto-directo" class="contact-direct-section py-5" style="--contact-section-bg: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/seccion-fondo.webp');">
+        <!-- INYECCIÓN HTML: Shape Divider Superior (Mancha Blanca) -->
+        <div class="shape-divider-top">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/svg/cabecera-seccion.svg" alt="" aria-hidden="true">
+        </div>
 
-                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-                        <li class="d-flex gap-3 align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary fs-5 mt-1"></i>
-                            <div>
-                                <h6 class="fw-bold mb-1">Circuito 1 y 2 (Panorámicos y Clásicos)</h6>
-                                <p class="text-secondary mb-0" style="font-size: 0.9rem;">Ideales para la clásica foto de postal desde la Casa del Guardián y un recorrido completo por la zona urbana.</p>
+        <div class="container py-lg-5">
+            <div class="contact-direct-shell row g-0 align-items-stretch overflow-hidden shadow-sm">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-direct-visual">
+                        <div class="contact-direct-visual-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-2.webp');"></div>
+                        <div class="contact-direct-visual-overlay"></div>
+
+                        <div class="contact-direct-visual-content">
+                            <span class="contact-direct-kicker">Asesoría personalizada</span>
+                            <h2 class="contact-direct-visual-title">Viajes diseñados contigo, desde el primer mensaje.</h2>
+                            <p class="contact-direct-visual-text">Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.</p>
+
+                            <div class="contact-direct-highlight">
+                                <strong>+10 años</strong>
+                                <span>acompañando experiencias a medida</span>
                             </div>
-                        </li>
-                        <li class="d-flex gap-3 align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary fs-5 mt-1"></i>
-                            <div>
-                                <h6 class="fw-bold mb-1">Circuito 3 (Realeza y Huayna Picchu)</h6>
-                                <p class="text-secondary mb-0" style="font-size: 0.9rem;">Recorre la parte baja, el Templo del Sol y conecta con las montañas sagradas si tienes el ticket adicional.</p>
-                            </div>
-                        </li>
-                    </ul>
+
+                            <ul class="contact-direct-points list-unstyled mb-0">
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Atención directa por WhatsApp y correo.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Recomendaciones según fechas, ritmo y presupuesto.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Respuesta desde Cusco con enfoque local.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <video autoplay loop muted playsinline class="w-100 shadow rounded-0" style="object-fit: cover;">
-                        <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/video/circuitos.mp4" type="video/mp4">
-                        Tu navegador no soporta la etiqueta de video.
-                    </video>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-direct-form-panel">
+                        <span class="contact-direct-form-badge">Formulario directo</span>
+                        <h2 class="contact-direct-form-title mb-3">¿Listo para vivir la mejor experiencia?</h2>
+                        <p class="contact-direct-form-description mb-4">Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.</p>
+
+                        <?php if ('success' === $contact_form_status) : ?>
+                            <div class="alert alert-success rounded-0 border-0 mb-4" role="alert">
+                                Recibimos tu solicitud correctamente. Te contactaremos muy pronto.
+                            </div>
+                        <?php elseif ('error' === $contact_form_status) : ?>
+                            <div class="alert alert-danger rounded-0 border-0 mb-4" role="alert">
+                                No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.
+                            </div>
+                        <?php elseif ('invalid' === $contact_form_status) : ?>
+                            <div class="alert alert-warning rounded-0 border-0 mb-4" role="alert">
+                                Revisa los campos obligatorios e intenta nuevamente.
+                            </div>
+                        <?php endif; ?>
+
+                        <form class="contact-direct-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                            <input type="hidden" name="action" value="viagens_contact_direct_form">
+                            <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#formulario-contacto-directo')); ?>">
+                            <?php wp_nonce_field('viagens_contact_direct_form_action', 'viagens_contact_direct_nonce'); ?>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="contact-nombre" class="form-label">Nombre</label>
+                                    <input id="contact-nombre" name="nombre" type="text" class="form-control form-control-lg rounded-0" placeholder="Tu nombre completo" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contact-email" class="form-label">Email</label>
+                                    <input id="contact-email" name="email" type="email" class="form-control form-control-lg rounded-0" placeholder="Tu correo electronico" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="contact-whatsapp" class="form-label">WhatsApp</label>
+                                    <input id="contact-whatsapp" name="whatsapp" type="tel" class="form-control form-control-lg rounded-0" placeholder="Tu numero de WhatsApp" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="contact-mensaje" class="form-label">Mensaje</label>
+                                    <textarea id="contact-mensaje" name="mensaje" class="form-control rounded-0" rows="5" placeholder="Cuentanos tus preferencias de viaje" required></textarea>
+                                </div>
+                                <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-2">
+                                    <p class="contact-direct-form-note mb-0">Te responderemos usando los datos que nos compartas en este formulario.</p>
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-0 px-4 fw-bold">
+                                        Enviar solicitud de asesoria
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="py-5 bg-primary text-center text-white" data-aos="zoom-in" data-aos-duration="800">
-        <div class="container py-3">
-            <h2 class="fw-bold mb-3 display-6">¿Listo para vivir la mejor Experiencia?</h2>
-            <p class="lead mb-4" style="opacity: 0.9;">Habla directamente con nuestros expertos locales en Cusco y personaliza tu itinerario hoy mismo.</p>
-            <a href="https://wa.me/51990725647" target="_blank" class="btn btn-light btn-lg rounded-0 px-5 fw-bold text-primary shadow-sm">
-                <i class="bi bi-whatsapp me-2 text-success"></i> Escríbenos por WhatsApp
-            </a>
         </div>
     </section>
 

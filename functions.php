@@ -189,3 +189,59 @@ function viagens_custom_logo_output($html, $logo_id)
     return $html;
 }
 add_filter('get_custom_logo', 'viagens_custom_logo_output', 10, 2);
+
+// -------------------------------------------------------------------------
+// Formulario de contacto directo
+// -------------------------------------------------------------------------
+function viagens_handle_contact_direct_form()
+{
+    $redirect_to = home_url('/#formulario-contacto-directo');
+
+    if (isset($_POST['redirect_to'])) {
+        $redirect_to = esc_url_raw(wp_unslash($_POST['redirect_to']));
+    }
+
+    if (
+        ! isset($_POST['viagens_contact_direct_nonce']) ||
+        ! wp_verify_nonce(wp_unslash($_POST['viagens_contact_direct_nonce']), 'viagens_contact_direct_form_action')
+    ) {
+        wp_safe_redirect(add_query_arg('contact_status', 'invalid', $redirect_to));
+        exit;
+    }
+
+    $nombre = isset($_POST['nombre']) ? sanitize_text_field(wp_unslash($_POST['nombre'])) : '';
+    $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+    $whatsapp = isset($_POST['whatsapp']) ? sanitize_text_field(wp_unslash($_POST['whatsapp'])) : '';
+    $mensaje = isset($_POST['mensaje']) ? sanitize_textarea_field(wp_unslash($_POST['mensaje'])) : '';
+
+    if (empty($nombre) || empty($email) || empty($whatsapp) || empty($mensaje) || ! is_email($email)) {
+        wp_safe_redirect(add_query_arg('contact_status', 'invalid', $redirect_to));
+        exit;
+    }
+
+    $to = get_option('admin_email');
+    $subject = sprintf('Nueva solicitud de asesoria - %s', get_bloginfo('name'));
+
+    $body_lines = array(
+        'Has recibido una nueva solicitud de asesoria desde la pagina de inicio.',
+        '',
+        'Nombre: ' . $nombre,
+        'Email: ' . $email,
+        'WhatsApp: ' . $whatsapp,
+        '',
+        'Mensaje:',
+        $mensaje,
+    );
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $nombre . ' <' . $email . '>',
+    );
+
+    $sent = wp_mail($to, $subject, implode("\n", $body_lines), $headers);
+
+    wp_safe_redirect(add_query_arg('contact_status', $sent ? 'success' : 'error', $redirect_to));
+    exit;
+}
+add_action('admin_post_nopriv_viagens_contact_direct_form', 'viagens_handle_contact_direct_form');
+add_action('admin_post_viagens_contact_direct_form', 'viagens_handle_contact_direct_form');

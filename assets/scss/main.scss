@@ -208,10 +208,20 @@ $border-radius-pill: 0;
     background-color: #fff;
 }
 
-/* Logo Styles */
-.header-logo {
-    max-height: 50px;
+.site-header .navbar-brand,
+.site-header .custom-logo-link {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.header-logo,
+.custom-logo {
+    display: block;
     width: auto;
+    max-width: 100%;
+    max-height: 72px;
+    height: auto;
 }
 
 .header-logo-text {
@@ -309,6 +319,272 @@ $border-radius-pill: 0;
 .hover-lift:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- CONTACTO DIRECTO HOME --- */
+.contact-direct-section {
+    // margin-top: 10px;
+    // position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-top: clamp(7rem, 11vw, 9rem) !important;
+    padding-bottom: clamp(4rem, 7vw, 6rem) !important;
+    background-color: #122019;
+    background-image: var(--contact-section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-direct-section::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+/* --- INYECCIÓN HTML SHAPE DIVIDER --- */
+.shape-divider-top {
+    position: absolute;
+    top: -1px; /* Evitar líneas finas por anti-aliasing */
+    left: 0;
+    width: 100%;
+    height: clamp(60px, 8vw, 120px);
+    z-index: 10;
+    pointer-events: none;
+    transform: none; /* Voltea la faja para que el borde liso quede arriba y el rasgado apunte hacia abajo */
+}
+
+.shape-divider-top img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* o 'fill' dependiendo de cómo esté diseñado el SVG, cover suele funcionar bien */
+    object-position: bottom center; /* Enfoca la parte inferior del SVG donde está el color */
+}
+
+.contact-direct-section::after {
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(180deg, rgba(7, 17, 13, 0.82) 0%, rgba(7, 17, 13, 0.68) 34%, rgba(7, 17, 13, 0.9) 100%),
+        radial-gradient(circle at 12% 34%, rgba($starship, 0.22) 0%, rgba($starship, 0) 24%),
+        radial-gradient(circle at 82% 22%, rgba($solitude, 0.2) 0%, rgba($solitude, 0) 20%);
+}
+
+.contact-direct-shell {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    backdrop-filter: none;
+}
+
+.contact-direct-visual {
+    position: relative;
+    min-height: 100%;
+    padding: clamp(2rem, 3vw, 3rem);
+    overflow: hidden;
+    color: #ffffff;
+    background: transparent;
+}
+
+.contact-direct-visual-bg,
+.contact-direct-visual-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.contact-direct-visual-bg {
+    display: none;
+}
+
+.contact-direct-visual-overlay {
+    background:
+        linear-gradient(180deg, rgba(7, 25, 19, 0.12) 0%, rgba(7, 25, 19, 0.52) 100%),
+        linear-gradient(135deg, rgba(37, 115, 78, 0.08) 0%, rgba(37, 115, 78, 0.34) 100%);
+}
+
+.contact-direct-visual-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100%;
+}
+
+.contact-direct-kicker,
+.contact-direct-form-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-direct-kicker {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.contact-direct-visual-title,
+.contact-direct-form-title {
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.contact-direct-visual-title {
+    max-width: 11ch;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 1.55rem + 1.3vw, 3.1rem);
+}
+
+.contact-direct-visual-text {
+    max-width: 34ch;
+    margin-bottom: 1.75rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.contact-direct-highlight {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: fit-content;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid $starship;
+    backdrop-filter: none;
+}
+
+.contact-direct-highlight strong {
+    font-size: clamp(1.5rem, 1.1rem + 0.8vw, 2.15rem);
+    line-height: 1;
+}
+
+.contact-direct-highlight span {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.92rem;
+}
+
+.contact-direct-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.contact-direct-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.contact-direct-points i {
+    color: $starship;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+.contact-direct-form-panel {
+    height: 100%;
+    padding: clamp(2rem, 3vw, 3rem);
+    background: transparent;
+}
+
+.contact-direct-form-badge {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.contact-direct-form-title {
+    color: #ffffff;
+    font-size: clamp(2rem, 1.45rem + 1.1vw, 3rem);
+}
+
+.contact-direct-form-description {
+    max-width: 52ch;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.75;
+}
+
+.contact-direct-form .form-label {
+    margin-bottom: 0.45rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.contact-direct-form .form-control {
+    min-height: 58px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #1f2e28;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: none;
+}
+
+.contact-direct-form textarea.form-control {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.contact-direct-form .form-control::placeholder {
+    color: rgba(31, 46, 40, 0.48);
+}
+
+.contact-direct-form .form-control:focus {
+    border-color: rgba($amazon, 0.65);
+    box-shadow: 0 0 0 0.18rem rgba($amazon, 0.12);
+}
+
+.contact-direct-form-note {
+    max-width: 36ch;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 991.98px) {
+    .contact-direct-visual {
+        min-height: 520px;
+    }
+
+    .contact-direct-visual-title,
+    .contact-direct-visual-text,
+    .contact-direct-form-description,
+    .contact-direct-form-note {
+        max-width: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact-direct-visual,
+    .contact-direct-form-panel {
+        padding: 1.5rem;
+    }
+
+    .contact-direct-section {
+        padding-top: 4.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    .contact-direct-visual {
+        min-height: 460px;
+    }
+
+    .contact-direct-form .btn {
+        width: 100%;
+    }
 }
 
 /* --- PÁGINA ARCHIVE TOURS --- */
