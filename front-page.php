@@ -40,14 +40,14 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                     <div class="row w-100">
                                         <div class="col-md-10 col-lg-9 ps-md-5">
                                             <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
-                                                El viaje de<br>tus sueños
+                                                <?php if (function_exists('pll_e')) { pll_e('El viaje de'); } else { echo 'El viaje de'; } ?><br><?php if (function_exists('pll_e')) { pll_e('tus sueños'); } else { echo 'tus sueños'; } ?>
                                             </h1>
                                             <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
-                                                Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.
+                                                <?php if (function_exists('pll_e')) { pll_e('Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.'); } else { echo 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.'; } ?>
                                             </p>
                                             <div class="price-info text-white mt-4 hero-animated-element hero-price">
                                                 <div class="mb-1">
-                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Machu Picchu</span> 
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;"><?php if (function_exists('pll_e')) { pll_e('Machu Picchu'); } else { echo 'Machu Picchu'; } ?></span> 
                                                 </div>
                                             </div>
                                         </div>
@@ -64,14 +64,14 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                     <div class="row w-100">
                                         <div class="col-md-10 col-lg-9 ps-md-5">
                                             <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
-                                                Personaliza tu<br>Viaje
+                                                <?php if (function_exists('pll_e')) { pll_e('Personaliza tu'); } else { echo 'Personaliza tu'; } ?><br><?php if (function_exists('pll_e')) { pll_e('Viaje'); } else { echo 'Viaje'; } ?>
                                             </h1>
                                             <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
-                                                Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.
+                                                <?php if (function_exists('pll_e')) { pll_e('Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.'); } else { echo 'Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.'; } ?>
                                             </p>
                                             <div class="price-info text-white mt-4 hero-animated-element hero-price">
                                                 <div class="mb-1">
-                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Tours Tradicionales</span> 
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;"><?php if (function_exists('pll_e')) { pll_e('Tours Tradicionales'); } else { echo 'Tours Tradicionales'; } ?></span> 
                                                 </div>
                                             </div>
                                         </div>
@@ -88,14 +88,14 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                     <div class="row w-100">
                                         <div class="col-md-10 col-lg-9 ps-md-5">
                                             <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
-                                                Conexión<br>Mística
+                                                <?php if (function_exists('pll_e')) { pll_e('Conexión'); } else { echo 'Conexión'; } ?><br><?php if (function_exists('pll_e')) { pll_e('Mística'); } else { echo 'Mística'; } ?>
                                             </h1>
                                             <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
-                                                Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.
+                                                <?php if (function_exists('pll_e')) { pll_e('Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.'); } else { echo 'Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.'; } ?>
                                             </p>
                                             <div class="price-info text-white mt-4 hero-animated-element hero-price">
                                                 <div class="mb-1">
-                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Explora lo mejor del Perú</span> 
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;"><?php if (function_exists('pll_e')) { pll_e('Explora lo mejor del Perú'); } else { echo 'Explora lo mejor del Perú'; } ?></span> 
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);"></div>
                     <div class="position-absolute bottom-0 start-0 p-4 w-100 z-3" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="text-white fw-bold text-uppercase fs-4 mb-0 text-shadow-dark" style="line-height: 1.2;">
-                            Atención<br>Personalizada
+                            <?php if (function_exists('pll_e')) { pll_e('Atención'); } else { echo 'Atención'; } ?><br><?php if (function_exists('pll_e')) { pll_e('Personalizada'); } else { echo 'Personalizada'; } ?>
                         </h3>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);"></div>
                     <div class="position-absolute bottom-0 start-0 p-4 w-100 z-3" data-aos="fade-up" data-aos-delay="400">
                         <h3 class="text-white fw-bold text-uppercase fs-4 mb-0 text-shadow-dark" style="line-height: 1.2;">
-                            Asistencia 24 Horas<br>en todo momento
+                            <?php if (function_exists('pll_e')) { pll_e('Asistencia 24 Horas'); } else { echo 'Asistencia 24 Horas'; } ?><br><?php if (function_exists('pll_e')) { pll_e('en todo momento'); } else { echo 'en todo momento'; } ?>
                         </h3>
                     </div>
                 </div>

@@ -286,6 +286,28 @@ add_action( 'init', function() {
         pll_register_string( 'Formulario: Nueva solicitud', 'Has recibido una nueva solicitud de asesoria desde la pagina de inicio.', 'Formularios' );
         pll_register_string( 'Formulario: Nombre', 'Nombre:', 'Formularios' );
         pll_register_string( 'Formulario: Mensaje', 'Mensaje:', 'Formularios' );
+
+       // --- SECCIÓN HERO (Inicio) ---
+        pll_register_string( 'Hero: T1 P1', 'El viaje de', 'Inicio - Hero' );
+        pll_register_string( 'Hero: T1 P2', 'tus sueños', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Texto 1', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Tag 1', 'Machu Picchu', 'Inicio - Hero' );
+        
+        pll_register_string( 'Hero: T2 P1', 'Personaliza tu', 'Inicio - Hero' );
+        pll_register_string( 'Hero: T2 P2', 'Viaje', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Texto 2', 'Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Tag 2', 'Tours Tradicionales', 'Inicio - Hero' );
+        
+        pll_register_string( 'Hero: T3 P1', 'Conexión', 'Inicio - Hero' );
+        pll_register_string( 'Hero: T3 P2', 'Mística', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Texto 3', 'Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.', 'Inicio - Hero' );
+        pll_register_string( 'Hero: Tag 3', 'Explora lo mejor del Perú', 'Inicio - Hero' );
+        
+        pll_register_string( 'Hero: BD1 P1', 'Atención', 'Inicio - Hero' );
+        pll_register_string( 'Hero: BD1 P2', 'Personalizada', 'Inicio - Hero' );
+        
+        pll_register_string( 'Hero: BD2 P1', 'Asistencia 24 Horas', 'Inicio - Hero' );
+        pll_register_string( 'Hero: BD2 P2', 'en todo momento', 'Inicio - Hero' );
         
     }
 });
