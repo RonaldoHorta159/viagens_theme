@@ -758,27 +758,27 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                         <div class="contact-direct-visual-overlay"></div>
 
                         <div class="contact-direct-visual-content">
-                            <span class="contact-direct-kicker">Personaliza tu Viaje</span>
-                            <h2 class="contact-direct-visual-title">Viajes diseñados contigo, desde el primer mensaje.</h2>
-                            <p class="contact-direct-visual-text">Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.</p>
+                            <span class="contact-direct-kicker"><?php if (function_exists('pll_e')) { pll_e('Personaliza tu Viaje'); } else { echo 'Personaliza tu Viaje'; } ?></span>
+                            <h2 class="contact-direct-visual-title"><?php if (function_exists('pll_e')) { pll_e('Viajes diseñados contigo, desde el primer mensaje.'); } else { echo 'Viajes diseñados contigo, desde el primer mensaje.'; } ?></h2>
+                            <p class="contact-direct-visual-text"><?php if (function_exists('pll_e')) { pll_e('Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.'); } else { echo 'Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.'; } ?></p>
 
                             <div class="contact-direct-highlight">
-                                <strong>+10 años</strong>
-                                <span>acompañando experiencias a medida</span>
+                                <strong><?php if (function_exists('pll_e')) { pll_e('+10 años'); } else { echo '+10 años'; } ?></strong>
+                                <span><?php if (function_exists('pll_e')) { pll_e('acompañando experiencias a medida'); } else { echo 'acompañando experiencias a medida'; } ?></span>
                             </div>
 
                             <ul class="contact-direct-points list-unstyled mb-0">
                                 <li>
                                     <i class="bi bi-check-circle-fill"></i>
-                                    <span>Atención directa por WhatsApp y correo.</span>
+                                    <span><?php if (function_exists('pll_e')) { pll_e('Atención directa por WhatsApp y correo.'); } else { echo 'Atención directa por WhatsApp y correo.'; } ?></span>
                                 </li>
                                 <li>
                                     <i class="bi bi-check-circle-fill"></i>
-                                    <span>Recomendaciones según fechas, ritmo y presupuesto.</span>
+                                    <span><?php if (function_exists('pll_e')) { pll_e('Recomendaciones según fechas, ritmo y presupuesto.'); } else { echo 'Recomendaciones según fechas, ritmo y presupuesto.'; } ?></span>
                                 </li>
                                 <li>
                                     <i class="bi bi-check-circle-fill"></i>
-                                    <span>Respuesta desde Cusco con enfoque local.</span>
+                                    <span><?php if (function_exists('pll_e')) { pll_e('Respuesta desde Cusco con enfoque local.'); } else { echo 'Respuesta desde Cusco con enfoque local.'; } ?></span>
                                 </li>
                             </ul>
                         </div>
@@ -787,21 +787,21 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="contact-direct-form-panel">
-                        <span class="contact-direct-form-badge">Formulario directo</span>
-                        <h2 class="contact-direct-form-title mb-3">¿Listo para vivir la mejor experiencia?</h2>
-                        <p class="contact-direct-form-description mb-4">Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.</p>
+                        <span class="contact-direct-form-badge"><?php if (function_exists('pll_e')) { pll_e('Formulario directo'); } else { echo 'Formulario directo'; } ?></span>
+                        <h2 class="contact-direct-form-title mb-3"><?php if (function_exists('pll_e')) { pll_e('¿Listo para vivir la mejor experiencia?'); } else { echo '¿Listo para vivir la mejor experiencia?'; } ?></h2>
+                        <p class="contact-direct-form-description mb-4"><?php if (function_exists('pll_e')) { pll_e('Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.'); } else { echo 'Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.'; } ?></p>
 
                         <?php if ('success' === $contact_form_status) : ?>
                             <div class="alert alert-success rounded-0 border-0 mb-4" role="alert">
-                                Recibimos tu solicitud correctamente. Te contactaremos muy pronto.
+                                <?php if (function_exists('pll_e')) { pll_e('Recibimos tu solicitud correctamente. Te contactaremos muy pronto.'); } else { echo 'Recibimos tu solicitud correctamente. Te contactaremos muy pronto.'; } ?>
                             </div>
                         <?php elseif ('error' === $contact_form_status) : ?>
                             <div class="alert alert-danger rounded-0 border-0 mb-4" role="alert">
-                                No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.
+                                <?php if (function_exists('pll_e')) { pll_e('No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.'); } else { echo 'No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.'; } ?>
                             </div>
                         <?php elseif ('invalid' === $contact_form_status) : ?>
                             <div class="alert alert-warning rounded-0 border-0 mb-4" role="alert">
-                                Revisa los campos obligatorios e intenta nuevamente.
+                                <?php if (function_exists('pll_e')) { pll_e('Revisa los campos obligatorios e intenta nuevamente.'); } else { echo 'Revisa los campos obligatorios e intenta nuevamente.'; } ?>
                             </div>
                         <?php endif; ?>
 
@@ -812,25 +812,25 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="contact-nombre" class="form-label">Nombre</label>
-                                    <input id="contact-nombre" name="nombre" type="text" class="form-control form-control-lg rounded-0" placeholder="Tu nombre completo" required>
+                                    <label for="contact-nombre" class="form-label"><?php if (function_exists('pll_e')) { pll_e('Nombre'); } else { echo 'Nombre'; } ?></label>
+                                    <input id="contact-nombre" name="nombre" type="text" class="form-control form-control-lg rounded-0" placeholder="<?php if (function_exists('pll_e')) { pll_e('Tu nombre completo'); } else { echo 'Tu nombre completo'; } ?>" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="contact-email" class="form-label">Email</label>
-                                    <input id="contact-email" name="email" type="email" class="form-control form-control-lg rounded-0" placeholder="Tu correo electronico" required>
+                                    <label for="contact-email" class="form-label"><?php if (function_exists('pll_e')) { pll_e('Email'); } else { echo 'Email'; } ?></label>
+                                    <input id="contact-email" name="email" type="email" class="form-control form-control-lg rounded-0" placeholder="<?php if (function_exists('pll_e')) { pll_e('Tu correo electronico'); } else { echo 'Tu correo electronico'; } ?>" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="contact-whatsapp" class="form-label">WhatsApp</label>
-                                    <input id="contact-whatsapp" name="whatsapp" type="tel" class="form-control form-control-lg rounded-0" placeholder="Tu numero de WhatsApp" required>
+                                    <label for="contact-whatsapp" class="form-label"><?php if (function_exists('pll_e')) { pll_e('WhatsApp'); } else { echo 'WhatsApp'; } ?></label>
+                                    <input id="contact-whatsapp" name="whatsapp" type="tel" class="form-control form-control-lg rounded-0" placeholder="<?php if (function_exists('pll_e')) { pll_e('Tu numero de WhatsApp'); } else { echo 'Tu numero de WhatsApp'; } ?>" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="contact-mensaje" class="form-label">Mensaje</label>
-                                    <textarea id="contact-mensaje" name="mensaje" class="form-control rounded-0" rows="5" placeholder="Cuentanos tus preferencias de viaje" required></textarea>
+                                    <label for="contact-mensaje" class="form-label"><?php if (function_exists('pll_e')) { pll_e('Mensaje'); } else { echo 'Mensaje'; } ?></label>
+                                    <textarea id="contact-mensaje" name="mensaje" class="form-control rounded-0" rows="5" placeholder="<?php if (function_exists('pll_e')) { pll_e('Cuentanos tus preferencias de viaje'); } else { echo 'Cuentanos tus preferencias de viaje'; } ?>" required></textarea>
                                 </div>
                                 <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-2">
-                                    <p class="contact-direct-form-note mb-0">Te responderemos usando los datos que nos compartas en este formulario.</p>
+                                    <p class="contact-direct-form-note mb-0"><?php if (function_exists('pll_e')) { pll_e('Te responderemos usando los datos que nos compartas en este formulario.'); } else { echo 'Te responderemos usando los datos que nos compartas en este formulario.'; } ?></p>
                                     <button type="submit" class="btn btn-primary btn-lg rounded-0 px-4 fw-bold">
-                                        Enviar solicitud de asesoria
+                                        <?php if (function_exists('pll_e')) { pll_e('Enviar solicitud de asesoria'); } else { echo 'Enviar solicitud de asesoria'; } ?>
                                     </button>
                                 </div>
                             </div>
@@ -848,11 +848,11 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 
             <div class="d-flex flex-wrap justify-content-between align-items-end mb-5" data-aos="fade-up">
                 <div>
-                    <h2 class="display-6 fw-bold text-primary mb-2">Paquetes Más Vendidos</h2>
-                    <p class="lead text-secondary mb-0">Itinerarios diseñados para vivir la verdadera esencia andina.</p>
+                    <h2 class="display-6 fw-bold text-primary mb-2"><?php if (function_exists('pll_e')) { pll_e('Paquetes Más Vendidos'); } else { echo 'Paquetes Más Vendidos'; } ?></h2>
+                    <p class="lead text-secondary mb-0"><?php if (function_exists('pll_e')) { pll_e('Itinerarios diseñados para vivir la verdadera esencia andina.'); } else { echo 'Itinerarios diseñados para vivir la verdadera esencia andina.'; } ?></p>
                 </div>
                 <div class="mt-3 mt-md-0">
-                    <a href="<?php echo esc_url(home_url('/tours')); ?>" class="btn btn-outline-primary rounded-0 px-4 fw-bold border-2">Ver todos los tours <i class="bi bi-arrow-right ms-1"></i></a>
+                    <a href="<?php echo esc_url(home_url('/tours')); ?>" class="btn btn-outline-primary rounded-0 px-4 fw-bold border-2"><?php if (function_exists('pll_e')) { pll_e('Ver todos los tours'); } else { echo 'Ver todos los tours'; } ?> <i class="bi bi-arrow-right ms-1"></i></a>
                 </div>
             </div>
 
@@ -897,7 +897,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                         <?php if ($days) : ?>
                                             <span class="badge bg-primary rounded-0 text-white shadow-sm px-2 py-2" style="font-size: 0.8rem;">
                                                 <i class="bi bi-clock-fill me-1 text-warning"></i>
-                                                <?php echo esc_html($days); ?> Días <?php echo $nights ? ' / ' . esc_html($nights) . ' Noches' : ''; ?>
+                                                <?php echo esc_html($days); ?> <?php if (function_exists('pll_e')) { pll_e('Días'); } else { echo 'Días'; } ?> <?php if ($nights) { echo ' / ' . esc_html($nights) . ' '; if (function_exists('pll_e')) { pll_e('Noches'); } else { echo 'Noches'; } } ?>
                                             </span>
                                         <?php endif; ?>
 
@@ -916,7 +916,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                         </p>
 
                                         <div class="d-flex align-items-center text-white mt-2" style="font-size: 0.85rem;">
-                                            <span class="fw-bold text-warning me-2 text-uppercase" style="letter-spacing: 1px;">Explorar Tour</span>
+                                            <span class="fw-bold text-warning me-2 text-uppercase" style="letter-spacing: 1px;"><?php if (function_exists('pll_e')) { pll_e('Explorar Tour'); } else { echo 'Explorar Tour'; } ?></span>
                                             <i class="bi bi-arrow-right text-warning fs-5"></i>
                                         </div>
                                     </div>
@@ -934,8 +934,8 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     <div class="col-12 text-center py-5" data-aos="fade-in">
                         <div class="p-5 bg-light rounded-0 border">
                             <i class="bi bi-journal-x text-secondary fs-1 mb-3"></i>
-                            <h4 class="fw-bold text-secondary">Aún no hay paquetes disponibles</h4>
-                            <p class="text-muted">Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.</p>
+                            <h4 class="fw-bold text-secondary"><?php if (function_exists('pll_e')) { pll_e('Aún no hay paquetes disponibles'); } else { echo 'Aún no hay paquetes disponibles'; } ?></h4>
+                            <p class="text-muted"><?php if (function_exists('pll_e')) { pll_e('Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.'); } else { echo 'Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.'; } ?></p>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -946,7 +946,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 
     <section class="py-4 bg-light border-top border-bottom" data-aos="fade-in" data-aos-duration="1000">
         <div class="container text-center">
-            <p class="text-uppercase fw-bold text-muted mb-4" style="letter-spacing: 2px; font-size: 0.8rem;">Nuestros Aliados Estratégicos</p>
+            <p class="text-uppercase fw-bold text-muted mb-4" style="letter-spacing: 2px; font-size: 0.8rem;"><?php if (function_exists('pll_e')) { pll_e('Nuestros Aliados Estratégicos'); } else { echo 'Nuestros Aliados Estratégicos'; } ?></p>
 
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-lg-5">
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo-mincetur.png" alt="Mincetur" style="height: 45px; width: auto; object-fit: contain;">
@@ -1208,9 +1208,9 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
     <section class="testimonials-masonry-section py-5">
         <div class="container py-lg-5 testimonials-masonry-shell">
             <div class="testimonials-masonry-head" data-aos="fade-up">
-                <span class="testimonials-masonry-tag">Testimonios</span>
-                <h2 class="testimonials-masonry-heading fw-bold mb-3">Historias reales en un mosaico editorial</h2>
-                <p class="testimonials-masonry-lead mb-0">La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.</p>
+                <span class="testimonials-masonry-tag"><?php if (function_exists('pll_e')) { pll_e('Testimonios'); } else { echo 'Testimonios'; } ?></span>
+                <h2 class="testimonials-masonry-heading fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Historias reales en un mosaico editorial'); } else { echo 'Historias reales en un mosaico editorial'; } ?></h2>
+                <p class="testimonials-masonry-lead mb-0"><?php if (function_exists('pll_e')) { pll_e('La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.'); } else { echo 'La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.'; } ?></p>
             </div>
 
             <div class="testimonials-masonry-grid">
@@ -1229,7 +1229,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     </div>
 
                     <div class="testimonial-masonry-body">
-                        <span class="testimonial-masonry-label">Reseña destacada</span>
+                        <span class="testimonial-masonry-label"><?php if (function_exists('pll_e')) { pll_e('Reseña destacada'); } else { echo 'Reseña destacada'; } ?></span>
                         <blockquote>“La experiencia se sintió cuidada desde el primer mensaje. Todo tuvo un ritmo tranquilo, elegante y perfectamente coordinado para que solo pensáramos en disfrutar.”</blockquote>
                     </div>
 
@@ -1245,7 +1245,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                 <article class="testimonial-masonry-card testimonial-masonry-image testimonial-masonry-image--a" data-aos="fade-up" data-aos-delay="100">
                     <figure class="testimonial-masonry-figure">
                         <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-1.webp" alt="Pareja viajando en Cusco" loading="lazy">
-                        <figcaption class="testimonial-masonry-caption">Imagen 01</figcaption>
+                        <figcaption class="testimonial-masonry-caption"><?php if (function_exists('pll_e')) { pll_e('Imagen 01'); } else { echo 'Imagen 01'; } ?></figcaption>
                     </figure>
                 </article>
 
@@ -1264,7 +1264,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     </div>
 
                     <div class="testimonial-masonry-body">
-                        <span class="testimonial-masonry-label">Servicio</span>
+                        <span class="testimonial-masonry-label"><?php if (function_exists('pll_e')) { pll_e('Servicio'); } else { echo 'Servicio'; } ?></span>
                         <blockquote>“Todo llegó claro y a tiempo. Nos sentimos acompañados de verdad, no dentro de un proceso frío.”</blockquote>
                     </div>
 
@@ -1292,7 +1292,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     </div>
 
                     <div class="testimonial-masonry-body">
-                        <span class="testimonial-masonry-label">Experiencia</span>
+                        <span class="testimonial-masonry-label"><?php if (function_exists('pll_e')) { pll_e('Experiencia'); } else { echo 'Experiencia'; } ?></span>
                         <blockquote>“El amanecer en Machu Picchu fue inolvidable y la logística permitió vivirlo sin estrés. Todo fluyó con naturalidad y muchísima sensibilidad.”</blockquote>
                     </div>
 
@@ -1320,7 +1320,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                     </div>
 
                     <div class="testimonial-masonry-body">
-                        <span class="testimonial-masonry-label">Logística</span>
+                        <span class="testimonial-masonry-label"><?php if (function_exists('pll_e')) { pll_e('Logística'); } else { echo 'Logística'; } ?></span>
                         <blockquote>“Las conexiones, entradas y tiempos salieron perfectos. Solo tuvimos que dejarnos llevar por el viaje.”</blockquote>
                     </div>
 
@@ -1336,7 +1336,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                 <article class="testimonial-masonry-card testimonial-masonry-image testimonial-masonry-image--b" data-aos="fade-up" data-aos-delay="300">
                     <figure class="testimonial-masonry-figure">
                         <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-3.webp" alt="Vista de experiencia en Machu Picchu" loading="lazy">
-                        <figcaption class="testimonial-masonry-caption">Imagen 02</figcaption>
+                        <figcaption class="testimonial-masonry-caption"><?php if (function_exists('pll_e')) { pll_e('Imagen 02'); } else { echo 'Imagen 02'; } ?></figcaption>
                     </figure>
                 </article>
             </div>
@@ -1346,39 +1346,39 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 <section class="trust-section">
         <div class="container">
             <div class="trust-intro text-center" data-aos="fade-up">
-                <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
+                <h2 class="display-6 fw-bold text-primary mb-3"><?php if (function_exists('pll_e')) { pll_e('¿Por qué viajar con nosotros?'); } else { echo '¿Por qué viajar con nosotros?'; } ?></h2>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="100">
                     <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-headset"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Asistencia 24 Horas</h4>
-                        <p class="mb-0">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
+                        <h4 class="fw-bold mb-3 fs-5"><?php if (function_exists('pll_e')) { pll_e('Asistencia 24 Horas'); } else { echo 'Asistencia 24 Horas'; } ?></h4>
+                        <p class="mb-0"><?php if (function_exists('pll_e')) { pll_e('Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.'); } else { echo 'Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.'; } ?></p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="200">
                     <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Atención Personalizada</h4>
-                        <p class="mb-0">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
+                        <h4 class="fw-bold mb-3 fs-5"><?php if (function_exists('pll_e')) { pll_e('Atención Personalizada'); } else { echo 'Atención Personalizada'; } ?></h4>
+                        <p class="mb-0"><?php if (function_exists('pll_e')) { pll_e('Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.'); } else { echo 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.'; } ?></p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="300">
                     <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-building-check"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Practicidad y Comodidad</h4>
-                        <p class="mb-0">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
+                        <h4 class="fw-bold mb-3 fs-5"><?php if (function_exists('pll_e')) { pll_e('Practicidad y Comodidad'); } else { echo 'Practicidad y Comodidad'; } ?></h4>
+                        <p class="mb-0"><?php if (function_exists('pll_e')) { pll_e('Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.'); } else { echo 'Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.'; } ?></p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="trust-card">
                         <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Dominio Cultural</h4>
-                        <p class="mb-0">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
+                        <h4 class="fw-bold mb-3 fs-5"><?php if (function_exists('pll_e')) { pll_e('Dominio Cultural'); } else { echo 'Dominio Cultural'; } ?></h4>
+                        <p class="mb-0"><?php if (function_exists('pll_e')) { pll_e('Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.'); } else { echo 'Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.'; } ?></p>
                     </div>
                 </div>
             </div>

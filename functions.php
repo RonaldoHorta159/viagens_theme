@@ -326,6 +326,99 @@ add_action( 'init', function() {
         pll_register_string( 'Exp: Card 4 Texto', 'Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.', 'Inicio - Experiencias' );
         
         pll_register_string( 'Exp: CTA Boton', 'Explorar', 'Inicio - Experiencias' );
+
+        // --- SECCIÓN FORMULARIO DE CONTACTO (Inicio) ---
         
+        // Lado Izquierdo (Textos visuales)
+        pll_register_string( 'Form: Kicker', 'Personaliza tu Viaje', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Titulo Visual', 'Viajes diseñados contigo, desde el primer mensaje.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Texto Visual', 'Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Highlight Num', '+10 años', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Highlight Text', 'acompañando experiencias a medida', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Punto 1', 'Atención directa por WhatsApp y correo.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Punto 2', 'Recomendaciones según fechas, ritmo y presupuesto.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Punto 3', 'Respuesta desde Cusco con enfoque local.', 'Inicio - Formulario' );
+
+        // Lado Derecho (Cabecera y Alertas)
+        pll_register_string( 'Form: Badge', 'Formulario directo', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Titulo Form', '¿Listo para vivir la mejor experiencia?', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Descripcion Form', 'Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Alerta Exito', 'Recibimos tu solicitud correctamente. Te contactaremos muy pronto.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Alerta Error', 'No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Alerta Invalido', 'Revisa los campos obligatorios e intenta nuevamente.', 'Inicio - Formulario' );
+        
+        // Lado Derecho (Labels y Placeholders de los campos)
+        pll_register_string( 'Form: Label Nombre', 'Nombre', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Place Nombre', 'Tu nombre completo', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Label Email', 'Email', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Place Email', 'Tu correo electronico', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Label WhatsApp', 'WhatsApp', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Place WhatsApp', 'Tu numero de WhatsApp', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Label Mensaje', 'Mensaje', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Place Mensaje', 'Cuentanos tus preferencias de viaje', 'Inicio - Formulario' );
+        
+        // Lado Derecho (Botón y nota)
+        pll_register_string( 'Form: Nota', 'Te responderemos usando los datos que nos compartas en este formulario.', 'Inicio - Formulario' );
+        pll_register_string( 'Form: Boton Enviar', 'Enviar solicitud de asesoria', 'Inicio - Formulario' );
+        
+        // --- SECCIÓN PAQUETES MÁS VENDIDOS (Inicio) ---
+        pll_register_string( 'Paquetes: Titulo', 'Paquetes Más Vendidos', 'Inicio - Paquetes' );
+        pll_register_string( 'Paquetes: Subtitulo', 'Itinerarios diseñados para vivir la verdadera esencia andina.', 'Inicio - Paquetes' );
+        pll_register_string( 'Paquetes: Boton Todos', 'Ver todos los tours', 'Inicio - Paquetes' );
+        
+        pll_register_string( 'Paquetes: Label Dias', 'Días', 'Inicio - Paquetes' );
+        pll_register_string( 'Paquetes: Label Noches', 'Noches', 'Inicio - Paquetes' );
+        pll_register_string( 'Paquetes: Boton Card', 'Explorar Tour', 'Inicio - Paquetes' );
+        
+        pll_register_string( 'Paquetes: Vacio Titulo', 'Aún no hay paquetes disponibles', 'Inicio - Paquetes' );
+        pll_register_string( 'Paquetes: Vacio Texto', 'Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.', 'Inicio - Paquetes' );
+
+        // --- SECCIÓN ALIADOS ESTRATÉGICOS (Inicio) ---
+        pll_register_string( 'Aliados: Titulo', 'Nuestros Aliados Estratégicos', 'Inicio - Aliados' );
+
+        // --- SECCIÓN TESTIMONIOS (Inicio) ---
+        pll_register_string( 'Testimonios: Tag', 'Testimonios', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Titulo', 'Historias reales en un mosaico editorial', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Lead', 'La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Label Destacada', 'Reseña destacada', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Label Servicio', 'Servicio', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Label Experiencia', 'Experiencia', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Label Logistica', 'Logística', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Imagen 01', 'Imagen 01', 'Inicio - Testimonios' );
+        pll_register_string( 'Testimonios: Imagen 02', 'Imagen 02', 'Inicio - Testimonios' );
+
+        // --- SECCIÓN POR QUÉ VIAJAR CON NOSOTROS (Inicio) ---
+        pll_register_string( 'Confianza: Titulo Principal', '¿Por qué viajar con nosotros?', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Titulo 1', 'Asistencia 24 Horas', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Texto 1', 'Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Titulo 2', 'Atención Personalizada', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Texto 2', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Titulo 3', 'Practicidad y Comodidad', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Texto 3', 'Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Titulo 4', 'Dominio Cultural', 'Inicio - Confianza' );
+        pll_register_string( 'Confianza: Texto 4', 'Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.', 'Inicio - Confianza' );
+
+        // --- PIE DE PÁGINA (Footer) ---
+        pll_register_string( 'Footer: Descripcion', 'Operadores 100% locales en los Andes. Especialistas en el público brasilero e hispanohablante. Garantizamos experiencias inolvidables, auténticas y profundamente transformadoras.', 'Pie de Pagina' );
+        
+        pll_register_string( 'Footer: Titulo Enlaces', 'Enlaces Rápidos', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Inicio', 'Inicio', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Nosotros', 'Quiénes Somos', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Circuitos', 'Circuitos Machu Picchu', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Politicas', 'Políticas y Reservas', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Contacto', 'Contacto', 'Pie de Pagina' );
+        
+        pll_register_string( 'Footer: Titulo Contacto', 'Contáctanos', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Direccion P1', 'Calle Inka Simpa-L1', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Direccion P2', 'Machupicchu Pueblo, Cusco - Perú', 'Pie de Pagina' );
+        
+        pll_register_string( 'Footer: Titulo Newsletter', 'Suscríbete', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Texto Newsletter', 'Suscríbete a nuestro boletín para recibir actualizaciones rápidas y ofertas exclusivas.', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Label Newsletter', 'Tu Correo Electrónico', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Boton Newsletter', 'SUSCRIBIRSE', 'Pie de Pagina' );
+        
+        pll_register_string( 'Footer: Copyright', '© 2026 Viagens Machu Picchu Brasil. Todos los derechos reservados.', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Privacidad', 'Privacidad', 'Pie de Pagina' );
+        pll_register_string( 'Footer: Link Terminos', 'Términos y Condiciones', 'Pie de Pagina' );
     }
 });
