@@ -177,89 +177,89 @@ get_header();
 <div class="page-nosotros-wrapper">
 
     <section class="nosotros-hero">
-        <h1>Viagens Machupicchu Brasil</h1>
+        <h1><?php if (function_exists('pll_e')) { pll_e('Viagens Machupicchu Brasil'); } else { echo 'Viagens Machupicchu Brasil'; } ?></h1>
     </section>
 
     <section class="quienes-somos-content">
-        <h3 style="text-align: center; color: #2c3e50; margin-bottom: 25px; font-size: 1.8rem;">¿Quiénes Somos?</h3>
-        <p>Somos operadores de viajes y turismo 100% locales, originarios de Machupicchu, especializados en crear itinerarios personalizados, en los mejores destinos turísticos de Perú con la mejor relación calidad precio.</p>
-        <p>Nuestra propuesta combina turismo cultural, aventura y experiencias espirituales y místicas, inspiradas en la sabiduría ancestral andina. Creando vivencias transformadoras, que permiten conectar con la tradición local y consigo mismo.</p>
-        <p>Nuestro equipo lo conforman guías y servidores locales en Machu Picchu, Cusco y todo el Perú, con largos años de experiencia, comprometidos en brindar experiencias transformadoras auténticas y profundamente memorables.</p>
+        <h3 style="text-align: center; color: #2c3e50; margin-bottom: 25px; font-size: 1.8rem;"><?php if (function_exists('pll_e')) { pll_e('¿Quiénes Somos?'); } else { echo '¿Quiénes Somos?'; } ?></h3>
+        <p><?php if (function_exists('pll_e')) { pll_e('Somos operadores de viajes y turismo 100% locales, originarios de Machupicchu, especializados en crear itinerarios personalizados, en los mejores destinos turísticos de Perú con la mejor relación calidad precio.'); } else { echo 'Somos operadores de viajes y turismo 100% locales, originarios de Machupicchu, especializados en crear itinerarios personalizados, en los mejores destinos turísticos de Perú con la mejor relación calidad precio.'; } ?></p>
+        <p><?php if (function_exists('pll_e')) { pll_e('Nuestra propuesta combina turismo cultural, aventura y experiencias espirituales y místicas, inspiradas en la sabiduría ancestral andina. Creando vivencias transformadoras, que permiten conectar con la tradición local y consigo mismo.'); } else { echo 'Nuestra propuesta combina turismo cultural, aventura y experiencias espirituales y místicas, inspiradas en la sabiduría ancestral andina. Creando vivencias transformadoras, que permiten conectar con la tradición local y consigo mismo.'; } ?></p>
+        <p><?php if (function_exists('pll_e')) { pll_e('Nuestro equipo lo conforman guías y servidores locales en Machu Picchu, Cusco y todo el Perú, con largos años de experiencia, comprometidos en brindar experiencias transformadoras auténticas y profundamente memorables.'); } else { echo 'Nuestro equipo lo conforman guías y servidores locales en Machu Picchu, Cusco y todo el Perú, con largos años de experiencia, comprometidos en brindar experiencias transformadoras auténticas y profundamente memorables.'; } ?></p>
     </section>
 
     <section class="por-que-elegirnos">
-        <h2 class="por-que-elegirnos-title">¿POR QUÉ VIAJAR CON NOSOTROS?</h2>
+        <h2 class="por-que-elegirnos-title"><?php if (function_exists('pll_e')) { pll_e('¿POR QUÉ VIAJAR CON NOSOTROS?'); } else { echo '¿POR QUÉ VIAJAR CON NOSOTROS?'; } ?></h2>
         
         <div class="razones-carousel" data-infinite-carousel>
             <div class="razones-track">
                 <div class="razon-card">
                     <span class="razon-step" aria-hidden="true">01</span>
                     <div class="razon-icon"><i class="bi bi-headset" aria-hidden="true"></i></div>
-                    <h3>ASISTENCIA 24/7</h3>
-                    <p>Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('ASISTENCIA 24/7'); } else { echo 'ASISTENCIA 24/7'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.'); } else { echo 'Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.'; } ?></p>
                 </div>
 
                 <div class="razon-card">
                     <span class="razon-step" aria-hidden="true">02</span>
                     <div class="razon-icon"><i class="bi bi-person-check" aria-hidden="true"></i></div>
-                    <h3>ATENCIÓN PERSONALIZADA</h3>
-                    <p>Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('ATENCIÓN PERSONALIZADA'); } else { echo 'ATENCIÓN PERSONALIZADA'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.'); } else { echo 'Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.'; } ?></p>
                 </div>
 
                 <div class="razon-card">
                     <span class="razon-step" aria-hidden="true">03</span>
                     <div class="razon-icon"><i class="bi bi-bag-check" aria-hidden="true"></i></div>
-                    <h3>COMODIDAD Y PRACTICIDAD</h3>
-                    <p>Itinerarios flexibles, transportes y hoteles confortables.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('COMODIDAD Y PRACTICIDAD'); } else { echo 'COMODIDAD Y PRACTICIDAD'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Itinerarios flexibles, transportes y hoteles confortables.'); } else { echo 'Itinerarios flexibles, transportes y hoteles confortables.'; } ?></p>
                 </div>
 
                 <div class="razon-card">
                     <span class="razon-step" aria-hidden="true">04</span>
                     <div class="razon-icon"><i class="bi bi-cash-coin" aria-hidden="true"></i></div>
-                    <h3>PRECIOS ASEQUIBLES</h3>
-                    <p>Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('PRECIOS ASEQUIBLES'); } else { echo 'PRECIOS ASEQUIBLES'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.'); } else { echo 'Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.'; } ?></p>
                 </div>
 
                 <div class="razon-card">
                     <span class="razon-step" aria-hidden="true">05</span>
                     <div class="razon-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
-                    <h3>NUESTRO DIFERENCIAL</h3>
-                    <p>Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('NUESTRO DIFERENCIAL'); } else { echo 'NUESTRO DIFERENCIAL'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.'); } else { echo 'Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.'; } ?></p>
                 </div>
 
                 <div class="razon-card" aria-hidden="true">
                     <span class="razon-step" aria-hidden="true">01</span>
                     <div class="razon-icon"><i class="bi bi-headset" aria-hidden="true"></i></div>
-                    <h3>ASISTENCIA 24/7</h3>
-                    <p>Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('ASISTENCIA 24/7'); } else { echo 'ASISTENCIA 24/7'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.'); } else { echo 'Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.'; } ?></p>
                 </div>
 
                 <div class="razon-card" aria-hidden="true">
                     <span class="razon-step" aria-hidden="true">02</span>
                     <div class="razon-icon"><i class="bi bi-person-check" aria-hidden="true"></i></div>
-                    <h3>ATENCIÓN PERSONALIZADA</h3>
-                    <p>Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('ATENCIÓN PERSONALIZADA'); } else { echo 'ATENCIÓN PERSONALIZADA'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.'); } else { echo 'Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.'; } ?></p>
                 </div>
 
                 <div class="razon-card" aria-hidden="true">
                     <span class="razon-step" aria-hidden="true">03</span>
                     <div class="razon-icon"><i class="bi bi-bag-check" aria-hidden="true"></i></div>
-                    <h3>COMODIDAD Y PRACTICIDAD</h3>
-                    <p>Itinerarios flexibles, transportes y hoteles confortables.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('COMODIDAD Y PRACTICIDAD'); } else { echo 'COMODIDAD Y PRACTICIDAD'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Itinerarios flexibles, transportes y hoteles confortables.'); } else { echo 'Itinerarios flexibles, transportes y hoteles confortables.'; } ?></p>
                 </div>
 
                 <div class="razon-card" aria-hidden="true">
                     <span class="razon-step" aria-hidden="true">04</span>
                     <div class="razon-icon"><i class="bi bi-cash-coin" aria-hidden="true"></i></div>
-                    <h3>PRECIOS ASEQUIBLES</h3>
-                    <p>Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('PRECIOS ASEQUIBLES'); } else { echo 'PRECIOS ASEQUIBLES'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.'); } else { echo 'Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.'; } ?></p>
                 </div>
 
                 <div class="razon-card" aria-hidden="true">
                     <span class="razon-step" aria-hidden="true">05</span>
                     <div class="razon-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
-                    <h3>NUESTRO DIFERENCIAL</h3>
-                    <p>Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.</p>
+                    <h3><?php if (function_exists('pll_e')) { pll_e('NUESTRO DIFERENCIAL'); } else { echo 'NUESTRO DIFERENCIAL'; } ?></h3>
+                    <p><?php if (function_exists('pll_e')) { pll_e('Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.'); } else { echo 'Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.'; } ?></p>
                 </div>
             </div>
         </div>

@@ -1,3 +1,8 @@
+<?php
+if (! class_exists('Viagens_Bootstrap_Navwalker')) {
+    require_once get_template_directory() . '/class-bootstrap-navwalker.php';
+}
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -10,30 +15,7 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <?php
-    $tours_archive_url = home_url('/tours/');
-    $cuatrimoto_montana_url = add_query_arg(
-        array(
-            'tipo_tour' => 'cuatrimotos',
-            's'         => 'Montaña de Colores',
-        ),
-        $tours_archive_url
-    );
-    $cuatrimoto_maras_url = add_query_arg(
-        array(
-            'tipo_tour' => 'cuatrimotos',
-            's'         => 'Salineras de Maras y Moray',
-        ),
-        $tours_archive_url
-    );
-    $cuatrimoto_lagunas_url = add_query_arg(
-        array(
-            'tipo_tour' => 'cuatrimotos',
-            's'         => 'Laguna Piuray Laguna Huaypo',
-        ),
-        $tours_archive_url
-    );
-    ?>
+    <?php ?>
     <style>
         .languages-switcher,
         .languages-switcher li {
@@ -100,98 +82,19 @@
                     <!-- Desktop Menu -->
                     <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
                         <!-- Navigation Menu -->
-                        <ul class="navbar-nav me-auto gap-lg-3 fw-semibold text-uppercase align-items-lg-center">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark py-lg-3" href="<?php echo esc_url(home_url('/')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;">
-                                    <?php
-                                    if (function_exists('pll_e')) {
-                                        pll_e('Inicio');
-                                    } else {
-                                        echo 'Inicio';
-                                    }
-                                    ?>
-                                </a>
-                            </li>
-
-                            <!-- Machu Picchu Dropdown -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark py-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 0.8rem; letter-spacing: 0.5px;">
-                                    <?php
-                                    if (function_exists('pll_e')) {
-                                        pll_e('Machu Picchu');
-                                    } else {
-                                        echo 'Machu Picchu';
-                                    }
-                                    ?>
-                                </a>
-                                <ul class="dropdown-menu border-0 shadow-sm rounded-0 mt-0">
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/servicio-de-guia-para-machupicchu')); ?>"><?php if (function_exists('pll_e')) { pll_e('Servicio de Guía'); } else { echo 'Servicio de Guía'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/machupicchu-y-valle-sagrado')); ?>"><?php if (function_exists('pll_e')) { pll_e('Machupicchu & Valle Sagrado'); } else { echo 'Machupicchu &amp; Valle Sagrado'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/machupicchu-full-day')); ?>"><?php if (function_exists('pll_e')) { pll_e('Machupicchu Full Day'); } else { echo 'Machupicchu Full Day'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/tour-guiado-compartido-premium')); ?>"><?php if (function_exists('pll_e')) { pll_e('Compartido Premium'); } else { echo 'Compartido Premium'; } ?></a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Cusco Dropdown -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark py-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 0.8rem; letter-spacing: 0.5px;">
-                                    <?php
-                                    if (function_exists('pll_e')) {
-                                        pll_e('Cusco');
-                                    } else {
-                                        echo 'Cusco';
-                                    }
-                                    ?>
-                                </a>
-                                <ul class="dropdown-menu border-0 shadow-sm rounded-0 mt-0">
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/city-tour')); ?>"><?php if (function_exists('pll_e')) { pll_e('City Tour'); } else { echo 'City Tour'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/tour-valle-sagrado')); ?>"><?php if (function_exists('pll_e')) { pll_e('Valle Sagrado'); } else { echo 'Valle Sagrado'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/chinchero-maras-moray')); ?>"><?php if (function_exists('pll_e')) { pll_e('Maras y Moray'); } else { echo 'Maras y Moray'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/valle-sur')); ?>"><?php if (function_exists('pll_e')) { pll_e('Valle Sur'); } else { echo 'Valle Sur'; } ?></a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Aventura Dropdown -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark py-lg-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 0.8rem; letter-spacing: 0.5px;">
-                                    <?php
-                                    if (function_exists('pll_e')) {
-                                        pll_e('Aventura');
-                                    } else {
-                                        echo 'Aventura';
-                                    }
-                                    ?>
-                                </a>
-                                <ul class="dropdown-menu border-0 shadow-sm rounded-0 mt-0">
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/montana-de-7-colores-vinincunca')); ?>"><?php if (function_exists('pll_e')) { pll_e('Montaña de 7 Colores'); } else { echo 'Montaña de 7 Colores'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/laguna-humantay')); ?>"><?php if (function_exists('pll_e')) { pll_e('Laguna Humantay'); } else { echo 'Laguna Humantay'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/7-lagunas-de-ausangate')); ?>"><?php if (function_exists('pll_e')) { pll_e('7 Lagunas de Ausangate'); } else { echo '7 Lagunas de Ausangate'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/montana-palccoyo')); ?>"><?php if (function_exists('pll_e')) { pll_e('Montaña Palccoyo'); } else { echo 'Montaña Palccoyo'; } ?></a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><span class="dropdown-item-text text-uppercase fw-bold text-primary" style="font-size: 0.7rem; letter-spacing: 0.5px;"><?php if (function_exists('pll_e')) { pll_e('Cuatrimotos'); } else { echo 'Cuatrimotos'; } ?></span></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_montana_url); ?>"><?php if (function_exists('pll_e')) { pll_e('Cuatrimotos a Montaña de Colores'); } else { echo 'Cuatrimotos a Montaña de Colores'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_maras_url); ?>"><?php if (function_exists('pll_e')) { pll_e('Cuatrimotos a Salineras de Maras y Moray'); } else { echo 'Cuatrimotos a Salineras de Maras y Moray'; } ?></a></li>
-                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_lagunas_url); ?>"><?php if (function_exists('pll_e')) { pll_e('Cuatrimotos a Laguna Piuray + Laguna Huaypo'); } else { echo 'Cuatrimotos a Laguna Piuray + Laguna Huaypo'; } ?></a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link py-lg-3 text-dark" href="<?php echo esc_url(home_url('/#paquetes-mas-vendidos')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;"><?php if (function_exists('pll_e')) { pll_e('Lo mejor de Perú'); } else { echo 'Lo mejor de Perú'; } ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link py-lg-3 text-dark" href="<?php echo esc_url(home_url('/nosotros')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;">
-                                    <?php
-                                    if (function_exists('pll_e')) {
-                                        pll_e('Nosotros');
-                                    } else {
-                                        echo 'Nosotros';
-                                    }
-                                    ?>
-                                </a>
-                            </li>
-                        </ul>
+                        <?php
+                        if (has_nav_menu('primary')) {
+                            wp_nav_menu(array(
+                                'theme_location' => 'primary',
+                                'container'      => false,
+                                'menu_class'     => 'navbar-nav me-auto gap-lg-3 fw-semibold text-uppercase align-items-lg-center',
+                                'fallback_cb'    => '__return_false',
+                                'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                'depth'          => 2,
+                                'walker'         => new Viagens_Bootstrap_Navwalker(),
+                            ));
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -199,8 +102,16 @@
                 <div class="d-none d-lg-flex align-items-center gap-3 gap-lg-4">
                     <!-- Quick Links (Optional, added for functionality) -->
                     <div class="d-flex gap-3 border-end pe-3">
-                        <a href="<?php echo esc_url(home_url('/pagos')); ?>" class="text-dark text-decoration-none fw-semibold opacity-75 hover-opacity" style="font-size: 0.7rem;"><?php if (function_exists('pll_e')) { pll_e('PAGOS'); } else { echo 'PAGOS'; } ?></a>
-                        <a href="<?php echo esc_url(home_url('/blog')); ?>" class="text-dark text-decoration-none fw-semibold opacity-75 hover-opacity" style="font-size: 0.7rem;"><?php if (function_exists('pll_e')) { pll_e('BLOG'); } else { echo 'BLOG'; } ?></a>
+                        <a href="<?php echo esc_url(home_url('/pagos')); ?>" class="text-dark text-decoration-none fw-semibold opacity-75 hover-opacity" style="font-size: 0.7rem;"><?php if (function_exists('pll_e')) {
+                                                                                                                                                                                        pll_e('PAGOS');
+                                                                                                                                                                                    } else {
+                                                                                                                                                                                        echo 'PAGOS';
+                                                                                                                                                                                    } ?></a>
+                        <a href="<?php echo esc_url(home_url('/blog')); ?>" class="text-dark text-decoration-none fw-semibold opacity-75 hover-opacity" style="font-size: 0.7rem;"><?php if (function_exists('pll_e')) {
+                                                                                                                                                                                        pll_e('BLOG');
+                                                                                                                                                                                    } else {
+                                                                                                                                                                                        echo 'BLOG';
+                                                                                                                                                                                    } ?></a>
                     </div>
 
                     <?php

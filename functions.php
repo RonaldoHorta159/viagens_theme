@@ -32,6 +32,7 @@ function viagens_theme_setup()
     // Registrar el menú de navegación para el Header
     register_nav_menus(array(
         'primary' => __('Menú Principal', 'viagens-theme'),
+        'footer'  => __('Footer Menu', 'viagens-theme'),
     ));
 }
 add_action('after_setup_theme', 'viagens_theme_setup');
@@ -248,177 +249,250 @@ add_action('admin_post_viagens_contact_direct_form', 'viagens_handle_contact_dir
 // -------------------------------------------------------------------------
 // Registro de Cadenas para Polylang
 // -------------------------------------------------------------------------
-add_action( 'init', function() {
-    if ( function_exists( 'pll_register_string' ) ) {
-        
-        // --- CABECERA (Header) ---
-        pll_register_string( 'Header: Inicio', 'Inicio', 'Cabecera' );
-        pll_register_string( 'Header: Machu Picchu', 'Machu Picchu', 'Cabecera' );
-        pll_register_string( 'Header: Servicio de Guia', 'Servicio de Guía', 'Cabecera' );
-        pll_register_string( 'Header: Machupicchu & Valle Sagrado', 'Machupicchu & Valle Sagrado', 'Cabecera' );
-        pll_register_string( 'Header: Machupicchu Full Day', 'Machupicchu Full Day', 'Cabecera' );
-        pll_register_string( 'Header: Compartido Premium', 'Compartido Premium', 'Cabecera' );
-        
-        pll_register_string( 'Header: Cusco', 'Cusco', 'Cabecera' );
-        pll_register_string( 'Header: City Tour', 'City Tour', 'Cabecera' );
-        pll_register_string( 'Header: Valle Sagrado', 'Valle Sagrado', 'Cabecera' );
-        pll_register_string( 'Header: Maras y Moray', 'Maras y Moray', 'Cabecera' );
-        pll_register_string( 'Header: Valle Sur', 'Valle Sur', 'Cabecera' );
-        
-        pll_register_string( 'Header: Aventura', 'Aventura', 'Cabecera' );
-        pll_register_string( 'Header: Montana de 7 Colores', 'Montaña de 7 Colores', 'Cabecera' );
-        pll_register_string( 'Header: Laguna Humantay', 'Laguna Humantay', 'Cabecera' );
-        pll_register_string( 'Header: 7 Lagunas de Ausangate', '7 Lagunas de Ausangate', 'Cabecera' );
-        pll_register_string( 'Header: Montana Palccoyo', 'Montaña Palccoyo', 'Cabecera' );
-        
-        pll_register_string( 'Header: Cuatrimotos Subtitulo', 'Cuatrimotos', 'Cabecera' );
-        pll_register_string( 'Header: Cuatrimotos Montana', 'Cuatrimotos a Montaña de Colores', 'Cabecera' );
-        pll_register_string( 'Header: Cuatrimotos Maras', 'Cuatrimotos a Salineras de Maras y Moray', 'Cabecera' );
-        pll_register_string( 'Header: Cuatrimotos Lagunas', 'Cuatrimotos a Laguna Piuray + Laguna Huaypo', 'Cabecera' );
-        
-        pll_register_string( 'Header: Lo mejor de Peru', 'Lo mejor de Perú', 'Cabecera' );
-        pll_register_string( 'Header: Nosotros', 'Nosotros', 'Cabecera' );
-        
-        pll_register_string( 'Header: Pagos', 'PAGOS', 'Cabecera' );
-        pll_register_string( 'Header: Blog', 'BLOG', 'Cabecera' );
-        
-        // --- FORMULARIO DE CONTACTO DIRECTO (Mensajes y textos) ---
-        pll_register_string( 'Formulario: Nueva solicitud', 'Has recibido una nueva solicitud de asesoria desde la pagina de inicio.', 'Formularios' );
-        pll_register_string( 'Formulario: Nombre', 'Nombre:', 'Formularios' );
-        pll_register_string( 'Formulario: Mensaje', 'Mensaje:', 'Formularios' );
+add_action('init', function () {
+    if (function_exists('pll_register_string')) {
 
-       // --- SECCIÓN HERO (Inicio) ---
-        pll_register_string( 'Hero: T1 P1', 'El viaje de', 'Inicio - Hero' );
-        pll_register_string( 'Hero: T1 P2', 'tus sueños', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Texto 1', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Tag 1', 'Machu Picchu', 'Inicio - Hero' );
-        
-        pll_register_string( 'Hero: T2 P1', 'Personaliza tu', 'Inicio - Hero' );
-        pll_register_string( 'Hero: T2 P2', 'Viaje', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Texto 2', 'Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Tag 2', 'Tours Tradicionales', 'Inicio - Hero' );
-        
-        pll_register_string( 'Hero: T3 P1', 'Conexión', 'Inicio - Hero' );
-        pll_register_string( 'Hero: T3 P2', 'Mística', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Texto 3', 'Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.', 'Inicio - Hero' );
-        pll_register_string( 'Hero: Tag 3', 'Explora lo mejor del Perú', 'Inicio - Hero' );
-        
-        pll_register_string( 'Hero: BD1 P1', 'Atención', 'Inicio - Hero' );
-        pll_register_string( 'Hero: BD1 P2', 'Personalizada', 'Inicio - Hero' );
-        
-        pll_register_string( 'Hero: BD2 P1', 'Asistencia 24 Horas', 'Inicio - Hero' );
-        pll_register_string( 'Hero: BD2 P2', 'en todo momento', 'Inicio - Hero' );
+        // --- CABECERA (Header) ---
+        pll_register_string('Header: Inicio', 'Inicio', 'Cabecera');
+        pll_register_string('Header: Machu Picchu', 'Machu Picchu', 'Cabecera');
+        pll_register_string('Header: Servicio de Guia', 'Servicio de Guía', 'Cabecera');
+        pll_register_string('Header: Machupicchu & Valle Sagrado', 'Machupicchu & Valle Sagrado', 'Cabecera');
+        pll_register_string('Header: Machupicchu Full Day', 'Machupicchu Full Day', 'Cabecera');
+        pll_register_string('Header: Compartido Premium', 'Compartido Premium', 'Cabecera');
+
+        pll_register_string('Header: Cusco', 'Cusco', 'Cabecera');
+        pll_register_string('Header: City Tour', 'City Tour', 'Cabecera');
+        pll_register_string('Header: Valle Sagrado', 'Valle Sagrado', 'Cabecera');
+        pll_register_string('Header: Maras y Moray', 'Maras y Moray', 'Cabecera');
+        pll_register_string('Header: Valle Sur', 'Valle Sur', 'Cabecera');
+
+        pll_register_string('Header: Aventura', 'Aventura', 'Cabecera');
+        pll_register_string('Header: Montana de 7 Colores', 'Montaña de 7 Colores', 'Cabecera');
+        pll_register_string('Header: Laguna Humantay', 'Laguna Humantay', 'Cabecera');
+        pll_register_string('Header: 7 Lagunas de Ausangate', '7 Lagunas de Ausangate', 'Cabecera');
+        pll_register_string('Header: Montana Palccoyo', 'Montaña Palccoyo', 'Cabecera');
+
+        pll_register_string('Header: Cuatrimotos Subtitulo', 'Cuatrimotos', 'Cabecera');
+        pll_register_string('Header: Cuatrimotos Montana', 'Cuatrimotos a Montaña de Colores', 'Cabecera');
+        pll_register_string('Header: Cuatrimotos Maras', 'Cuatrimotos a Salineras de Maras y Moray', 'Cabecera');
+        pll_register_string('Header: Cuatrimotos Lagunas', 'Cuatrimotos a Laguna Piuray + Laguna Huaypo', 'Cabecera');
+
+        pll_register_string('Header: Lo mejor de Peru', 'Lo mejor de Perú', 'Cabecera');
+        pll_register_string('Header: Nosotros', 'Nosotros', 'Cabecera');
+
+        pll_register_string('Header: Pagos', 'PAGOS', 'Cabecera');
+        pll_register_string('Header: Blog', 'BLOG', 'Cabecera');
+
+        // --- FORMULARIO DE CONTACTO DIRECTO (Mensajes y textos) ---
+        pll_register_string('Formulario: Nueva solicitud', 'Has recibido una nueva solicitud de asesoria desde la pagina de inicio.', 'Formularios');
+        pll_register_string('Formulario: Nombre', 'Nombre:', 'Formularios');
+        pll_register_string('Formulario: Mensaje', 'Mensaje:', 'Formularios');
+
+        // --- SECCIÓN HERO (Inicio) ---
+        pll_register_string('Hero: T1 P1', 'El viaje de', 'Inicio - Hero');
+        pll_register_string('Hero: T1 P2', 'tus sueños', 'Inicio - Hero');
+        pll_register_string('Hero: Texto 1', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias, garantizando su seguridad y comodidad.', 'Inicio - Hero');
+        pll_register_string('Hero: Tag 1', 'Machu Picchu', 'Inicio - Hero');
+
+        pll_register_string('Hero: T2 P1', 'Personaliza tu', 'Inicio - Hero');
+        pll_register_string('Hero: T2 P2', 'Viaje', 'Inicio - Hero');
+        pll_register_string('Hero: Texto 2', 'Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.', 'Inicio - Hero');
+        pll_register_string('Hero: Tag 2', 'Tours Tradicionales', 'Inicio - Hero');
+
+        pll_register_string('Hero: T3 P1', 'Conexión', 'Inicio - Hero');
+        pll_register_string('Hero: T3 P2', 'Mística', 'Inicio - Hero');
+        pll_register_string('Hero: Texto 3', 'Descubre rituales espirituales trascendentes y comprende su profunda relación con la cosmovisión andina junto a auténticos chamanes nativos.', 'Inicio - Hero');
+        pll_register_string('Hero: Tag 3', 'Explora lo mejor del Perú', 'Inicio - Hero');
+
+        pll_register_string('Hero: BD1 P1', 'Atención', 'Inicio - Hero');
+        pll_register_string('Hero: BD1 P2', 'Personalizada', 'Inicio - Hero');
+
+        pll_register_string('Hero: BD2 P1', 'Asistencia 24 Horas', 'Inicio - Hero');
+        pll_register_string('Hero: BD2 P2', 'en todo momento', 'Inicio - Hero');
 
         // --- SECCIÓN MEJORES EXPERIENCIAS (Inicio) ---
-        pll_register_string( 'Exp: Titulo Principal', 'Nuestras Mejores Experiencias', 'Inicio - Experiencias' );
-        pll_register_string( 'Exp: Subtitulo Principal', 'Descubre la magia de los Andes con nuestros tours especializados.', 'Inicio - Experiencias' );
-        
-        pll_register_string( 'Exp: Card 1 Titulo', 'Culturales y Clásicos', 'Inicio - Experiencias' );
-        pll_register_string( 'Exp: Card 1 Texto', 'Descubre la Capital Arqueológica de América y el Valle Sagrado.', 'Inicio - Experiencias' );
-        
-        pll_register_string( 'Exp: Card 2 Titulo', 'Rituales Místicos', 'Inicio - Experiencias' );
-        pll_register_string( 'Exp: Card 2 Texto', 'Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.', 'Inicio - Experiencias' );
-        
-        pll_register_string( 'Exp: Card 3 Titulo', 'Aventura en Cuatrimotos', 'Inicio - Experiencias' );
-        pll_register_string( 'Exp: Card 3 Texto', 'Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.', 'Inicio - Experiencias' );
-        
-        pll_register_string( 'Exp: Card 4 Titulo', 'Naturaleza y Trekking', 'Inicio - Experiencias' );
-        pll_register_string( 'Exp: Card 4 Texto', 'Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.', 'Inicio - Experiencias' );
-        
-        pll_register_string( 'Exp: CTA Boton', 'Explorar', 'Inicio - Experiencias' );
+        pll_register_string('Exp: Titulo Principal', 'Nuestras Mejores Experiencias', 'Inicio - Experiencias');
+        pll_register_string('Exp: Subtitulo Principal', 'Descubre la magia de los Andes con nuestros tours especializados.', 'Inicio - Experiencias');
+
+        pll_register_string('Exp: Card 1 Titulo', 'Culturales y Clásicos', 'Inicio - Experiencias');
+        pll_register_string('Exp: Card 1 Texto', 'Descubre la Capital Arqueológica de América y el Valle Sagrado.', 'Inicio - Experiencias');
+
+        pll_register_string('Exp: Card 2 Titulo', 'Rituales Místicos', 'Inicio - Experiencias');
+        pll_register_string('Exp: Card 2 Texto', 'Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.', 'Inicio - Experiencias');
+
+        pll_register_string('Exp: Card 3 Titulo', 'Aventura en Cuatrimotos', 'Inicio - Experiencias');
+        pll_register_string('Exp: Card 3 Texto', 'Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.', 'Inicio - Experiencias');
+
+        pll_register_string('Exp: Card 4 Titulo', 'Naturaleza y Trekking', 'Inicio - Experiencias');
+        pll_register_string('Exp: Card 4 Texto', 'Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.', 'Inicio - Experiencias');
+
+        pll_register_string('Exp: CTA Boton', 'Explorar', 'Inicio - Experiencias');
 
         // --- SECCIÓN FORMULARIO DE CONTACTO (Inicio) ---
-        
+
         // Lado Izquierdo (Textos visuales)
-        pll_register_string( 'Form: Kicker', 'Personaliza tu Viaje', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Titulo Visual', 'Viajes diseñados contigo, desde el primer mensaje.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Texto Visual', 'Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Highlight Num', '+10 años', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Highlight Text', 'acompañando experiencias a medida', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Punto 1', 'Atención directa por WhatsApp y correo.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Punto 2', 'Recomendaciones según fechas, ritmo y presupuesto.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Punto 3', 'Respuesta desde Cusco con enfoque local.', 'Inicio - Formulario' );
+        pll_register_string('Form: Kicker', 'Personaliza tu Viaje', 'Inicio - Formulario');
+        pll_register_string('Form: Titulo Visual', 'Viajes diseñados contigo, desde el primer mensaje.', 'Inicio - Formulario');
+        pll_register_string('Form: Texto Visual', 'Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.', 'Inicio - Formulario');
+        pll_register_string('Form: Highlight Num', '+10 años', 'Inicio - Formulario');
+        pll_register_string('Form: Highlight Text', 'acompañando experiencias a medida', 'Inicio - Formulario');
+        pll_register_string('Form: Punto 1', 'Atención directa por WhatsApp y correo.', 'Inicio - Formulario');
+        pll_register_string('Form: Punto 2', 'Recomendaciones según fechas, ritmo y presupuesto.', 'Inicio - Formulario');
+        pll_register_string('Form: Punto 3', 'Respuesta desde Cusco con enfoque local.', 'Inicio - Formulario');
 
         // Lado Derecho (Cabecera y Alertas)
-        pll_register_string( 'Form: Badge', 'Formulario directo', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Titulo Form', '¿Listo para vivir la mejor experiencia?', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Descripcion Form', 'Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Alerta Exito', 'Recibimos tu solicitud correctamente. Te contactaremos muy pronto.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Alerta Error', 'No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Alerta Invalido', 'Revisa los campos obligatorios e intenta nuevamente.', 'Inicio - Formulario' );
-        
+        pll_register_string('Form: Badge', 'Formulario directo', 'Inicio - Formulario');
+        pll_register_string('Form: Titulo Form', '¿Listo para vivir la mejor experiencia?', 'Inicio - Formulario');
+        pll_register_string('Form: Descripcion Form', 'Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.', 'Inicio - Formulario');
+        pll_register_string('Form: Alerta Exito', 'Recibimos tu solicitud correctamente. Te contactaremos muy pronto.', 'Inicio - Formulario');
+        pll_register_string('Form: Alerta Error', 'No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.', 'Inicio - Formulario');
+        pll_register_string('Form: Alerta Invalido', 'Revisa los campos obligatorios e intenta nuevamente.', 'Inicio - Formulario');
+
         // Lado Derecho (Labels y Placeholders de los campos)
-        pll_register_string( 'Form: Label Nombre', 'Nombre', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Place Nombre', 'Tu nombre completo', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Label Email', 'Email', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Place Email', 'Tu correo electronico', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Label WhatsApp', 'WhatsApp', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Place WhatsApp', 'Tu numero de WhatsApp', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Label Mensaje', 'Mensaje', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Place Mensaje', 'Cuentanos tus preferencias de viaje', 'Inicio - Formulario' );
-        
+        pll_register_string('Form: Label Nombre', 'Nombre', 'Inicio - Formulario');
+        pll_register_string('Form: Place Nombre', 'Tu nombre completo', 'Inicio - Formulario');
+        pll_register_string('Form: Label Email', 'Email', 'Inicio - Formulario');
+        pll_register_string('Form: Place Email', 'Tu correo electronico', 'Inicio - Formulario');
+        pll_register_string('Form: Label WhatsApp', 'WhatsApp', 'Inicio - Formulario');
+        pll_register_string('Form: Place WhatsApp', 'Tu numero de WhatsApp', 'Inicio - Formulario');
+        pll_register_string('Form: Label Mensaje', 'Mensaje', 'Inicio - Formulario');
+        pll_register_string('Form: Place Mensaje', 'Cuentanos tus preferencias de viaje', 'Inicio - Formulario');
+
         // Lado Derecho (Botón y nota)
-        pll_register_string( 'Form: Nota', 'Te responderemos usando los datos que nos compartas en este formulario.', 'Inicio - Formulario' );
-        pll_register_string( 'Form: Boton Enviar', 'Enviar solicitud de asesoria', 'Inicio - Formulario' );
-        
+        pll_register_string('Form: Nota', 'Te responderemos usando los datos que nos compartas en este formulario.', 'Inicio - Formulario');
+        pll_register_string('Form: Boton Enviar', 'Enviar solicitud de asesoria', 'Inicio - Formulario');
+
         // --- SECCIÓN PAQUETES MÁS VENDIDOS (Inicio) ---
-        pll_register_string( 'Paquetes: Titulo', 'Paquetes Más Vendidos', 'Inicio - Paquetes' );
-        pll_register_string( 'Paquetes: Subtitulo', 'Itinerarios diseñados para vivir la verdadera esencia andina.', 'Inicio - Paquetes' );
-        pll_register_string( 'Paquetes: Boton Todos', 'Ver todos los tours', 'Inicio - Paquetes' );
-        
-        pll_register_string( 'Paquetes: Label Dias', 'Días', 'Inicio - Paquetes' );
-        pll_register_string( 'Paquetes: Label Noches', 'Noches', 'Inicio - Paquetes' );
-        pll_register_string( 'Paquetes: Boton Card', 'Explorar Tour', 'Inicio - Paquetes' );
-        
-        pll_register_string( 'Paquetes: Vacio Titulo', 'Aún no hay paquetes disponibles', 'Inicio - Paquetes' );
-        pll_register_string( 'Paquetes: Vacio Texto', 'Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.', 'Inicio - Paquetes' );
+        pll_register_string('Paquetes: Titulo', 'Paquetes Más Vendidos', 'Inicio - Paquetes');
+        pll_register_string('Paquetes: Subtitulo', 'Itinerarios diseñados para vivir la verdadera esencia andina.', 'Inicio - Paquetes');
+        pll_register_string('Paquetes: Boton Todos', 'Ver todos los tours', 'Inicio - Paquetes');
+
+        pll_register_string('Paquetes: Label Dias', 'Días', 'Inicio - Paquetes');
+        pll_register_string('Paquetes: Label Noches', 'Noches', 'Inicio - Paquetes');
+        pll_register_string('Paquetes: Boton Card', 'Explorar Tour', 'Inicio - Paquetes');
+
+        pll_register_string('Paquetes: Vacio Titulo', 'Aún no hay paquetes disponibles', 'Inicio - Paquetes');
+        pll_register_string('Paquetes: Vacio Texto', 'Ve a tu panel de WordPress y crea tu primer Tour para que aparezca aquí mágicamente.', 'Inicio - Paquetes');
 
         // --- SECCIÓN ALIADOS ESTRATÉGICOS (Inicio) ---
-        pll_register_string( 'Aliados: Titulo', 'Nuestros Aliados Estratégicos', 'Inicio - Aliados' );
+        pll_register_string('Aliados: Titulo', 'Nuestros Aliados Estratégicos', 'Inicio - Aliados');
 
         // --- SECCIÓN TESTIMONIOS (Inicio) ---
-        pll_register_string( 'Testimonios: Tag', 'Testimonios', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Titulo', 'Historias reales en un mosaico editorial', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Lead', 'La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Label Destacada', 'Reseña destacada', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Label Servicio', 'Servicio', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Label Experiencia', 'Experiencia', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Label Logistica', 'Logística', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Imagen 01', 'Imagen 01', 'Inicio - Testimonios' );
-        pll_register_string( 'Testimonios: Imagen 02', 'Imagen 02', 'Inicio - Testimonios' );
+        pll_register_string('Testimonios: Tag', 'Testimonios', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Titulo', 'Historias reales en un mosaico editorial', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Lead', 'La composición prioriza seis piezas equilibradas: cuatro testimonios beige suave y dos tarjetas de imagen intercaladas, sin una columna de introducción dominante.', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Label Destacada', 'Reseña destacada', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Label Servicio', 'Servicio', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Label Experiencia', 'Experiencia', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Label Logistica', 'Logística', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Imagen 01', 'Imagen 01', 'Inicio - Testimonios');
+        pll_register_string('Testimonios: Imagen 02', 'Imagen 02', 'Inicio - Testimonios');
 
         // --- SECCIÓN POR QUÉ VIAJAR CON NOSOTROS (Inicio) ---
-        pll_register_string( 'Confianza: Titulo Principal', '¿Por qué viajar con nosotros?', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Titulo 1', 'Asistencia 24 Horas', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Texto 1', 'Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Titulo 2', 'Atención Personalizada', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Texto 2', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Titulo 3', 'Practicidad y Comodidad', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Texto 3', 'Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Titulo 4', 'Dominio Cultural', 'Inicio - Confianza' );
-        pll_register_string( 'Confianza: Texto 4', 'Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.', 'Inicio - Confianza' );
+        pll_register_string('Confianza: Titulo Principal', '¿Por qué viajar con nosotros?', 'Inicio - Confianza');
+        pll_register_string('Confianza: Titulo 1', 'Asistencia 24 Horas', 'Inicio - Confianza');
+        pll_register_string('Confianza: Texto 1', 'Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.', 'Inicio - Confianza');
+        pll_register_string('Confianza: Titulo 2', 'Atención Personalizada', 'Inicio - Confianza');
+        pll_register_string('Confianza: Texto 2', 'Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.', 'Inicio - Confianza');
+        pll_register_string('Confianza: Titulo 3', 'Practicidad y Comodidad', 'Inicio - Confianza');
+        pll_register_string('Confianza: Texto 3', 'Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.', 'Inicio - Confianza');
+        pll_register_string('Confianza: Titulo 4', 'Dominio Cultural', 'Inicio - Confianza');
+        pll_register_string('Confianza: Texto 4', 'Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.', 'Inicio - Confianza');
 
         // --- PIE DE PÁGINA (Footer) ---
-        pll_register_string( 'Footer: Descripcion', 'Operadores 100% locales en los Andes. Especialistas en el público brasilero e hispanohablante. Garantizamos experiencias inolvidables, auténticas y profundamente transformadoras.', 'Pie de Pagina' );
-        
-        pll_register_string( 'Footer: Titulo Enlaces', 'Enlaces Rápidos', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Inicio', 'Inicio', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Nosotros', 'Quiénes Somos', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Circuitos', 'Circuitos Machu Picchu', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Politicas', 'Políticas y Reservas', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Contacto', 'Contacto', 'Pie de Pagina' );
-        
-        pll_register_string( 'Footer: Titulo Contacto', 'Contáctanos', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Direccion P1', 'Calle Inka Simpa-L1', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Direccion P2', 'Machupicchu Pueblo, Cusco - Perú', 'Pie de Pagina' );
-        
-        pll_register_string( 'Footer: Titulo Newsletter', 'Suscríbete', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Texto Newsletter', 'Suscríbete a nuestro boletín para recibir actualizaciones rápidas y ofertas exclusivas.', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Label Newsletter', 'Tu Correo Electrónico', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Boton Newsletter', 'SUSCRIBIRSE', 'Pie de Pagina' );
-        
-        pll_register_string( 'Footer: Copyright', '© 2026 Viagens Machu Picchu Brasil. Todos los derechos reservados.', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Privacidad', 'Privacidad', 'Pie de Pagina' );
-        pll_register_string( 'Footer: Link Terminos', 'Términos y Condiciones', 'Pie de Pagina' );
+        pll_register_string('Footer: Descripcion', 'Operadores 100% locales en los Andes. Especialistas en el público brasilero e hispanohablante. Garantizamos experiencias inolvidables, auténticas y profundamente transformadoras.', 'Pie de Pagina');
+
+        pll_register_string('Footer: Titulo Enlaces', 'Enlaces Rápidos', 'Pie de Pagina');
+        pll_register_string('Footer: Link Inicio', 'Inicio', 'Pie de Pagina');
+        pll_register_string('Footer: Link Nosotros', 'Quiénes Somos', 'Pie de Pagina');
+        pll_register_string('Footer: Link Circuitos', 'Circuitos Machu Picchu', 'Pie de Pagina');
+        pll_register_string('Footer: Link Politicas', 'Políticas y Reservas', 'Pie de Pagina');
+        pll_register_string('Footer: Link Contacto', 'Contacto', 'Pie de Pagina');
+
+        pll_register_string('Footer: Titulo Contacto', 'Contáctanos', 'Pie de Pagina');
+        pll_register_string('Footer: Direccion P1', 'Calle Inka Simpa-L1', 'Pie de Pagina');
+        pll_register_string('Footer: Direccion P2', 'Machupicchu Pueblo, Cusco - Perú', 'Pie de Pagina');
+
+        pll_register_string('Footer: Titulo Newsletter', 'Suscríbete', 'Pie de Pagina');
+        pll_register_string('Footer: Texto Newsletter', 'Suscríbete a nuestro boletín para recibir actualizaciones rápidas y ofertas exclusivas.', 'Pie de Pagina');
+        pll_register_string('Footer: Label Newsletter', 'Tu Correo Electrónico', 'Pie de Pagina');
+        pll_register_string('Footer: Boton Newsletter', 'SUSCRIBIRSE', 'Pie de Pagina');
+
+        pll_register_string('Footer: Copyright', '© 2026 Viagens Machu Picchu Brasil. Todos los derechos reservados.', 'Pie de Pagina');
+        pll_register_string('Footer: Link Privacidad', 'Privacidad', 'Pie de Pagina');
+        pll_register_string('Footer: Link Terminos', 'Términos y Condiciones', 'Pie de Pagina');
+
+        // --- PÁGINA NOSOTROS ---
+        pll_register_string('Nosotros: Hero Titulo', 'Viagens Machupicchu Brasil', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Quienes Titulo', '¿Quiénes Somos?', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Quienes P1', 'Somos operadores de viajes y turismo 100% locales, originarios de Machupicchu, especializados en crear itinerarios personalizados, en los mejores destinos turísticos de Perú con la mejor relación calidad precio.', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Quienes P2', 'Nuestra propuesta combina turismo cultural, aventura y experiencias espirituales y místicas, inspiradas en la sabiduría ancestral andina. Creando vivencias transformadoras, que permiten conectar con la tradición local y consigo mismo.', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Quienes P3', 'Nuestro equipo lo conforman guías y servidores locales en Machu Picchu, Cusco y todo el Perú, con largos años de experiencia, comprometidos en brindar experiencias transformadoras auténticas y profundamente memorables.', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: PorQue Titulo', '¿POR QUÉ VIAJAR CON NOSOTROS?', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Razon 1 Titulo', 'ASISTENCIA 24/7', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Razon 1 Texto', 'Estaremos a su disposición en todo momento para absolver sus dudas e inquietudes.', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Razon 2 Titulo', 'ATENCIÓN PERSONALIZADA', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Razon 2 Texto', 'Juntos organizaremos el viaje de sus sueños, de acuerdo a sus preferencias y disponibilidad de tiempo.', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Razon 3 Titulo', 'COMODIDAD Y PRACTICIDAD', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Razon 3 Texto', 'Itinerarios flexibles, transportes y hoteles confortables.', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Razon 4 Titulo', 'PRECIOS ASEQUIBLES', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Razon 4 Texto', 'Ofrecemos excursiones de un día o largas travesías donde priorizamos que los precios sean accesibles para la mayoría de los viajeros del mundo.', 'Pagina Nosotros');
+
+        pll_register_string('Nosotros: Razon 5 Titulo', 'NUESTRO DIFERENCIAL', 'Pagina Nosotros');
+        pll_register_string('Nosotros: Razon 5 Texto', 'Conocemos bastante bien todos los principales destinos turísticos del país y nuestro equipo está conformado por un staff de gente local altamente capacitada en Inglés, Portugués y Español.', 'Pagina Nosotros');
+
+        // --- PÁGINA TÉRMINOS Y CONDICIONES ---
+        pll_register_string('Terminos: Hero Titulo', 'Términos y Condiciones', 'Pagina Terminos');
+        pll_register_string('Terminos: Hero Texto', 'Políticas oficiales de reserva, operación y responsabilidades de Viagens Machupicchu Brasil.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 1', '1. Aceptación del servicio', 'Pagina Terminos');
+        pll_register_string('Terminos: P 1', 'Al realizar una reserva y/o pago a través de nuestra pasarela de pagos, el cliente declara haber leído, comprendido y aceptado los presentes Términos de Servicio y Políticas Comerciales.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 2', '2. Servicios ofrecidos', 'Pagina Terminos');
+        pll_register_string('Terminos: P 2', 'Ofrecemos la comercialización y operación de tours y servicios turísticos en Cusco, Machu Picchu y otros destinos del Perú, en modalidad privada o grupal, sujetos a disponibilidad.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 3', '3. Reservas, depósitos y pagos', 'Pagina Terminos');
+        pll_register_string('Terminos: P 3.1', 'Para confirmar cualquier reserva se requiere un depósito mínimo del 30% del valor total del paquete o servicio, el cual deberá realizarse mediante nuestra pasarela de pagos autorizada.', 'Pagina Terminos');
+        pll_register_string('Terminos: P 3.2', 'Los costos de comisión de la pasarela de pago son asumidos por el pasajero.', 'Pagina Terminos');
+        pll_register_string('Terminos: P 3.3', 'El saldo restante deberá pagarse en efectivo a su arribo a la ciudad del Cusco, hasta 24 horas antes del inicio de los servicios.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 4', '4. Políticas de cancelación y reembolsos', 'Pagina Terminos');
+        pll_register_string('Terminos: P 4.1', 'Cancelaciones con más de 7 días de anticipación: reembolso parcial sujeto a gastos administrativos y penalidades de proveedores.', 'Pagina Terminos');
+        pll_register_string('Terminos: P 4.2', 'Cancelaciones dentro de 7 días: no reembolsables.', 'Pagina Terminos');
+        pll_register_string('Terminos: P 4.3', 'Servicios iniciados o no presentaciones (no-show): no reembolsables.', 'Pagina Terminos');
+        pll_register_string('Terminos: P 4.4', 'Para servicios de Machu Picchu y trenes aplican penalidades de hasta el 100% según políticas de los operadores.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 5', '5. Cambios de fecha', 'Pagina Terminos');
+        pll_register_string('Terminos: P 5', 'Sujetos a disponibilidad y posibles penalidades. Deben solicitarse con mínimo 7 días de anticipación.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 6', '6. Seguros de viaje', 'Pagina Terminos');
+        pll_register_string('Terminos: P 6', 'Nuestros servicios no incluyen seguros de viaje.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 7', '7. Responsabilidad del cliente', 'Pagina Terminos');
+        pll_register_string('Terminos: P 7', 'El cliente es responsable de:', 'Pagina Terminos');
+        pll_register_string('Terminos: LI 7.1', 'Portar documentos vigentes.', 'Pagina Terminos');
+        pll_register_string('Terminos: LI 7.2', 'Cumplir horarios establecidos.', 'Pagina Terminos');
+        pll_register_string('Terminos: LI 7.3', 'Informar condiciones médicas relevantes.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 8', '8. Responsabilidad de la empresa', 'Pagina Terminos');
+        pll_register_string('Terminos: P 8', 'Actuamos como intermediarios y/u operadores de servicios turísticos. No somos responsables por retrasos, cancelaciones o eventos de fuerza mayor (clima, huelgas, desastres naturales, disposiciones gubernamentales u otros).', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 9', '9. Fuerza mayor', 'Pagina Terminos');
+        pll_register_string('Terminos: P 9', 'En caso de eventos externos que impidan la operación del tour, se ofrecerán alternativas o reprogramaciones sin responsabilidad económica adicional para la empresa.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 10', '10. Uso de la pasarela de pago', 'Pagina Terminos');
+        pll_register_string('Terminos: P 10', 'La información financiera es procesada mediante plataformas seguras. No almacenamos datos de tarjetas. El cliente acepta las políticas antifraude y de validación de pagos.', 'Pagina Terminos');
+
+        pll_register_string('Terminos: H3 11', '11. Contacto', 'Pagina Terminos');
+        pll_register_string('Terminos: P 11', 'Toda solicitud de cambio, cancelación o consulta deberá realizarse mediante nuestros canales oficiales informados en la página web.', 'Pagina Terminos');
+
+        // --- URLs DINÁMICAS ---
+        pll_register_string('URL: Nosotros', '/nosotros', 'URLs');
     }
 });
