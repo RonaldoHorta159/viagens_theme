@@ -582,8 +582,8 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
     <section id="mejores-experiencias" class="mejores-experiencias-section py-5" style="scroll-margin-top: 100px;">
         <div class="container py-lg-5">
             <div class="experience-intro text-center" data-aos="fade-up">
-                <h2 class="experience-heading display-4 fw-bold mb-3">Nuestras Mejores Experiencias</h2>
-                <p class="experience-subheading lead mb-0">Descubre la magia de los Andes con nuestros tours especializados.</p>
+                <h2 class="experience-heading display-4 fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Nuestras Mejores Experiencias'); } else { echo 'Nuestras Mejores Experiencias'; } ?></h2>
+                <p class="experience-subheading lead mb-0"><?php if (function_exists('pll_e')) { pll_e('Descubre la magia de los Andes con nuestros tours especializados.'); } else { echo 'Descubre la magia de los Andes con nuestros tours especializados.'; } ?></p>
             </div>
 
             <div class="row g-4 g-xl-5 experience-grid justify-content-center">
@@ -597,9 +597,9 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                             <div class="experience-card-content p-4 p-xl-4">
                                 <span class="experience-card-chip">01</span>
                                 <div class="experience-card-copy">
-                                    <h3 class="text-white fw-bold mb-3">Culturales y Clásicos</h3>
-                                    <p class="mb-0 fs-6">Descubre la Capital Arqueológica de América y el Valle Sagrado.</p>
-                                    <span class="experience-card-cta">Explorar</span>
+                                    <h3 class="text-white fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Culturales y Clásicos'); } else { echo 'Culturales y Clásicos'; } ?></h3>
+                                    <p class="mb-0 fs-6"><?php if (function_exists('pll_e')) { pll_e('Descubre la Capital Arqueológica de América y el Valle Sagrado.'); } else { echo 'Descubre la Capital Arqueológica de América y el Valle Sagrado.'; } ?></p>
+                                    <span class="experience-card-cta"><?php if (function_exists('pll_e')) { pll_e('Explorar'); } else { echo 'Explorar'; } ?></span>
                                 </div>
                             </div>
                         </a>
@@ -616,9 +616,9 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                             <div class="experience-card-content p-4 p-xl-4">
                                 <span class="experience-card-chip">02</span>
                                 <div class="experience-card-copy">
-                                    <h3 class="text-white fw-bold mb-3">Rituales Místicos</h3>
-                                    <p class="mb-0 fs-6">Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.</p>
-                                    <span class="experience-card-cta">Explorar</span>
+                                    <h3 class="text-white fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Rituales Místicos'); } else { echo 'Rituales Místicos'; } ?></h3>
+                                    <p class="mb-0 fs-6"><?php if (function_exists('pll_e')) { pll_e('Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.'); } else { echo 'Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.'; } ?></p>
+                                    <span class="experience-card-cta"><?php if (function_exists('pll_e')) { pll_e('Explorar'); } else { echo 'Explorar'; } ?></span>
                                 </div>
                             </div>
                         </a>
@@ -635,9 +635,9 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                             <div class="experience-card-content p-4 p-xl-4">
                                 <span class="experience-card-chip">03</span>
                                 <div class="experience-card-copy">
-                                    <h3 class="text-white fw-bold mb-3">Aventura en Cuatrimotos</h3>
-                                    <p class="mb-0 fs-6">Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.</p>
-                                    <span class="experience-card-cta">Explorar</span>
+                                    <h3 class="text-white fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Aventura en Cuatrimotos'); } else { echo 'Aventura en Cuatrimotos'; } ?></h3>
+                                    <p class="mb-0 fs-6"><?php if (function_exists('pll_e')) { pll_e('Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.'); } else { echo 'Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.'; } ?></p>
+                                    <span class="experience-card-cta"><?php if (function_exists('pll_e')) { pll_e('Explorar'); } else { echo 'Explorar'; } ?></span>
                                 </div>
                             </div>
                         </a>
@@ -654,9 +654,9 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                             <div class="experience-card-content p-4 p-xl-4">
                                 <span class="experience-card-chip">04</span>
                                 <div class="experience-card-copy">
-                                    <h3 class="text-white fw-bold mb-3">Naturaleza y Trekking</h3>
-                                    <p class="mb-0 fs-6">Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.</p>
-                                    <span class="experience-card-cta">Explorar</span>
+                                    <h3 class="text-white fw-bold mb-3"><?php if (function_exists('pll_e')) { pll_e('Naturaleza y Trekking'); } else { echo 'Naturaleza y Trekking'; } ?></h3>
+                                    <p class="mb-0 fs-6"><?php if (function_exists('pll_e')) { pll_e('Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.'); } else { echo 'Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.'; } ?></p>
+                                    <span class="experience-card-cta"><?php if (function_exists('pll_e')) { pll_e('Explorar'); } else { echo 'Explorar'; } ?></span>
                                 </div>
                             </div>
                         </a>

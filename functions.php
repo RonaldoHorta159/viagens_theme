@@ -308,6 +308,24 @@ add_action( 'init', function() {
         
         pll_register_string( 'Hero: BD2 P1', 'Asistencia 24 Horas', 'Inicio - Hero' );
         pll_register_string( 'Hero: BD2 P2', 'en todo momento', 'Inicio - Hero' );
+
+        // --- SECCIÓN MEJORES EXPERIENCIAS (Inicio) ---
+        pll_register_string( 'Exp: Titulo Principal', 'Nuestras Mejores Experiencias', 'Inicio - Experiencias' );
+        pll_register_string( 'Exp: Subtitulo Principal', 'Descubre la magia de los Andes con nuestros tours especializados.', 'Inicio - Experiencias' );
+        
+        pll_register_string( 'Exp: Card 1 Titulo', 'Culturales y Clásicos', 'Inicio - Experiencias' );
+        pll_register_string( 'Exp: Card 1 Texto', 'Descubre la Capital Arqueológica de América y el Valle Sagrado.', 'Inicio - Experiencias' );
+        
+        pll_register_string( 'Exp: Card 2 Titulo', 'Rituales Místicos', 'Inicio - Experiencias' );
+        pll_register_string( 'Exp: Card 2 Texto', 'Conéctate con la Pachamama a través de ceremonias auténticas conducidas por chamanes nativos.', 'Inicio - Experiencias' );
+        
+        pll_register_string( 'Exp: Card 3 Titulo', 'Aventura en Cuatrimotos', 'Inicio - Experiencias' );
+        pll_register_string( 'Exp: Card 3 Texto', 'Siente la adrenalina en rutas exclusivas hacia Maras, Moray o las lagunas de la región.', 'Inicio - Experiencias' );
+        
+        pll_register_string( 'Exp: Card 4 Titulo', 'Naturaleza y Trekking', 'Inicio - Experiencias' );
+        pll_register_string( 'Exp: Card 4 Texto', 'Aventúrate hacia la Montaña de 7 Colores y las espectaculares lagunas turquesas de los Andes.', 'Inicio - Experiencias' );
+        
+        pll_register_string( 'Exp: CTA Boton', 'Explorar', 'Inicio - Experiencias' );
         
     }
 });
