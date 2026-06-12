@@ -245,3 +245,47 @@ function viagens_handle_contact_direct_form()
 }
 add_action('admin_post_nopriv_viagens_contact_direct_form', 'viagens_handle_contact_direct_form');
 add_action('admin_post_viagens_contact_direct_form', 'viagens_handle_contact_direct_form');
+// -------------------------------------------------------------------------
+// Registro de Cadenas para Polylang
+// -------------------------------------------------------------------------
+add_action( 'init', function() {
+    if ( function_exists( 'pll_register_string' ) ) {
+        
+        // --- CABECERA (Header) ---
+        pll_register_string( 'Header: Inicio', 'Inicio', 'Cabecera' );
+        pll_register_string( 'Header: Machu Picchu', 'Machu Picchu', 'Cabecera' );
+        pll_register_string( 'Header: Servicio de Guia', 'Servicio de Guía', 'Cabecera' );
+        pll_register_string( 'Header: Machupicchu & Valle Sagrado', 'Machupicchu & Valle Sagrado', 'Cabecera' );
+        pll_register_string( 'Header: Machupicchu Full Day', 'Machupicchu Full Day', 'Cabecera' );
+        pll_register_string( 'Header: Compartido Premium', 'Compartido Premium', 'Cabecera' );
+        
+        pll_register_string( 'Header: Cusco', 'Cusco', 'Cabecera' );
+        pll_register_string( 'Header: City Tour', 'City Tour', 'Cabecera' );
+        pll_register_string( 'Header: Valle Sagrado', 'Valle Sagrado', 'Cabecera' );
+        pll_register_string( 'Header: Maras y Moray', 'Maras y Moray', 'Cabecera' );
+        pll_register_string( 'Header: Valle Sur', 'Valle Sur', 'Cabecera' );
+        
+        pll_register_string( 'Header: Aventura', 'Aventura', 'Cabecera' );
+        pll_register_string( 'Header: Montana de 7 Colores', 'Montaña de 7 Colores', 'Cabecera' );
+        pll_register_string( 'Header: Laguna Humantay', 'Laguna Humantay', 'Cabecera' );
+        pll_register_string( 'Header: 7 Lagunas de Ausangate', '7 Lagunas de Ausangate', 'Cabecera' );
+        pll_register_string( 'Header: Montana Palccoyo', 'Montaña Palccoyo', 'Cabecera' );
+        
+        pll_register_string( 'Header: Cuatrimotos Subtitulo', 'Cuatrimotos', 'Cabecera' );
+        pll_register_string( 'Header: Cuatrimotos Montana', 'Cuatrimotos a Montaña de Colores', 'Cabecera' );
+        pll_register_string( 'Header: Cuatrimotos Maras', 'Cuatrimotos a Salineras de Maras y Moray', 'Cabecera' );
+        pll_register_string( 'Header: Cuatrimotos Lagunas', 'Cuatrimotos a Laguna Piuray + Laguna Huaypo', 'Cabecera' );
+        
+        pll_register_string( 'Header: Lo mejor de Peru', 'Lo mejor de Perú', 'Cabecera' );
+        pll_register_string( 'Header: Nosotros', 'Nosotros', 'Cabecera' );
+        
+        pll_register_string( 'Header: Pagos', 'PAGOS', 'Cabecera' );
+        pll_register_string( 'Header: Blog', 'BLOG', 'Cabecera' );
+        
+        // --- FORMULARIO DE CONTACTO DIRECTO (Mensajes y textos) ---
+        pll_register_string( 'Formulario: Nueva solicitud', 'Has recibido una nueva solicitud de asesoria desde la pagina de inicio.', 'Formularios' );
+        pll_register_string( 'Formulario: Nombre', 'Nombre:', 'Formularios' );
+        pll_register_string( 'Formulario: Mensaje', 'Mensaje:', 'Formularios' );
+        
+    }
+});
