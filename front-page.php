@@ -16,13 +16,13 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
 
 <main id="primary" class="site-main">
 
-    <section class="hero-grid container-fluid p-0 position-relative">
+    <section class="hero-grid container-fluid position-relative">
         <div class="hero-progress-bar" aria-hidden="true">
             <span class="hero-progress-fill"></span>
         </div>
-        <div class="row g-0" style="height: 100vh; min-height: 600px;">
+        <div class="row g-0 hero-grid__viewport">
             <!-- Left Side: Carousel -->
-            <div class="col-12 col-lg-8 p-0 position-relative" style="height: 100%;">
+            <div class="col-12 col-lg-8 p-0 position-relative hero-grid__main">
                 <div id="heroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-pause="false" data-bs-interval="5000">
                     <!-- Indicators -->
                     <div class="carousel-indicators justify-content-start" style="margin-left: 5%; margin-bottom: 2rem;">
@@ -64,7 +64,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                     <div class="row w-100">
                                         <div class="col-md-10 col-lg-9 ps-md-5">
                                             <h1 class="display-3 fw-bold text-white mb-3 text-uppercase text-shadow-dark hero-animated-element hero-title" style="line-height: 1.1;">
-                                                Auténtica cultura<br>Andina
+                                                Personaliza tu<br>Viaje
                                             </h1>
                                             <p class="text-white fs-5 mb-4 hero-animated-element hero-text" style="max-width: 500px;">
                                                 Nuestro equipo comprende profundamente el perfil del turista y domina nuestra cultura, geografía e historia para ofrecerte una experiencia de alto nivel.
@@ -95,7 +95,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                                             </p>
                                             <div class="price-info text-white mt-4 hero-animated-element hero-price">
                                                 <div class="mb-1">
-                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Experiencias Místicas</span> 
+                                                    <span class="fs-2 text-warning" style="font-family: 'Caveat', cursive; font-weight: bold;">Explora lo mejor del Perú</span> 
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +108,7 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
             </div>
 
             <!-- Right Side: 2 Static Images -->
-            <div class="col-lg-4 d-none d-lg-flex flex-column p-0" style="height: 100%;">
+            <div class="col-lg-4 d-none d-lg-flex flex-column p-0 hero-grid__aside">
                 <!-- Top Image -->
                 <div class="flex-grow-1 position-relative border-start border-bottom border-white border-2 overflow-hidden">
                     <div class="w-100 h-100 transition-transform" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-img.webp'); background-size: cover; background-position: center; transition: transform 0.6s ease;"></div>
@@ -132,16 +132,41 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
                 </div>
             </div>
         </div>
+
     </section>
 
     <style>
+        .hero-grid {
+            --hero-header-offset: var(--site-header-height, 88px);
+            position: relative;
+            isolation: isolate;
+            min-height: 100svh;
+            min-height: 100dvh;
+            padding-top: var(--hero-header-offset) !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 100%;
+            overflow: clip;
+        }
+
+        .hero-grid__viewport {
+            min-height: calc(100svh - var(--hero-header-offset));
+            min-height: calc(100dvh - var(--hero-header-offset));
+            height: auto;
+        }
+
+        .hero-grid__main,
+        .hero-grid__aside {
+            min-height: inherit;
+        }
+
         .text-shadow-dark {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero-progress-bar {
             position: absolute;
-            top: clamp(72px, 7vw, 92px);
+            top: calc(var(--hero-header-offset) + 0.35rem);
             left: 0;
             width: 100%;
             height: 3px;
@@ -214,6 +239,54 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
             animation: slideInFromRight 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
             animation-delay: 1.1s;
             opacity: 0;
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-grid {
+                padding-top: var(--hero-header-offset);
+            }
+
+            .hero-grid__viewport {
+                min-height: calc(100svh - var(--hero-header-offset));
+                min-height: calc(100dvh - var(--hero-header-offset));
+            }
+
+            .hero-grid .carousel-indicators {
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-grid .hero-title {
+                font-size: clamp(2.2rem, 9vw, 4rem);
+            }
+
+            .hero-grid .hero-text {
+                font-size: clamp(1rem, 3.8vw, 1.25rem) !important;
+                max-width: 34rem !important;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-grid {
+                --hero-header-offset: var(--site-header-height, 76px);
+            }
+
+            .hero-grid__viewport {
+                min-height: calc(100svh - var(--hero-header-offset));
+                min-height: calc(100dvh - var(--hero-header-offset));
+            }
+
+            .hero-grid .container.h-100 {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .hero-grid .hero-title {
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-grid .hero-text {
+                margin-bottom: 1.25rem !important;
+            }
         }
     </style>
 
@@ -668,144 +741,114 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
         }
     </style>
 
-    <section class="trust-section">
-        <div class="container">
-            <div class="trust-intro text-center" data-aos="fade-up">
-                <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
-            </div>
+    <section id="formulario-contacto-directo" class="contact-direct-section py-5">
+        <!-- Div independiente para controlar la imagen de fondo -->
+        <div id="contacto-fondo-independiente" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/seccion-fondo.webp');"></div>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="100">
-                    <div class="trust-card">
-                        <div class="trust-icon"><i class="bi bi-headset"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Asistencia 24 Horas</h4>
-                        <p class="mb-0">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
+        <!-- INYECCIÓN HTML: Shape Divider Superior (Mancha Blanca) -->
+        <div class="shape-divider-top">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/svg/cabecera-seccion.svg" alt="" aria-hidden="true">
+        </div>
+
+        <div class="container py-lg-5">
+            <div class="contact-direct-shell row g-0 align-items-stretch overflow-hidden shadow-sm">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-direct-visual">
+                        <div class="contact-direct-visual-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-2.webp');"></div>
+                        <div class="contact-direct-visual-overlay"></div>
+
+                        <div class="contact-direct-visual-content">
+                            <span class="contact-direct-kicker">Personaliza tu Viaje</span>
+                            <h2 class="contact-direct-visual-title">Viajes diseñados contigo, desde el primer mensaje.</h2>
+                            <p class="contact-direct-visual-text">Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.</p>
+
+                            <div class="contact-direct-highlight">
+                                <strong>+10 años</strong>
+                                <span>acompañando experiencias a medida</span>
+                            </div>
+
+                            <ul class="contact-direct-points list-unstyled mb-0">
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Atención directa por WhatsApp y correo.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Recomendaciones según fechas, ritmo y presupuesto.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Respuesta desde Cusco con enfoque local.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <div class="trust-card">
-                        <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Atención Personalizada</h4>
-                        <p class="mb-0">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
-                    </div>
-                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-direct-form-panel">
+                        <span class="contact-direct-form-badge">Formulario directo</span>
+                        <h2 class="contact-direct-form-title mb-3">¿Listo para vivir la mejor experiencia?</h2>
+                        <p class="contact-direct-form-description mb-4">Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.</p>
 
-                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="300">
-                    <div class="trust-card">
-                        <div class="trust-icon"><i class="bi bi-building-check"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Practicidad y Comodidad</h4>
-                        <p class="mb-0">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
-                    </div>
-                </div>
+                        <?php if ('success' === $contact_form_status) : ?>
+                            <div class="alert alert-success rounded-0 border-0 mb-4" role="alert">
+                                Recibimos tu solicitud correctamente. Te contactaremos muy pronto.
+                            </div>
+                        <?php elseif ('error' === $contact_form_status) : ?>
+                            <div class="alert alert-danger rounded-0 border-0 mb-4" role="alert">
+                                No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.
+                            </div>
+                        <?php elseif ('invalid' === $contact_form_status) : ?>
+                            <div class="alert alert-warning rounded-0 border-0 mb-4" role="alert">
+                                Revisa los campos obligatorios e intenta nuevamente.
+                            </div>
+                        <?php endif; ?>
 
-                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="400">
-                    <div class="trust-card">
-                        <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
-                        <h4 class="fw-bold mb-3 fs-5">Dominio Cultural</h4>
-                        <p class="mb-0">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
+                        <form class="contact-direct-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                            <input type="hidden" name="action" value="viagens_contact_direct_form">
+                            <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#formulario-contacto-directo')); ?>">
+                            <?php wp_nonce_field('viagens_contact_direct_form_action', 'viagens_contact_direct_nonce'); ?>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="contact-nombre" class="form-label">Nombre</label>
+                                    <input id="contact-nombre" name="nombre" type="text" class="form-control form-control-lg rounded-0" placeholder="Tu nombre completo" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contact-email" class="form-label">Email</label>
+                                    <input id="contact-email" name="email" type="email" class="form-control form-control-lg rounded-0" placeholder="Tu correo electronico" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="contact-whatsapp" class="form-label">WhatsApp</label>
+                                    <input id="contact-whatsapp" name="whatsapp" type="tel" class="form-control form-control-lg rounded-0" placeholder="Tu numero de WhatsApp" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="contact-mensaje" class="form-label">Mensaje</label>
+                                    <textarea id="contact-mensaje" name="mensaje" class="form-control rounded-0" rows="5" placeholder="Cuentanos tus preferencias de viaje" required></textarea>
+                                </div>
+                                <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-2">
+                                    <p class="contact-direct-form-note mb-0">Te responderemos usando los datos que nos compartas en este formulario.</p>
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-0 px-4 fw-bold">
+                                        Enviar solicitud de asesoria
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <style>
-        .tour-card {
-            transition: box-shadow 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    
 
-        .tour-card:hover {
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        .tour-card-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        .tour-card:hover .tour-card-bg {
-            transform: scale(1.08);
-        }
-
-        .tour-card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.1) 100%);
-            transition: background 0.4s ease;
-            z-index: 2;
-        }
-
-        .tour-card:hover .tour-card-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.2) 100%);
-        }
-
-        .tour-card-content {
-            z-index: 3;
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .tour-info-wrapper {
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform: translateY(45px);
-        }
-
-        .tour-description {
-            opacity: 1;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            transform: translateY(20px);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.85);
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .tour-card:hover .tour-info-wrapper {
-            transform: translateY(0);
-        }
-
-        .tour-card:hover .tour-description {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (hover: none) {
-            .tour-info-wrapper {
-                transform: translateY(0);
-            }
-
-            .tour-description {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-
-    <section class="py-5 bg-white">
+    <section id="paquetes-mas-vendidos" class="py-5 bg-white">
         <div class="container py-lg-5">
 
             <div class="d-flex flex-wrap justify-content-between align-items-end mb-5" data-aos="fade-up">
                 <div>
-                    <h2 class="display-6 fw-bold text-primary mb-2">Paquetes Más Populares</h2>
+                    <h2 class="display-6 fw-bold text-primary mb-2">Paquetes Más Vendidos</h2>
                     <p class="lead text-secondary mb-0">Itinerarios diseñados para vivir la verdadera esencia andina.</p>
                 </div>
                 <div class="mt-3 mt-md-0">
@@ -1300,102 +1343,137 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
         </div>
     </section>
 
-    <section id="formulario-contacto-directo" class="contact-direct-section py-5" style="--contact-section-bg: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/seccion-fondo.webp');">
-        <!-- INYECCIÓN HTML: Shape Divider Superior (Mancha Blanca) -->
-        <div class="shape-divider-top">
-            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/svg/cabecera-seccion.svg" alt="" aria-hidden="true">
-        </div>
+<section class="trust-section">
+        <div class="container">
+            <div class="trust-intro text-center" data-aos="fade-up">
+                <h2 class="display-6 fw-bold text-primary mb-3">¿Por qué viajar con nosotros?</h2>
+            </div>
 
-        <div class="container py-lg-5">
-            <div class="contact-direct-shell row g-0 align-items-stretch overflow-hidden shadow-sm">
-                <div class="col-lg-5" data-aos="fade-right">
-                    <div class="contact-direct-visual">
-                        <div class="contact-direct-visual-bg" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/cusco-2.webp');"></div>
-                        <div class="contact-direct-visual-overlay"></div>
-
-                        <div class="contact-direct-visual-content">
-                            <span class="contact-direct-kicker">Asesoría personalizada</span>
-                            <h2 class="contact-direct-visual-title">Viajes diseñados contigo, desde el primer mensaje.</h2>
-                            <p class="contact-direct-visual-text">Combinamos atención local, respuesta rápida y acompañamiento real para ayudarte a elegir el itinerario ideal en Cusco y Machu Picchu.</p>
-
-                            <div class="contact-direct-highlight">
-                                <strong>+10 años</strong>
-                                <span>acompañando experiencias a medida</span>
-                            </div>
-
-                            <ul class="contact-direct-points list-unstyled mb-0">
-                                <li>
-                                    <i class="bi bi-check-circle-fill"></i>
-                                    <span>Atención directa por WhatsApp y correo.</span>
-                                </li>
-                                <li>
-                                    <i class="bi bi-check-circle-fill"></i>
-                                    <span>Recomendaciones según fechas, ritmo y presupuesto.</span>
-                                </li>
-                                <li>
-                                    <i class="bi bi-check-circle-fill"></i>
-                                    <span>Respuesta desde Cusco con enfoque local.</span>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="trust-card">
+                        <div class="trust-icon"><i class="bi bi-headset"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5">Asistencia 24 Horas</h4>
+                        <p class="mb-0">Viaje sin preocupaciones con nuestro equipo a su disposición, garantizando su seguridad y comodidad en todo momento.</p>
                     </div>
                 </div>
 
-                <div class="col-lg-7" data-aos="fade-left">
-                    <div class="contact-direct-form-panel">
-                        <span class="contact-direct-form-badge">Formulario directo</span>
-                        <h2 class="contact-direct-form-title mb-3">¿Listo para vivir la mejor experiencia?</h2>
-                        <p class="contact-direct-form-description mb-4">Dejanos tus datos y nuestros expertos locales en Cusco se pondran en contacto contigo para personalizar tu itinerario.</p>
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="trust-card">
+                        <div class="trust-icon"><i class="bi bi-person-hearts"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5">Atención Personalizada</h4>
+                        <p class="mb-0">Organizamos juntos el viaje de sus sueños, de acuerdo con su disponibilidad de fechas y preferencias.</p>
+                    </div>
+                </div>
 
-                        <?php if ('success' === $contact_form_status) : ?>
-                            <div class="alert alert-success rounded-0 border-0 mb-4" role="alert">
-                                Recibimos tu solicitud correctamente. Te contactaremos muy pronto.
-                            </div>
-                        <?php elseif ('error' === $contact_form_status) : ?>
-                            <div class="alert alert-danger rounded-0 border-0 mb-4" role="alert">
-                                No se pudo enviar tu solicitud. Intentalo nuevamente en unos minutos.
-                            </div>
-                        <?php elseif ('invalid' === $contact_form_status) : ?>
-                            <div class="alert alert-warning rounded-0 border-0 mb-4" role="alert">
-                                Revisa los campos obligatorios e intenta nuevamente.
-                            </div>
-                        <?php endif; ?>
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="trust-card">
+                        <div class="trust-icon"><i class="bi bi-building-check"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5">Practicidad y Comodidad</h4>
+                        <p class="mb-0">Contamos con oficinas y equipo propio en Machu Picchu y Cusco. Salidas diarias disponibles para todos nuestros itinerarios.</p>
+                    </div>
+                </div>
 
-                        <form class="contact-direct-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-                            <input type="hidden" name="action" value="viagens_contact_direct_form">
-                            <input type="hidden" name="redirect_to" value="<?php echo esc_url(home_url('/#formulario-contacto-directo')); ?>">
-                            <?php wp_nonce_field('viagens_contact_direct_form_action', 'viagens_contact_direct_nonce'); ?>
-
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="contact-nombre" class="form-label">Nombre</label>
-                                    <input id="contact-nombre" name="nombre" type="text" class="form-control form-control-lg rounded-0" placeholder="Tu nombre completo" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="contact-email" class="form-label">Email</label>
-                                    <input id="contact-email" name="email" type="email" class="form-control form-control-lg rounded-0" placeholder="Tu correo electronico" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="contact-whatsapp" class="form-label">WhatsApp</label>
-                                    <input id="contact-whatsapp" name="whatsapp" type="tel" class="form-control form-control-lg rounded-0" placeholder="Tu numero de WhatsApp" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="contact-mensaje" class="form-label">Mensaje</label>
-                                    <textarea id="contact-mensaje" name="mensaje" class="form-control rounded-0" rows="5" placeholder="Cuentanos tus preferencias de viaje" required></textarea>
-                                </div>
-                                <div class="col-12 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pt-2">
-                                    <p class="contact-direct-form-note mb-0">Te responderemos usando los datos que nos compartas en este formulario.</p>
-                                    <button type="submit" class="btn btn-primary btn-lg rounded-0 px-4 fw-bold">
-                                        Enviar solicitud de asesoria
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                <div class="col-sm-6 col-xl-3 d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="trust-card">
+                        <div class="trust-icon"><i class="bi bi-globe-americas"></i></div>
+                        <h4 class="fw-bold mb-3 fs-5">Dominio Cultural</h4>
+                        <p class="mb-0">Nuestro equipo comprende profundamente el perfil del turista brasileño e hispanohablante. Ofrecemos una experiencia auténtica y de alto nivel.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .tour-card {
+            transition: box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-card:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .tour-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        .tour-card:hover .tour-card-bg {
+            transform: scale(1.08);
+        }
+
+        .tour-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.1) 100%);
+            transition: background 0.4s ease;
+            z-index: 2;
+        }
+
+        .tour-card:hover .tour-card-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.2) 100%);
+        }
+
+        .tour-card-content {
+            z-index: 3;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tour-info-wrapper {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateY(45px);
+        }
+
+        .tour-description {
+            opacity: 1;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(20px);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .tour-card:hover .tour-info-wrapper {
+            transform: translateY(0);
+        }
+
+        .tour-card:hover .tour-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (hover: none) {
+            .tour-info-wrapper {
+                transform: translateY(0);
+            }
+
+            .tour-description {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
 </main>
 
@@ -1407,6 +1485,24 @@ $contact_form_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash(
         offset: 80, // Distancia desde el borde inferior de la pantalla para que inicie
         duration: 800, // Duración por defecto
     });
+
+    const siteHeader = document.querySelector('.site-header');
+    const syncHeroHeaderOffset = () => {
+        if (!siteHeader) return;
+        const headerHeight = Math.ceil(siteHeader.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--site-header-height', `${headerHeight}px`);
+    };
+
+    syncHeroHeaderOffset();
+    window.addEventListener('load', syncHeroHeaderOffset, { passive: true });
+    window.addEventListener('resize', syncHeroHeaderOffset, { passive: true });
+
+    if (window.ResizeObserver && siteHeader) {
+        const headerResizeObserver = new ResizeObserver(() => {
+            syncHeroHeaderOffset();
+        });
+        headerResizeObserver.observe(siteHeader);
+    }
 
     const heroCarousel = document.getElementById('heroCarousel');
     const heroProgressFill = document.querySelector('.hero-progress-fill');

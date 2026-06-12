@@ -10,6 +10,30 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+    <?php
+    $tours_archive_url = home_url('/tours/');
+    $cuatrimoto_montana_url = add_query_arg(
+        array(
+            'tipo_tour' => 'cuatrimotos',
+            's'         => 'Montaña de Colores',
+        ),
+        $tours_archive_url
+    );
+    $cuatrimoto_maras_url = add_query_arg(
+        array(
+            'tipo_tour' => 'cuatrimotos',
+            's'         => 'Salineras de Maras y Moray',
+        ),
+        $tours_archive_url
+    );
+    $cuatrimoto_lagunas_url = add_query_arg(
+        array(
+            'tipo_tour' => 'cuatrimotos',
+            's'         => 'Laguna Piuray Laguna Huaypo',
+        ),
+        $tours_archive_url
+    );
+    ?>
 
     <header class="site-header fixed-top bg-white border-bottom shadow-sm transition-all">
 
@@ -84,11 +108,16 @@
                                     <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/laguna-humantay')); ?>">Laguna Humantay</a></li>
                                     <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/7-lagunas-de-ausangate')); ?>">7 Lagunas de Ausangate</a></li>
                                     <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url(home_url('/tours/montana-palccoyo')); ?>">Montaña Palccoyo</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><span class="dropdown-item-text text-uppercase fw-bold text-primary" style="font-size: 0.7rem; letter-spacing: 0.5px;">Cuatrimotos</span></li>
+                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_montana_url); ?>">Cuatrimotos a Montaña de Colores</a></li>
+                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_maras_url); ?>">Cuatrimotos a Salineras de Maras y Moray</a></li>
+                                    <li><a class="dropdown-item text-uppercase fw-semibold" style="font-size: 0.75rem;" href="<?php echo esc_url($cuatrimoto_lagunas_url); ?>">Cuatrimotos a Laguna Piuray + Laguna Huaypo</a></li>
                                 </ul>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link py-lg-3 text-dark" href="<?php echo esc_url(home_url('/aventura-en-cuatrimotos')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;">Cuatrimotos</a>
+                                <a class="nav-link py-lg-3 text-dark" href="<?php echo esc_url(home_url('/#paquetes-mas-vendidos')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;">Lo mejor de Perú</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link py-lg-3 text-dark" href="<?php echo esc_url(home_url('/nosotros')); ?>" style="font-size: 0.8rem; letter-spacing: 0.5px;">Nosotros</a>

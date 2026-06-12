@@ -11871,125 +11871,358 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
 }
 
-/* Contenedor Principal */
-.tours-archive-container {
+body.post-type-archive-tour .tours-archive {
+  background: #f6f8fb;
+}
+body.post-type-archive-tour .tours-archive__title {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: clamp(2rem, 2vw + 1.5rem, 2.75rem);
+}
+body.post-type-archive-tour .tours-archive__subtitle {
+  max-width: 60ch;
+}
+body.post-type-archive-tour .tours-toolbar {
   display: flex;
-  max-width: 1200px;
-  margin: 40px auto;
-  gap: 30px;
-  padding: 0 20px;
-}
-
-/* Sidebar de Filtros */
-.tours-sidebar {
-  width: 25%;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 0;
-  height: fit-content;
-}
-
-.filter-group {
-  margin-bottom: 15px;
-}
-
-.filter-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.filter-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 0;
-}
-
-.btn-filter, .btn-clear {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 0;
-  text-decoration: none;
-}
-
-.btn-filter {
-  background: #2c3e50; /* Cambia a los colores de tu marca */
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-clear {
-  background: transparent;
-  color: #666;
-  border: 1px solid #ccc;
-}
-
-/* Cuadrícula de Tours */
-.tours-grid-content {
-  width: 75%;
-}
-
-.tours-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* Tarjeta de Tour (Minimalista) */
-.tour-card {
-  border: 1px solid #eee;
-  border-radius: 0;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: #fff;
-}
-
-.tour-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.tour-card-img img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.tour-card-info {
-  padding: 20px;
-}
-
-.tour-card-info h4, .tour-card-info .h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.1rem;
-}
-
-.tour-card-info a {
-  text-decoration: none;
-  color: #333;
-}
-
-.tour-meta {
-  display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 22px;
+  border-radius: 18px;
 }
-
-.btn-ver-mas {
-  display: inline-block;
-  padding: 8px 15px;
-  background: #f1f1f1;
-  color: #333;
-  border-radius: 0;
+body.post-type-archive-tour .tours-toolbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 260px;
+}
+body.post-type-archive-tour .tours-toolbar__search {
+  flex: 1 1 420px;
+}
+body.post-type-archive-tour .tours-toolbar__search .input-group-text {
+  border-right: 0;
+  border-radius: 14px 0 0 14px;
+}
+body.post-type-archive-tour .tours-toolbar__search .form-control {
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+}
+body.post-type-archive-tour .tours-toolbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+body.post-type-archive-tour .tours-toolbar__right .form-select {
+  min-width: 220px;
+  border-radius: 14px;
+}
+@media (max-width: 991.98px) {
+  body.post-type-archive-tour .tours-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  body.post-type-archive-tour .tours-toolbar__right {
+    justify-content: space-between;
+  }
+}
+body.post-type-archive-tour .tours-archive__layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 26px;
+  align-items: start;
+}
+@media (max-width: 991.98px) {
+  body.post-type-archive-tour .tours-archive__layout {
+    grid-template-columns: 1fr;
+  }
+}
+body.post-type-archive-tour .tours-filters {
+  border: 0;
+}
+body.post-type-archive-tour .tours-filters__card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 18px;
+  position: sticky;
+  top: 110px;
+  border-radius: 18px;
+}
+@media (max-width: 991.98px) {
+  body.post-type-archive-tour .tours-filters__card {
+    position: static;
+    top: auto;
+  }
+}
+body.post-type-archive-tour .tours-filters__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  font-size: 1.35rem;
+  margin: 0 0 14px;
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-item {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-item + .accordion-item {
+  margin-top: 10px;
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-button {
+  background: #f9fafb;
+  font-weight: 700;
+  padding: 14px 14px;
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-button:not(.collapsed) {
+  color: #111827;
+  box-shadow: none;
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.18rem rgba(37, 115, 78, 0.18);
+  border-color: rgba(37, 115, 78, 0.45);
+}
+body.post-type-archive-tour .tours-filters__accordion .accordion-body {
+  padding: 14px;
+}
+body.post-type-archive-tour .tours-filter-list {
+  display: grid;
+  gap: 10px;
+  max-height: 240px;
+  overflow: auto;
+  padding-right: 4px;
+}
+body.post-type-archive-tour .tours-filter-list .form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 0.95rem;
+  color: #111827;
+}
+body.post-type-archive-tour .tours-filter-list .form-check-input {
+  margin: 0;
+}
+body.post-type-archive-tour .tours-results__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+@media (max-width: 1199.98px) {
+  body.post-type-archive-tour .tours-results__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 575.98px) {
+  body.post-type-archive-tour .tours-results__grid {
+    grid-template-columns: 1fr;
+  }
+}
+body.post-type-archive-tour .tours-results__grid--list {
+  grid-template-columns: 1fr;
+}
+body.post-type-archive-tour .tour-archive-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 18px;
+}
+body.post-type-archive-tour .tour-archive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12);
+}
+body.post-type-archive-tour .tour-archive-card__media {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+body.post-type-archive-tour .tour-archive-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.35) 100%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+body.post-type-archive-tour .tour-archive-card__media-link {
+  display: block;
+  height: 100%;
+}
+body.post-type-archive-tour .tour-archive-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+}
+body.post-type-archive-tour .tour-archive-card:hover .tour-archive-card__img {
+  transform: scale(1.05);
+}
+body.post-type-archive-tour .tour-archive-card__badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+  line-height: 1;
+}
+body.post-type-archive-tour .tour-archive-card__fav {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  color: #111827;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+body.post-type-archive-tour .tour-archive-card__fav:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  color: var(--bs-primary);
+}
+body.post-type-archive-tour .tour-archive-card__body {
+  padding: 16px 16px 18px;
+}
+body.post-type-archive-tour .tour-archive-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0 0 14px;
+}
+body.post-type-archive-tour .tour-archive-card__dot {
+  opacity: 0.6;
+}
+body.post-type-archive-tour .tour-archive-card__title {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+body.post-type-archive-tour .tour-archive-card__title a {
+  color: #111827;
+  text-decoration: none;
+}
+body.post-type-archive-tour .tour-archive-card__title a:hover {
+  color: var(--bs-primary);
+}
+body.post-type-archive-tour .tour-archive-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.post-type-archive-tour .tour-archive-card--list {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+body.post-type-archive-tour .tour-archive-card--list .tour-archive-card__media {
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 220px;
+}
+@media (max-width: 767.98px) {
+  body.post-type-archive-tour .tour-archive-card--list {
+    grid-template-columns: 1fr;
+  }
+  body.post-type-archive-tour .tour-archive-card--list .tour-archive-card__media {
+    min-height: 220px;
+  }
+}
+body.post-type-archive-tour .tours-empty {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 44px 24px;
+  text-align: center;
+  border-radius: 18px;
+}
+body.post-type-archive-tour .tours-empty__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(37, 115, 78, 0.12);
+  color: var(--bs-primary);
+  font-size: 1.6rem;
+}
+body.post-type-archive-tour .tours-empty__title {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin: 0 0 8px;
+}
+body.post-type-archive-tour .tours-empty__text {
+  margin: 0 auto 18px;
+  max-width: 60ch;
+  color: #6b7280;
+}
+body.post-type-archive-tour .tours-pagination {
+  margin-top: 28px;
+}
+body.post-type-archive-tour .tours-pagination .page-numbers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body.post-type-archive-tour .tours-pagination .page-numbers a,
+body.post-type-archive-tour .tours-pagination .page-numbers span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: #111827;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border-radius: 10px;
+}
+body.post-type-archive-tour .tours-pagination .page-numbers a:hover {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+body.post-type-archive-tour .tours-pagination .page-numbers .current {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
 }
 
 .rounded,
@@ -12134,15 +12367,22 @@ textarea.form-control-lg {
 
 /* --- CONTACTO DIRECTO HOME --- */
 .contact-direct-section {
+  position: relative;
   isolation: isolate;
   overflow: hidden;
   padding-top: clamp(7rem, 11vw, 9rem) !important;
   padding-bottom: clamp(4rem, 7vw, 6rem) !important;
   background-color: #122019;
-  background-image: var(--contact-section-bg);
+}
+
+#contacto-fondo-independiente {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .contact-direct-section::after {
@@ -12152,18 +12392,28 @@ textarea.form-control-lg {
 }
 
 /* --- INYECCIÓN HTML SHAPE DIVIDER --- */
-.shape-divider-top {
+.shape-divider-top,
+.shape-divider-bottom {
   position: absolute;
-  top: -1px; /* Evitar líneas finas por anti-aliasing */
   left: 0;
   width: 100%;
   height: clamp(60px, 8vw, 120px);
   z-index: 10;
   pointer-events: none;
+}
+
+.shape-divider-top {
+  top: -1px; /* Evitar líneas finas por anti-aliasing */
   transform: none; /* Voltea la faja para que el borde liso quede arriba y el rasgado apunte hacia abajo */
 }
 
-.shape-divider-top img {
+.shape-divider-bottom {
+  bottom: -1px;
+  transform: scaleY(-1);
+}
+
+.shape-divider-top img,
+.shape-divider-bottom img {
   display: block;
   width: 100%;
   height: 100%;
@@ -12171,15 +12421,9 @@ textarea.form-control-lg {
   object-position: bottom center; /* Enfoca la parte inferior del SVG donde está el color */
 }
 
-.contact-direct-section::after {
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(7, 17, 13, 0.82) 0%, rgba(7, 17, 13, 0.68) 34%, rgba(7, 17, 13, 0.9) 100%), radial-gradient(circle at 12% 34%, rgba(234, 232, 72, 0.22) 0%, rgba(234, 232, 72, 0) 24%), radial-gradient(circle at 82% 22%, rgba(228, 241, 248, 0.2) 0%, rgba(228, 241, 248, 0) 20%);
-}
-
 .contact-direct-shell {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   background: transparent;
   border: 0;
   backdrop-filter: none;
@@ -12475,6 +12719,238 @@ textarea.form-control-lg {
 
 .tours-pagination ul li a:hover {
   background-color: #e9ecef;
+}
+
+:root {
+  --brand-primary: #25734e;
+  --brand-secondary: #527fd9;
+  --brand-accent: #9f9b00;
+  --brand-soft: #e4f1f8;
+}
+
+.site-footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(180deg, #07150e, #0a2116);
+  --footer-border: rgba(255, 255, 255, 0.14);
+  --footer-link: rgba(255, 255, 255, 0.72);
+  --footer-link-hover: #ffffff;
+}
+
+.site-footer .footer-main {
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.25rem, 3vw, 3.5rem);
+}
+
+.site-footer .footer-title {
+  position: relative;
+  margin: 0 0 1rem;
+  padding-top: 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-footer .footer-title::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  width: 3.5rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.site-footer .footer-title::after {
+  content: "";
+  position: absolute;
+  top: calc(0.35rem - 3px);
+  left: calc(3.5rem - 6px);
+  width: 8px;
+  height: 8px;
+  background: var(--brand-accent);
+  transform: rotate(45deg);
+}
+
+.site-footer .footer-text {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.site-footer .footer-text--compact {
+  margin-top: 0.25rem;
+}
+
+.site-footer a {
+  color: var(--footer-link);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--brand-accent);
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+.footer-brand__logo img {
+  display: block;
+  width: auto;
+  max-height: 56px;
+}
+
+.footer-brand__text {
+  display: inline-flex;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 700;
+  font-size: 1.65rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.footer-social__link {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--footer-border);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.footer-social__link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(159, 155, 0, 0.6);
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.footer-links a::before {
+  content: ">";
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+  transform: translateY(-1px);
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-contact li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.footer-contact i {
+  margin-top: 0.15rem;
+  color: var(--brand-accent);
+  font-size: 1rem;
+}
+
+.footer-newsletter__group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.footer-newsletter input[type=email] {
+  min-height: 48px;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+.footer-newsletter input[type=email]::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-newsletter input[type=email]:focus {
+  border-color: rgba(159, 155, 0, 0.85);
+  box-shadow: 0 0 0 0.18rem rgba(159, 155, 0, 0.16);
+}
+
+.footer-newsletter button {
+  min-height: 48px;
+  padding: 0 1.1rem;
+  border: 1px solid rgba(37, 115, 78, 0.8);
+  background: #25734e;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.footer-newsletter button:hover {
+  background: rgb(29.5513157895, 91.8486842105, 62.2973684211);
+}
+
+.footer-bar {
+  border-top: 1px solid var(--footer-border);
+  background: rgba(0, 0, 0, 0.12);
+  padding: 1.1rem 0;
+}
+
+.footer-bar__text,
+.footer-bar__links {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+}
+
+.footer-bar__links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-bar__sep {
+  opacity: 0.55;
+}
+
+@media (max-width: 575.98px) {
+  .footer-newsletter button {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

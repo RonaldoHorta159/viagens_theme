@@ -219,7 +219,7 @@ function viagens_handle_contact_direct_form()
         exit;
     }
 
-    $to = get_option('admin_email');
+    $to = 'experience@viagensmachupicchuexperience.com';
     $subject = sprintf('Nueva solicitud de asesoria - %s', get_bloginfo('name'));
 
     $body_lines = array(

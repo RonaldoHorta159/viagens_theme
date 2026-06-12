@@ -10,16 +10,35 @@ get_header();
         $difficulty = get_field('tour_difficulty') ? get_field('tour_difficulty') : 'Moderada';
 
         // 2. Extraer Itinerario y Detalles (Asegúrate que los slugs coincidan con ACF)
-        $itinerary    = get_field('tour_itinerary');
-        if (empty($itinerary)) {
-            $itinerary = get_post_meta(get_the_ID(), '_tour_itinerary', true);
-            if (is_string($itinerary)) {
-                $decoded = json_decode($itinerary, true);
+        $itinerary_raw = get_field('tour_itinerary');
+        if (empty($itinerary_raw)) {
+            $itinerary_raw = get_post_meta(get_the_ID(), '_tour_itinerary', true);
+            if (is_string($itinerary_raw)) {
+                $decoded = json_decode($itinerary_raw, true);
                 if (json_last_error() === JSON_ERROR_NONE) {
-                    $itinerary = $decoded;
+                    $itinerary_raw = $decoded;
                 }
             }
         }
+
+        $itinerary_items = array();
+        if (is_array($itinerary_raw) && !empty($itinerary_raw)) {
+            foreach ($itinerary_raw as $step) {
+                if (!is_array($step)) {
+                    continue;
+                }
+
+                $day_num = isset($step['day_number']) ? $step['day_number'] : null;
+                $title   = isset($step['day_title']) ? trim((string) $step['day_title']) : '';
+                $desc    = isset($step['day_description']) ? trim((string) $step['day_description']) : '';
+
+                if ($title !== '' || $desc !== '' || !empty($day_num)) {
+                    $itinerary_items[] = $step;
+                }
+            }
+        }
+
+        $has_itinerary = !empty($itinerary_items);
         $includes     = get_field('tour_includes');
         $not_includes = get_field('tour_not_includes');
 ?>
@@ -93,15 +112,12 @@ get_header();
                             </div>
                         <?php endif; ?>
 
-                        <?php if (is_array($itinerary) && !empty($itinerary)): ?>
+                        <?php if ($has_itinerary): ?>
                             <div class="itinerary-section mb-4">
                                 <h4 class="fw-bold text-primary mb-3 text-uppercase" style="font-size: 1.1rem;">Itinerario Detallado</h4>
                                 <div class="accordion accordion-flush shadow-sm border" id="itineraryAccordion">
                                     <?php $i = 0;
-                                    foreach ($itinerary as $step):
-                                        if (!is_array($step)) {
-                                            continue;
-                                        }
+                                    foreach ($itinerary_items as $step):
                                         $day_num = isset($step['day_number']) ? $step['day_number'] : null;
                                         $title   = isset($step['day_title']) ? $step['day_title'] : '';
                                         $desc    = isset($step['day_description']) ? $step['day_description'] : '';
